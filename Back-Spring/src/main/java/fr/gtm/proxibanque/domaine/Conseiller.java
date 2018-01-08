@@ -3,6 +3,8 @@ package fr.gtm.proxibanque.domaine;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,9 +28,11 @@ public class Conseiller implements Serializable {
 	private String prenom;
 
 	@OneToMany(mappedBy = "conseiller") // , cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private Collection<Client> listeClients = new ArrayList<Client>();
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "conseiller")
+	@JsonIgnore
 	private Collection<Virement> listeVirements = new ArrayList<Virement>();
 
 	// Constructors

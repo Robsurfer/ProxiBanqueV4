@@ -15,8 +15,7 @@ const httpOptions = {
 export class ClientService {
 
     // URL to web api (pour le moment vers in-memory-data.service.ts)    
-    private clientsUrl = 'http://localhost:8082/listeClients/'; 
-    //'api/clients';  
+    private clientsUrl = 'http://localhost:8082/listeClients'; 
 
     constructor(
         private http: HttpClient,
@@ -38,10 +37,10 @@ export class ClientService {
     le serveur devrait répondre avec un seul héros plutôt qu'un ensemble de héros.
     par conséquent, getClient renvoie un <Client> observable ("un observable des objets Client") plutôt qu'un observable des tableaux de héros.
     */
-  getClient(id: number): Observable<Client> {
-    const url = `${this.clientsUrl}/${id}`;
+  getClient(idClient: number): Observable<Client> {
+    const url = `${this.clientsUrl}/${idClient}`;
     return this.http.get<Client>(url).pipe(
-      catchError(this.handleError<Client>(`getClient id=${id}`))
+      catchError(this.handleError<Client>(`getClient idClient=${idClient}`))
     );
   }
 
@@ -91,8 +90,8 @@ export class ClientService {
   }
   /** DELETE: delete the client from the server */
   deleteClient (client: Client | number): Observable<Client> {
-    const id = typeof client === 'number' ? client : client.id;
-    const url = `${this.clientsUrl}/${id}`;
+    const idClient = typeof client === 'number' ? client : client.idClient;
+    const url = `${this.clientsUrl}/${idClient}`;
 
     return this.http.delete<Client>(url, httpOptions).pipe(
       catchError(this.handleError<Client>('deleteClient'))
@@ -115,5 +114,4 @@ export class ClientService {
       return of(result as T);
     };
   }
-
 }

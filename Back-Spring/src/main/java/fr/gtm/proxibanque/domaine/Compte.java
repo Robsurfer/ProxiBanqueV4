@@ -17,6 +17,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Class Compte belongs to the layer domain This class allows to implement
  * Compte Object This class contains 7 attributes (numeroCompte, solde,
@@ -48,8 +50,10 @@ public class Compte implements Serializable {
 	private Client client;
 
 	@OneToMany(mappedBy = "compteCrediteur", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Collection<Virement> listeCredit;
 	@OneToMany(mappedBy = "compteDebiteur", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Collection<Virement> listeDebit;
 
 	// Constructor

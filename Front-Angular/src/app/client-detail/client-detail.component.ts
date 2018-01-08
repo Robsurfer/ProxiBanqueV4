@@ -37,5 +37,4 @@ export class ClientDetailComponent implements OnInit {
     this.clientService.getClient(id)
       .subscribe(client => this.client = client);
   }
-
 }

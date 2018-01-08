@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author Lise Rodier
@@ -42,6 +44,7 @@ public class Virement implements Serializable {
 
 	@JoinColumn(name = "LOGIN_CONSEILLER", referencedColumnName = "LOGIN")
 	@ManyToOne
+	@JsonIgnore
 	private Conseiller conseiller;
 
 	public Conseiller getConseiller() {
