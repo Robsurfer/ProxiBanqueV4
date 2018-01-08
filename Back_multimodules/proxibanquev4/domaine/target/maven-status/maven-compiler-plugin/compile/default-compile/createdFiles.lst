@@ -1,0 +1,8 @@
+fr\proxibanque\proxibanquev4\domaine\CompteEpargne.class
+fr\proxibanque\proxibanquev4\domaine\Virement.class
+fr\proxibanque\proxibanquev4\domaine\Client.class
+fr\proxibanque\proxibanquev4\domaine\CompteCourant.class
+fr\proxibanque\proxibanquev4\domaine\Compte.class
+fr\proxibanque\proxibanquev4\domaine\Gerant.class
+fr\proxibanque\proxibanquev4\domaine\Conseiller.class
+fr\proxibanque\proxibanquev4\domaine\Employe.class
