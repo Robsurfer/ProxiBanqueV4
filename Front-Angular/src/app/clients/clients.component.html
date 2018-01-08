@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-lg-12" *ngIf="clients">
+
+    <table class="table table-striped">						
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>eMail</th>
+        </tr>
+      </thead> 
+      <tbody >			          	
+          <tr *ngFor="let client of clients" routerLink="/detail/{{client.id}}">
+              <td>{{client.idClient}}</td>
+              <td>{{client.nom}}</td>
+              <td>{{client.prenom}}</td>									
+              <td>{{client.adresse}}</td>
+              <td>{{client.telephone}}</td>
+              <td>{{client.mail}}</td>						
+          </tr>		
+      </tbody>				
+    </table>	
+
+    <div class="row">
+      <div class="col-auto">
+        <div class="text-center">
+          <button  class="btn btn-primary">Voir les informations du client</button>
+
+          <button  class="btn btn-primary">Modifier le client</button>
+
+          <button  class="btn btn-primary">Lister les comptes du client</button>
+        </div>
+      </div>
+    </div>
+                  
+  </div>
+</div>
+<!-- /.row -->
