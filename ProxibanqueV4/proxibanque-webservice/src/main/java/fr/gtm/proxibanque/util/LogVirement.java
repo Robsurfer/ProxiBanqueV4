@@ -21,16 +21,18 @@ public class LogVirement {
 
 	@Before(value = "loggingVirement()")
 	public void enteteLog() {
-		logger.info("Tentative de transaction");
+		logger.info("** Début de la transaction bancaire **");
 	}
 
 	@AfterReturning(pointcut = "loggingVirement()", returning = "result")
 	public void virementOk(Object result) {
-		logger.info(result.toString());
+		logger.info("\t" + result.toString());
+		logger.info("** Fin de la transaction bancaire **");
 	}
 
 	@AfterThrowing(pointcut = "loggingVirement()")
 	public void virementErreur() {
-		logger.info("Erreur lors de la transaction, le virement n'a pas été réalisé");
+		logger.info("\tErreur lors de la transaction");
+		logger.info("** Fin de la transaction bancaire **");
 	}
 }
