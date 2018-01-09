@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from '../client';
 import { ClientService }  from '../client.service';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-detail',
@@ -20,10 +22,15 @@ export class ClientDetailComponent implements OnInit {
     //Le paramètre "id" est l'identifiant du héros à afficher.
     private route: ActivatedRoute,
     //Obtient des données de héros du serveur distant et ce composant l'utilisera pour obtenir le héros à afficher.
-    private clientService: ClientService
+    private clientService: ClientService,
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    if (!this.loginService.getLoginEmployeSession()) {
+      this.router.navigate(['login']);
+    }
     this.getClient();
   }
 

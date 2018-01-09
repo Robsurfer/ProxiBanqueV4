@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employe } from '../employe';
-import { HttpClient } from '@angular/common/http/src/client';
 import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +12,17 @@ export class LoginComponent implements OnInit {
 
   employe:Employe = new Employe();
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService, public router: Router) { }
 
   ngOnInit() {
     this.employe.login='';
     this.employe.password='';
     this.employe.nom = '';
     this.employe.prenom = '';
+
+    if (this.loginService.getLoginEmployeSession()) {
+      this.router.navigate(['clients']);
+    }
   }
 
   onSubmit(){  

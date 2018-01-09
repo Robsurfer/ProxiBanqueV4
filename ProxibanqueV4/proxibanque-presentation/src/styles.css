@@ -1,3 +1,39 @@
 @import 'assets/css/bootstrap.min.css';
 @import 'assets/css/style.css';
 @import 'assets/font-awesome/css/font-awesome.min.css';
+
+.tomove {
+    animation: move 0.6s;
+    -webkit-animation: move 0.6s;	
+    -moz-animation: move 0.6s;
+}
+
+@keyframes move {
+    from {
+      padding-left: 80%; 
+    }
+  
+    to {
+      padding-left: 20px;
+    }	
+  }
+  
+  @-webkit-keyframes move {
+    from {
+      padding-left: 80%;
+    }
+  
+    to {
+      padding-left: 20px;
+    }
+  }
+  
+  @-moz-keyframes move {
+    from {
+      padding-left: 80%;
+    }
+  
+    to {
+      padding-left: 20px;
+    }
+  }
