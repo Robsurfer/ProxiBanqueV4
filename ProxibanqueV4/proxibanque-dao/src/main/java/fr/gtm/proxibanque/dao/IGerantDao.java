@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IGerantDao extends JpaRepository<Gerant, String>
 {
-    public Gerant findByLogin(@Param("login") String login);
+    public Gerant findByLogin(String login);
 }

@@ -13,13 +13,13 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 
 	public Collection<Virement> findAllByConseiller(Conseiller conseiller);
 		
-	public Collection<Virement> findAllByConseiller_login(@Param("login") String login);
+	public Collection<Virement> findAllByConseiller_login(String login);
 
-	public Collection<Virement> findAllByCompteEmetteur(@Param("compteEmetteur") Compte compteEmetteur);
+	public Collection<Virement> findAllByCompteEmetteur(Compte compteEmetteur);
 	
-	public Collection<Virement> findAllByCompteEmetteur_numero(@Param("numero") String numero);
+	public Collection<Virement> findAllByCompteEmetteur_numero(String numero);
 
-	public Collection<Virement> findAllByCompteCible(@Param("compteCible") Compte compteCible);
+	public Collection<Virement> findAllByCompteCible(Compte compteCible);
 	
-	public Collection<Virement> findAllByCompteCible_numero(@Param("numero") String numero);
+	public Collection<Virement> findAllByCompteCible_numero(String numero);
 }
