@@ -6,6 +6,7 @@ import { Client } from './client';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { LoginService } from './login.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,16 +16,18 @@ const httpOptions = {
 export class ClientService {
 
     // URL vers le web service, remplacer conseiller "psanchez" quand login en place
-    private clientsUrl = 'http://localhost:8082/conseiller/psanchez/clients'; 
+    private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.conseiller.login + '/clients'; 
 
     constructor(
         private http: HttpClient,
+        private loginService: LoginService
     ){}
 
 
   /** GET clientes from the server */
   getClients (): Observable<Client[]> {
-    //console.log(this.http.get<Client[]>(this.clientsUrl));
+    console.log(this.http.get<Client[]>(this.clientsUrl));
+    console.log(this.loginService.conseiller.login);
     return this.http.get<Client[]>(this.clientsUrl)
       .pipe(
         catchError(this.handleError('getClients', []))
