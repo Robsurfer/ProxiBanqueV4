@@ -16,7 +16,7 @@ public interface ICompteDao extends JpaRepository<Compte, Integer>
 	
 	public Collection<Compte> findByClient_id(@Param("id")int id);
 
-	public Compte findByNumero(@Param("numero") String numero);
+	public Compte findByNumero(@Param("numero") int numero);
 
 	public List<Compte> findAll();
 
