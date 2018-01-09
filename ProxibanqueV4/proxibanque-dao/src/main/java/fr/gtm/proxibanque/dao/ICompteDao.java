@@ -23,4 +23,9 @@ public interface ICompteDao extends JpaRepository<Compte, Integer>
 	public List<Compte> findAllByClient_Conseiller(@Param("conseiller") Conseiller conseiller);
 	
 	public List<Compte> findAllByClient_Conseiller_login(@Param("login") String login);
+	
+	public List<Compte> findByClient_idAndClient_Conseiller_login(int id, String login);
+	
+	//public Client findByIdAndConseiller_login(int id, String login);
+
 }

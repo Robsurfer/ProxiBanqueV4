@@ -30,11 +30,13 @@ public class Conseiller extends Employe
 	public Conseiller()
 	{
 		super();
+		super.setRole("conseiller");
 	}
 
 	public Conseiller(String login)
 	{
 		super(login);
+		super.setRole("conseiller");
 	}
 
 	public List<Client> getListeClients()
