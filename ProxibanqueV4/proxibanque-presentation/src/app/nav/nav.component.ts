@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Conseiller } from '../conseiller';
+import { Employe } from '../employe';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -12,11 +13,18 @@ export class NavComponent implements OnInit {
   
   //Le titre provenant de app.component
   @Input() title: string;
-  @Input() conseiller : Conseiller;
+  employe: Employe = {
+    login: '',
+    password: '',
+    nom: '',
+    prenom: '',
+    role: ''
+  };
   
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    
+    this.employe.nom = this.loginService.getNomEmployeSession();
+    this.employe.prenom = this.loginService.getPrenomEmployeSession();
   }
 }

@@ -16,7 +16,7 @@ const httpOptions = {
 export class ClientService {
 
     // URL vers le web service, remplacer conseiller "psanchez" quand login en place
-    private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.conseiller.login + '/clients'; 
+    private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
 
     constructor(
         private http: HttpClient,
@@ -26,8 +26,8 @@ export class ClientService {
 
   /** GET clientes from the server */
   getClients (): Observable<Client[]> {
-    //console.log(this.http.get<Client[]>(this.clientsUrl));
-    //console.log(this.loginService.conseiller.login);
+    console.log(this.http.get<Client[]>(this.clientsUrl));
+    console.log(this.loginService.getLoginEmployeSession());
     return this.http.get<Client[]>(this.clientsUrl)
       .pipe(
         catchError(this.handleError('getClients', []))
