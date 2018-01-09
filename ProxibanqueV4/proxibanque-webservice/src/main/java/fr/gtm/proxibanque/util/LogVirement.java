@@ -14,11 +14,8 @@ import org.springframework.stereotype.Component;
 public class LogVirement {
 
 	Logger logger = LogManager.getLogger(LogVirement.class);
-	// log.trace("Virement du compte débiteur n°{} au compte créditeur n°{} de {}
-	// €", numCompteDebiteur, numCompteCrediteur, montant);
 
 	@Pointcut("execution(* *.virement(..))")
-	// @Pointcut("execution(* *.findByConseiller_login(..))")
 	public void loggingVirement() {
 	}
 
@@ -26,14 +23,6 @@ public class LogVirement {
 	public void enteteLog() {
 		logger.info("Tentative de transaction");
 	}
-
-	/*
-	 * @AfterReturning(pointcut = "loggingVirement()") public void virementOk() {
-	 * int numCompteEmetteur = 1; int numCompteCible = 2; int montant = 121;
-	 * 
-	 * logger.info("Virement du compte débiteur n°" + numCompteEmetteur +
-	 * " au compte créditeur n°" + numCompteCible + " de " + montant + "€"); }
-	 */
 
 	@AfterReturning(pointcut = "loggingVirement()", returning = "result")
 	public void virementOk(Object result) {

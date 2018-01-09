@@ -61,7 +61,9 @@ public class VirementController {
 		double montant = virementForm.getMontant();
 
 		if (montant > soldeCompteEmetteur) {
-			reponse = "Le solde du compte émetteur est insuffisant.";
+			reponse = "Le solde du compte émetteur est insuffisant pour le virement du compte n°"
+					+ compteEmetteurBDD.getNumero() + " au compte n°" + compteCibleBDD.getNumero() + " d'un montant de "
+					+ virementForm.getMontant() + " €.";
 		} else {
 
 			double newSoldeCompteEmetteur = soldeCompteEmetteur - montant;
@@ -89,7 +91,9 @@ public class VirementController {
 
 			// Sauvegarde du virement
 			virementDao.save(virement);
-			reponse = "Le virement a été réalisé avec succès.";
+			reponse = "Le virement du compte n°" + compteEmetteurBDD.getNumero() + " au compte n°"
+					+ compteCibleBDD.getNumero() + " d'un montant de " + virementForm.getMontant()
+					+ " € a été réalisé avec succès.";
 
 		}
 
