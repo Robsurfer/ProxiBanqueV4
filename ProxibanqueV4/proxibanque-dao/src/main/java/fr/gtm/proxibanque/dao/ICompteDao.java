@@ -9,9 +9,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICompteDao extends JpaRepository<Compte, Integer>
 {
-	public Collection<Compte> findByClient(Client client);
+	public Collection<Compte> findByClient(@Param("client")Client client);
+	
+	public Collection<Compte> findByClient_id(@Param("id")int id);
 
-	public Compte findByNumero(int numeroCompte);
+	public Compte findByNumero(@Param("numero") String numero);
 
-	public Collection<Compte> findAllByClient_Conseiller(Conseiller conseiller);
+	public List<Compte> findAll();
+
+	public List<Compte> findAllByClient_Conseiller(@Param("conseiller") Conseiller conseiller);
+	
+	public List<Compte> findAllByClient_Conseiller_login(@Param("login") String login);
 }
