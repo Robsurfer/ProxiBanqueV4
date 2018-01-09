@@ -11,10 +11,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @author Loriane & Hattmann
  * Cette classe permettra l'instanciation d'un objet de type Conseiller, caract�ris� par ses attributs :
- * - un login, loginCons
- * - un mot de passe, password
- * - un nom, nomCons
- * - un prenom, prenomCons
+ * - un login
+ * - un mot de passe
+ * - un nom
+ * - un prenom
  * - listeCli, la liste de tous les clients sous sa responsabilit�.
  *
  */

@@ -25,7 +25,7 @@ import javax.persistence.Transient;
  * -le nom,
  * -et le prenom.
  *
- * L'employe accedera a l'application grace a son login et son mode de passe et aura acces aux fonctionnalites
+ * L'employe accedera a l'application grace a son login et son mot de passe et aura acces aux fonctionnalites
  * selon son role.
  *
  * @see Gerant

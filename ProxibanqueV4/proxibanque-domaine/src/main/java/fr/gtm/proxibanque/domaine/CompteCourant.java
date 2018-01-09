@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 
 /**
  * @author Loriane & Hattmann
- * La classe permet l'instanciation d'un objet de type CompteCourant qui est notamment caract�ris� par une
- * autorisation de d�couvert (par d�faut 500�).
+ * La classe permet l'instanciation d'un objet de type CompteCourant qui est notamment caractérisé par une
+ * autorisation de découvert.
  */
 @Entity
 @DiscriminatorValue("courant")

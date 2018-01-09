@@ -18,6 +18,11 @@ import fr.gtm.proxibanque.domaine.Client;
 import fr.gtm.proxibanque.domaine.CompteCourant;
 import fr.gtm.proxibanque.domaine.Conseiller;
 
+/**
+ * @author adminl Ce RestController gère toutes les méthodes des webservices
+ *         relatives aux Clients : retourner une liste de clients, modifier un
+ *         client, créer un client...
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {

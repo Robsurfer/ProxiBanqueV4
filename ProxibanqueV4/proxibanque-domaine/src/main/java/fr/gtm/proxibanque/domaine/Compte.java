@@ -21,9 +21,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 /**
- * @author Loriane & Hattmann La classe Compte est la classe-m�re des classes
+ * @author Loriane & Hattmann La classe Compte est la classe-mère des classes
  * CompteCourant et CompteEpargne. Un objet Compte a pour attributs un
- * num�ro de compte, un solde, une date d'ouverture, et est reli� � un
+ * numéro de compte, un solde, une date d'ouverture, et est relié un
  * Client.
  */
 @Entity

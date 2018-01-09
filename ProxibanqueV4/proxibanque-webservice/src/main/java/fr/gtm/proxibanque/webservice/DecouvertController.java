@@ -15,6 +15,11 @@ import fr.gtm.proxibanque.dao.IConseillerDao;
 import fr.gtm.proxibanque.domaine.Client;
 import fr.gtm.proxibanque.domaine.Conseiller;
 
+/**
+ * @author adminl Ce RestController gère tous les webservices liés à l'alerte de
+ *         clients à découvert. Il permet de retourner des listes de clients à
+ *         découvert selon le profil de l'utilisateur.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class DecouvertController {
@@ -26,8 +31,12 @@ public class DecouvertController {
 	private IClientDao clientDao;
 
 	/**
-	 * @param login
-	 * @return
+	 * Ce webservice retourne la liste des clients à découvert pour un conseiller
+	 * donné.
+	 * 
+	 * @param login,
+	 *            le login du conseiller
+	 * @return une liste de clients à découvert
 	 */
 	@RequestMapping(value = "conseiller/{login}/decouvert", method = RequestMethod.GET, produces = "application/json")
 	public List<Client> getComptesDecouvert(@PathVariable("login") String login) {
@@ -51,6 +60,12 @@ public class DecouvertController {
 
 	}
 
+	/**
+	 * Ce webservice retourne la liste des clients à découvert sur toute l'agence, à
+	 * l'intention du gérant.
+	 * 
+	 * @return la liste de clients à découvert de l'agence
+	 */
 	@RequestMapping(value = "gerant/decouvert", method = RequestMethod.GET, produces = "application/json")
 	public List<Client> getComptesDecouvert() {
 

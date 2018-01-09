@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 
 /**
  * @author Loriane & Hattmann
- * La classe permet l'instanciation d'un objet de type CompteEpargne qui est notamment caract�ris� par un
- * taux de r�mun�ration (par d�faut 3%).
+ * La classe permet l'instanciation d'un objet de type CompteEpargne qui est notamment caractérisé par un
+ * taux de rémunération.
  */
 @Entity
 @DiscriminatorValue("epargne")
