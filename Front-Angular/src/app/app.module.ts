@@ -24,8 +24,8 @@ import { CompteComponent } from './compte/compte.component';
     NavComponent,
     BienvenuComponent,
     ClientsComponent,
-    ClientDetailCompo,
-    CompteComponentnent
+    ClientDetailComponent,
+    CompteComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
@@ -35,7 +35,7 @@ import { CompteComponent } from './compte/compte.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ClientS, CompteServiceervice],
+  providers: [ClientService, CompteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

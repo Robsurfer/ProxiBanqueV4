@@ -16,17 +16,16 @@ export class CompteComponent implements OnInit {
  //Attend que l'Observable émette le tableau des clients
  //Subscribe passe ensuite le tableau émis au callback, qui définit la propriété clients du composant.
  //Cette approche asynchrone fonctionne lorsque ClientService demande des clients au serveur.
- getComptes(idClient= number): void
+ getComptes(): void
  {
-   this.compteService.getComptes(idClient= number)
+   this.compteService.getComptes()
        .subscribe(comptes => this.comptes = comptes);
  }
 
   constructor(private compteService : CompteService) { }
 
-  ngOnInit()
-  {
-    this.getComptes(idClient= number);
+  ngOnInit(){
+    this.getComptes(),
   }
 
 }

@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
-import { Compte } from ';/compte';
+import { Compte } from './compte';
 
 @Injectable()
 export class CompteService {
 
-  //URL pour web api
-  private compteURL = 'http://localhost:8082/???'
+  //URL pour web app
+  private compteURL = 'http://localhost:8082/'
 
   constructor
   (
@@ -17,7 +19,7 @@ export class CompteService {
   ) { }
 
   /** GET compte from the server */
-  getComptes (idClient= number): Observable<Compte[]>
+  getComptes(): Observable<Compte[]>
   {
     return this.http.get<Compte[]>(this.compteURL)
       .pipe(
