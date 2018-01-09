@@ -15,18 +15,18 @@ import javax.persistence.Transient;
 
 /**
  *
- * @author Hattmann Belleus
+ * @author HLLRS
  *
- * La classe employe est une classe abstraite visant a generaliser la fonction des employes susceptibles
- * d'utiliser cette application: le gerant et les conseillers.
+ * La classe employe est une classe abstraite visant à généraliser la fonction des employés susceptibles
+ * d'utiliser cette application: le gérant et les conseillers.
  * Les attributs sont:
  * -le login,
  * -le mot de passe,
  * -le nom,
  * -et le prenom.
  *
- * L'employe accedera a l'application grace a son login et son mot de passe et aura acces aux fonctionnalites
- * selon son role.
+ * L'employe accedera à l'application grace à son login et son mot de passe et aura accès aux fonctionnalites
+ * selon son rôle.
  *
  * @see Gerant
  * @see Conseiller

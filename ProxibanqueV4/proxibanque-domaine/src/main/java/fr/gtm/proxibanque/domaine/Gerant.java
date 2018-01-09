@@ -12,13 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 /**
- * @author Loriane & Hattmann
- * Cette classe permettra l'instanciation d'un objet de type Gérant, caract�ris� par ses attributs :
- * - un login, login
- * - un mot de passe, password
- * - un nom
- * - un prenom
- * - listeConseillers, la liste de tous les conseillers de l'agence.
+ * @author HLLRS
+ * Cette classe hérite de la classe abstraite Employe. Elle permettra l'instanciation d'un objet de type Gérant, caractérisée 
+ * notamment par la liste des conseillers de la banque qu'il a en attribut.
  *
  */
 @Entity

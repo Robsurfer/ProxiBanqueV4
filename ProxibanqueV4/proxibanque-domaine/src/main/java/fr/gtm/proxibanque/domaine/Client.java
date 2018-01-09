@@ -19,13 +19,11 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @author Loriane & Hattmann La classe Client est la classe-mère des classes
- * ClientEntreprise et ClientService. Un objet Client a pour attributs
+ * @author HLLRS 
+ * La classe Client a pour attributs
  * une adresse, code postal, ville, un numéro de téléphone, un email et
  * est relié à une liste de comptes (CompteCourant, CompteEpargne), et
- * un Conseiller. Un attribut typeClient permet quant à lui de définir
- * par la suite s'il s'agira d'un client entreprise ou d'un client
- * particulier.
+ * un Conseiller. 
  */
 @Entity
 @Table(name = "CLIENT")

@@ -9,13 +9,9 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @author Loriane & Hattmann
- * Cette classe permettra l'instanciation d'un objet de type Conseiller, caract�ris� par ses attributs :
- * - un login
- * - un mot de passe
- * - un nom
- * - un prenom
- * - listeCli, la liste de tous les clients sous sa responsabilit�.
+ * @author HLLRS
+ * Cette classe hérite de la classe Employe. En particulier, un objet Conseiller détient une liste de clients en attribut.
+ * Cela est caractéristique du fait que chaque conseiller est censé géré un liste de clients particuliers lui étant associée.
  *
  */
 @Entity

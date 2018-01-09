@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * @author Loriane & Hattmann
+ * @author HLLRS
  * La classe permet l'instanciation d'un objet de type CompteCourant qui est notamment caractérisé par une
  * autorisation de découvert.
  */

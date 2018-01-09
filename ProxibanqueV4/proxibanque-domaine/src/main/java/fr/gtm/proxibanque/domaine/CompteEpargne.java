@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * @author Loriane & Hattmann
+ * @author HLLRS
  * La classe permet l'instanciation d'un objet de type CompteEpargne qui est notamment caractérisé par un
  * taux de rémunération.
  */

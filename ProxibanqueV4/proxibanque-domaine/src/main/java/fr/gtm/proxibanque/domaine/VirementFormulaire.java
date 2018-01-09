@@ -1,26 +1,11 @@
 package fr.gtm.proxibanque.domaine;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @author Loriane & Hattmann
+ * @author HLLRS
  * Cette classe permettra de récupérer les informations d'un virement sous le format
  * renvoyé par le Front pour le webservice VirementController.
- * On remarque entre autres que contrairement à un objet Virement, on associe à VirementFormulaire
+ * On remarque, entre autre, que contrairement à un objet Virement, on associe à un objet VirementFormulaire
  * un numéro de compte émetteur, et un numéro de compte cible, et non des objets Compte.
  */
 public class VirementFormulaire

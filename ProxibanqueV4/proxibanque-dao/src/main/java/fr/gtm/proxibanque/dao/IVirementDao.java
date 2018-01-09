@@ -52,6 +52,8 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	
 	/**
 	 * 
+	 * La méthode findAllByCompteEmetteur renvoie une liste de virements associés à un compte émetteur (ie. débiteur).
+	 * 
 	 * @param compteEmetteur
 	 * @return une liste de virements
 	 */
@@ -59,24 +61,43 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	
 	/**
 	 * 
-	 * @param compteEmetteur
+	 * La méthode findAllByCompteEmetteur renvoie une liste de virements associés à un compte émetteur (ie. débiteur) 
+	 * identifié par son numéro de compte.
+	 * 
+	 * @param numero
 	 * @return une liste de virements
 	 */
 	public Collection<Virement> findAllByCompteEmetteur_numero(String numero);
 	
 	/**
 	 * 
-	 * @param compteCible
+	 * La méthode findAllByCompteCible renvoie une liste de virements associés à un compte cible (ie. créditeur) 
+	 * identifié par son numéro de compte.
+	 * 
+	 * @param numero
 	 * @return une liste de virements
 	 */
 	public Collection<Virement> findAllByCompteCible(Compte compteCible);
 	
 	/**
 	 * 
+	 * La méthode findAllByCompteCible renvoie une liste de virements associés à un compte cible (ie. débiteur).
+	 * 
 	 * @param compteCible
 	 * @return une liste de virements
 	 */
 	public Collection<Virement> findAllByCompteCible_numero(String numero);
+	
+	
+	/**
+	 * 
+	 * La méthode findByDateVirementBeforeAndDateVirementAfter renvoie une liste de virements dont la date de réalisation
+	 * se situe entre deux dates fournies en paramètre.
+	 * 
+	 * @param date1
+	 * @param date2
+	 * @return une liste de virements réalisée entre ces deux dates
+	 */
 	
 	public List<Virement> findByDateVirementBeforeAndDateVirementAfter(Date date1, Date date2);
 

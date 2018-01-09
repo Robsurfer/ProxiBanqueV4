@@ -21,10 +21,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 /**
- * @author Loriane & Hattmann La classe Compte est la classe-mère des classes
+ * @author HLLRS 
+ * La classe abstraite Compte est la classe-mère des classes
  * CompteCourant et CompteEpargne. Un objet Compte a pour attributs un
- * numéro de compte, un solde, une date d'ouverture, et est relié un
- * Client.
+ * numéro de compte, un solde, une date d'ouverture, et est associé à un
+ * objet Client.
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
