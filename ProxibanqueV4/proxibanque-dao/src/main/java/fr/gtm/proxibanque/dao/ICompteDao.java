@@ -5,7 +5,10 @@ import fr.gtm.proxibanque.domaine.Client;
 import fr.gtm.proxibanque.domaine.Compte;
 import fr.gtm.proxibanque.domaine.Conseiller;
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface ICompteDao extends JpaRepository<Compte, Integer>
 {

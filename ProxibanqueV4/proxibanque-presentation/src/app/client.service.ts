@@ -26,8 +26,8 @@ export class ClientService {
 
   /** GET clientes from the server */
   getClients (): Observable<Client[]> {
-    console.log(this.http.get<Client[]>(this.clientsUrl));
-    console.log(this.loginService.conseiller.login);
+    //console.log(this.http.get<Client[]>(this.clientsUrl));
+    //console.log(this.loginService.conseiller.login);
     return this.http.get<Client[]>(this.clientsUrl)
       .pipe(
         catchError(this.handleError('getClients', []))
