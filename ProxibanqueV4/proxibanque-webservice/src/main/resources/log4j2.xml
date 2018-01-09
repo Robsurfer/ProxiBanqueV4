@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="30">
+<Configuration status="info">
 
     <Appenders>
     	<!-- Pour mettre un fichier proxibanque.log dans le dossier parent -->
 		<RollingFile name="fileLogger" fileName="../logs/proxibanque.log" 
-		             filePattern="../logs/proxibanque-%d{yyyy-MM-dd}-%i.log">
+		             filePattern="../logs/proxibanque-%d{yyyy-MM-dd HH:mm}-%i.log">
 		    <PatternLayout>
-                <pattern>%d{yyyy-MM-dd } - %msg%n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm} - %msg%n</pattern>
             </PatternLayout>
 		    <Policies>
 		        <SizeBasedTriggeringPolicy size="10MB" />
+		        <!-- fait un zip tous les jours -->
+		        <TimeBasedTriggeringPolicy interval="1" modulate="true" />
 		    </Policies>
+		    <!--  -->
 		    <DefaultRolloverStrategy max="100"/>
 		</RollingFile>
 
@@ -19,7 +22,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="fr.gtm.proxibanque" level="info" additivity="true">
+        <Logger name="fr.gtm.proxibanque.util" level="info" additivity="true">
             <appender-ref ref="fileLogger" level="info" />
         </Logger>
         <Root level="info" additivity="false">
@@ -27,33 +30,3 @@
         </Root>
     </Loggers>
 </Configuration>
-
-<!-- <Configuration status="info">
-    <Properties>
-        <Property name="basePath">/</Property>
-    </Properties>
- 
-    <Appenders>
-        <RollingFile name="fileLogger" fileName="${basePath}/proxibanque.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
-            <PatternLayout>
-                <pattern>%d{yyyy-MM-dd } - %msg%n</pattern>
-            </PatternLayout>
-            <Policies>
-                <SizeBasedTriggeringPolicy size="10 MB" />
-            </Policies>
-        </RollingFile>
- 
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout   pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
-        </Console>
-    </Appenders>
-    <Loggers>
-        <Logger name="fr.gtm.proxibanque.webservice" level="trace" additivity="true">
-            <appender-ref ref="fileLogger" level="trace" />
-        </Logger>
-        <Root level="trace" additivity="false">
-            <appender-ref ref="console" />
-        </Root>
-    </Loggers>
-</Configuration>
--->
