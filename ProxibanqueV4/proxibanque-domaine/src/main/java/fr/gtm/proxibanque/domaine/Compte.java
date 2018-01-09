@@ -43,9 +43,9 @@ public abstract class Compte
 	@Column(name = "DATE_OUVERTURE")
 	private Date dateOuverture;
 	@JoinColumn(name = "CLIENT", referencedColumnName = "ID")
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Client client;
-	@OneToMany(mappedBy = "compteEmetteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "compteEmetteur", cascade = CascadeType.REMOVE)
 	@JsonIgnore // Pour éviter les références circulaires
 	private List<Virement> listeVirement;
 	@Transient

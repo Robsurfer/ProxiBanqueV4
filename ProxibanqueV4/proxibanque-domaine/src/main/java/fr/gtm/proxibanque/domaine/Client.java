@@ -44,18 +44,17 @@ public class Client
 	private String codePostal;
 	private String ville;
 	private String telephone;
-	private String mail;
+	private String mail;	
 	@JoinColumn(name = "CONSEILLER", referencedColumnName = "LOGIN")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore // Pour éviter les références circulaires
-	private Conseiller conseiller;
+	@ManyToOne
+	private Employe conseiller;
 	@Transient
 	@JsonIgnore
 	private List<Compte> listeComptes;
-	@OneToOne(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private CompteEpargne compteEpargne;
-	@OneToOne(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private CompteCourant compteCourant;
 
@@ -161,7 +160,7 @@ public class Client
 
 	public Conseiller getConseiller()
 	{
-		return conseiller;
+		return (Conseiller) conseiller;
 	}
 
 	public void setConseiller(Conseiller conseiller)

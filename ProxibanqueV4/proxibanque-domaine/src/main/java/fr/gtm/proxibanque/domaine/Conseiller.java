@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Loriane & Hattmann
  * Cette classe permettra l'instanciation d'un objet de type Conseiller, caract�ris� par ses attributs :
@@ -21,7 +23,7 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("conseiller")
 public class Conseiller extends Employe
 {
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private List<Client> listeClients;
 

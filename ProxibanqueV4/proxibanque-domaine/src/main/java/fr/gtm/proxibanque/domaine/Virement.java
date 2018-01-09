@@ -35,15 +35,13 @@ public class Virement
 	@SequenceGenerator(name = "virement_generator", sequenceName = "sequencevir", initialValue = 1, allocationSize = 1)
 	private int id;
 	@JoinColumn(name = "CONSEILLER", referencedColumnName = "LOGIN")
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	private Conseiller conseiller;
 	@JoinColumn(name = "COMPTE_EMETTEUR", referencedColumnName = "NUMERO")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore // Pour éviter les références circulaires
+	@ManyToOne
 	private Compte compteEmetteur;
 	@JoinColumn(name = "COMPTE_CIBLE", referencedColumnName = "NUMERO")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore // Pour éviter les références circulaires
+	@ManyToOne
 	private Compte compteCible;
 	private float montant;
 	@Column(name = "DATE_VIREMENT")

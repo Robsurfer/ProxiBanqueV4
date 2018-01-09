@@ -14,8 +14,8 @@ const httpOptions = {
 @Injectable()
 export class ClientService {
 
-    // URL vers le web service, remplacer conseiller "Conseiller1" quand login en place
-    private clientsUrl = 'http://localhost:8082/conseiller/Conseiller1/clients'; 
+    // URL vers le web service, remplacer conseiller "psanchez" quand login en place
+    private clientsUrl = 'http://localhost:8082/conseiller/psanchez/clients'; 
 
     constructor(
         private http: HttpClient,
@@ -25,7 +25,7 @@ export class ClientService {
   /** GET clientes from the server */
   getClients (): Observable<Client[]> {
     //console.log(this.http.get<Client[]>(this.clientsUrl));
-    return this.http.get<Client[]>(this.clientsUrl+"/getAll")
+    return this.http.get<Client[]>(this.clientsUrl)
       .pipe(
         catchError(this.handleError('getClients', []))
       );
@@ -37,10 +37,10 @@ export class ClientService {
     le serveur devrait répondre avec un seul héros plutôt qu'un ensemble de héros.
     par conséquent, getClient renvoie un <Client> observable ("un observable des objets Client") plutôt qu'un observable des tableaux de héros.
     */
-  getClient(idClient: number): Observable<Client> {
-    const url = `${this.clientsUrl}/${idClient}`;
+  getClient(id: number): Observable<Client> {
+    const url = `${this.clientsUrl}/${id}`;
     return this.http.get<Client>(url).pipe(
-      catchError(this.handleError<Client>(`getClient idClient=${idClient}`))
+      catchError(this.handleError<Client>(`getClient id=${id}`))
     );
   }
 
@@ -84,14 +84,14 @@ export class ClientService {
       // if not search term, return empty client array.
       return of([]);
     }
-    return this.http.get<Client[]>(`api/clientes/?name=${term}`).pipe(
+    return this.http.get<Client[]>(`api/clients/?name=${term}`).pipe(
       catchError(this.handleError<Client[]>('searchClients', []))
     );
   }
   /** DELETE: delete the client from the server */
   deleteClient (client: Client | number): Observable<Client> {
-    const idClient = typeof client === 'number' ? client : client.idClient;
-    const url = `${this.clientsUrl}/${idClient}`;
+    const id = typeof client === 'number' ? client : client.id;
+    const url = `${this.clientsUrl}/${id}`;
 
     return this.http.delete<Client>(url, httpOptions).pipe(
       catchError(this.handleError<Client>('deleteClient'))
