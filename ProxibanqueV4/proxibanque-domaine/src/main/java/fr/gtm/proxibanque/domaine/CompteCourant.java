@@ -24,15 +24,21 @@ public class CompteCourant extends Compte
 		super.setType("courant");
 	}
 
-	public CompteCourant(String numero)
+	public CompteCourant(int numero)
 	{
 		super(numero);
 		super.setType("courant");
 	}
 
-	public CompteCourant(String numero, float solde, Date dateOuverture, double decouvert)
+	public CompteCourant(int numero, double solde, Date dateOuverture, double decouvert)
 	{
 		super(numero, solde, dateOuverture);
+		this.decouvert = decouvert;
+	}
+	
+	public CompteCourant(double solde, Date dateOuverture, double decouvert)
+	{
+		super(solde, dateOuverture);
 		this.decouvert = decouvert;
 	}
 

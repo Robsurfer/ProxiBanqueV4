@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Conseiller extends Employe
 {
 	@JsonIgnore
-	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@OneToMany(mappedBy = "conseiller", cascade = CascadeType.REFRESH)
 	private List<Client> listeClients;
 
 	public Conseiller()
