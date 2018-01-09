@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>proxibanque-domaine</artifactId>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>fr.gtm.proxibanque</groupId>
+		<artifactId>ProxibanqueV4</artifactId>
+		<version>4.0</version>
+	</parent>
+	
+	<name>proxibanque-domaine</name>
+	<description>Couche Domaine avec beans @entity</description>
+
+	  <dependencies>
+	   	<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    </dependency>			
+	  </dependencies>
+    
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+</project>
