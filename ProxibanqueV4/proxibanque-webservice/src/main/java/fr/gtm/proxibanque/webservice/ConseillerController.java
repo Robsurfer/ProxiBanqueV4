@@ -16,11 +16,6 @@ import fr.gtm.proxibanque.domaine.Conseiller;
 import fr.gtm.proxibanque.domaine.Virement;
 
 /**
- * Cette classe repertorie les methodes des webservices relatifs au conseiller
- * qui vont chercher des informations en base de données. Ces derniers vont
- * permettre de recuperer un certain nombre de JSON utiles pour la partie front
- * office.
- * 
  * @author HLLRS
  *
  */
@@ -35,8 +30,7 @@ public class ConseillerController {
 
 	/**
 	 * Ce webservice permet de retourner la liste des conseillers de l'agence. Il ne
-	 * prend rien en paramètre d'entree et renvoit un JSON contenant la liste des
-	 * conseillers de l'agence.
+	 * prend rien en paramètre d'entree
 	 * 
 	 * @return List<Conseiller>, la liste des conseillers de l'agence
 	 */
@@ -47,13 +41,12 @@ public class ConseillerController {
 
 	/**
 	 * Ce webservice permet de retourner la liste des virements d'un conseiller
-	 * donné. Il renvoit donc un JSON contenant la liste des virements associes a un
-	 * conseiller
+	 * donné.
 	 * 
 	 * @param login
 	 *            , l'id du conseiller identifie
-	 * @return Collection<Virement>, la liste de tout les virements qu'un conseiller
-	 *         a realise
+	 * @return Collection<Virement>, la liste de tout les virements que le
+	 *         conseiller a realise
 	 */
 	@RequestMapping(value = "conseiller/{login}/virements", method = RequestMethod.GET, produces = "application/json")
 	public Collection<Virement> getAllVir(@PathVariable("login") String login) {
