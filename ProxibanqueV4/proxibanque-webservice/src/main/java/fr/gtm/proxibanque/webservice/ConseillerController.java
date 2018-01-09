@@ -25,25 +25,26 @@ public class ConseillerController {
 
 	@Autowired
 	private IConseillerDao conseillerDao;
+	@Autowired
+	private IVirementDao virementDao;
 
 	/**
-	 * Ce webservice permet de retourner la liste des virements de l'agence
+	 * Ce webservice permet de retourner la liste des conseillers de l'agence. Il ne
+	 * prend rien en paramètre d'entree
 	 * 
-	 * @return
+	 * @return List<Conseiller>, la liste des conseillers de l'agence
 	 */
 	@RequestMapping(value = "/listeConseillers", method = RequestMethod.GET, produces = "application/json")
 	public List<Conseiller> getAll() {
 		return conseillerDao.findAll();
 	}
 
-	@Autowired
-	private IVirementDao virementDao;
-
 	/**
 	 * Ce webservice permet de retourner la liste des virements d'un conseiller
 	 * donné.
 	 * 
 	 * @param login
+	 *            , l'id du conseiller identifie
 	 * @return Collection<Virement>, la liste de tout les virements que le
 	 *         conseiller a realise
 	 */

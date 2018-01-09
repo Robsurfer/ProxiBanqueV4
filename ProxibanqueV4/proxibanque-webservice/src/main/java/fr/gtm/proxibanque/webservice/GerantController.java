@@ -30,10 +30,12 @@ public class GerantController {
 	/**
 	 * Ce webservice permet de retourner la liste des virements de l'agence
 	 * 
-	 * @param date1
-	 * @param date2
+	 * @param date1,
+	 *            date la plus récente de l'intervalle de recherche
+	 * @param date2,
+	 *            date la plus ancienne de l'intervalle de recherche
 	 * @return List<Virement>, la liste des virements de l'agence observable par le
-	 *         gerant
+	 *         gerant entre deux dates
 	 */
 	@RequestMapping(value = "gerant/audit/{date1}/{date2}", method = RequestMethod.GET, produces = "application/json")
 	public List<Virement> Audit(@PathVariable("date1") String date1, @PathVariable("date2") String date2) {
