@@ -43,7 +43,7 @@ public class Virement
 	@JoinColumn(name = "COMPTE_CIBLE", referencedColumnName = "NUMERO")
 	@ManyToOne
 	private Compte compteCible;
-	private float montant;
+	private double montant;
 	@Column(name = "DATE_VIREMENT")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateVirement;
@@ -61,7 +61,7 @@ public class Virement
 		this.id = id;
 	}
 
-	public Virement(Compte compteEmetteur, Compte compteCible, float montant, Date dateVirement, String libelle)
+	public Virement(Compte compteEmetteur, Compte compteCible, double montant, Date dateVirement, String libelle)
 	{
 		super();
 		this.compteEmetteur = compteEmetteur;
@@ -106,12 +106,12 @@ public class Virement
 		this.compteCible = compteCible;
 	}
 
-	public float getMontant()
+	public double getMontant()
 	{
 		return montant;
 	}
 
-	public void setMontant(float montant)
+	public void setMontant(double montant)
 	{
 		this.montant = montant;
 	}
