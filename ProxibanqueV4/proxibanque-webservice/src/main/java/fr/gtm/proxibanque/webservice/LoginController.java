@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.gtm.proxibanque.dao.IConseillerDao;
-import fr.gtm.proxibanque.domaine.Conseiller;
+import fr.gtm.proxibanque.dao.IEmployeDao;
+import fr.gtm.proxibanque.domaine.Employe;
+import fr.gtm.proxibanque.domaine.Identifiants;
 
 /**
  * @author Loriane Ce RestController permet la gestion des webservices relatifs
@@ -21,44 +22,44 @@ import fr.gtm.proxibanque.domaine.Conseiller;
 public class LoginController {
 
 	@Autowired
-	private IConseillerDao conseillerDao;
+	private IEmployeDao employeDao;
 
 	/**
 	 * Ce webservice permet l'authentification d'un conseiller ou du gérant sur
-	 * l'application. Cette méthode reçoit un conseiller avec les login et mot de
-	 * passe rentrés, puis compare ces données avec les informations de la base de
-	 * données. Si les identifiants sont incorrects, la méthode renvoit un
-	 * conseiller null. Sinon, elle renvoit un conseiller correspondant aux
-	 * identifiants, avec toutes ses informations.
+	 * l'application. Cette méthode reçoit un employe avec les login et mot de passe
+	 * rentrés, puis compare ces données avec les informations de la base de
+	 * données. Si les identifiants sont incorrects, la méthode renvoit un employe
+	 * null. Sinon, elle renvoit un employe correspondant aux identifiants, avec
+	 * toutes ses informations.
 	 * 
-	 * @param cons,
-	 *            un conseiller avec les identifiants rentrés à analyser
-	 * @return cons, le conseiller correspondant aux identifiants rentrés, avec
+	 * @param employe,
+	 *            un employe avec les identifiants rentrés à analyser
+	 * @return employe, l'employé correspondant aux identifiants rentrés, avec
 	 *         toutes ses données, ou null si les identifiants n'ont pas été
 	 *         reconnus.
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
-	public Conseiller authent(@RequestBody Conseiller cons) {
+	public Employe authent(@RequestBody Identifiants identifiants) {
 
-		System.out.println(cons);
-		Conseiller conseillerAuthentifie = null;
+		String loginInsere = identifiants.getLogin();
+		String passwordInsere = identifiants.getPassword();
+		Employe employeAuthentifie = null;
 
-		String passwordInsere = cons.getPassword();
-		String loginInsere = cons.getLogin();
+		Employe employeAChercher = employeDao.findEmployeByLogin(loginInsere);
 
-		Conseiller consAChercher = conseillerDao.findByLogin(loginInsere);
+		if (employeAChercher == null) {
+			// On n'a pas trouvé d'employé avec ce login. On ne fait rien.
+		}
 
-		if (consAChercher == null) {
-			// Aller chercher dans la table des gérants
-		} else {
-			if (consAChercher.getPassword() != null && consAChercher.getPassword().equals(passwordInsere)) {
-				conseillerAuthentifie = consAChercher;
+		else {
+			if (employeAChercher.getPassword() != null && employeAChercher.getPassword().equals(passwordInsere)) {
+				employeAuthentifie = employeAChercher;
 			}
 		}
 
-		// Retour de la réponse, un conseiller, null si l'authentification n'est pas
+		// Retour de la réponse, un employé, null si l'authentification n'est pas
 		// acceptée.
-		return conseillerAuthentifie;
+		return employeAuthentifie;
 
 	}
 

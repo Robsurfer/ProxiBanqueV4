@@ -1,13 +1,13 @@
 <div id="wrapper">
     <!------------------------------------------------ NAVIGATION ------------------------------------------------>
-    <app-nav [title]="title" [conseiller]="loginService.conseiller" *ngIf="loginService.conseiller.prenom"></app-nav>
+    <app-nav [title]="title" *ngIf="loginService.getLoginEmployeSession()"></app-nav>
    <!------------------------------------------------ /NAVIGATION ------------------------------------------------>
     
     <!------------------------------------------------ DEBUIT DE LA PAGE PRINCIPALE ------------------------------------------------>
     <div id="page-wrapper">
         <div class="container-fluid">
         <!------------------------------ CONTENU PRINCIPAL ------------------------------>             
-        <app-dashboard *ngIf="loginService.conseiller.prenom"></app-dashboard>    
+        <app-dashboard *ngIf="loginService.getLoginEmployeSession()"></app-dashboard>    
         <!-- Le <router-outlet> indique au routeur où afficher les vues routées. -->
         <router-outlet ></router-outlet>    
 

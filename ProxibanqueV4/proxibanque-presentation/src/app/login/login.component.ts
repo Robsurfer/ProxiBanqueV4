@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Conseiller } from '../conseiller';
+import { Employe } from '../employe';
 import { HttpClient } from '@angular/common/http/src/client';
 import { LoginService } from '../login.service';
 
@@ -10,14 +10,18 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
+  employe:Employe = new Employe();
+
   constructor(private loginService:LoginService) { }
 
   ngOnInit() {
-    this.loginService.conseiller.login='';
-    this.loginService.conseiller.password='';
+    this.employe.login='';
+    this.employe.password='';
+    this.employe.nom = '';
+    this.employe.prenom = '';
   }
 
   onSubmit(){  
-    this.loginService.authentification();    
+    this.loginService.authentification(this.employe.login, this.employe.password);    
   }
 }
