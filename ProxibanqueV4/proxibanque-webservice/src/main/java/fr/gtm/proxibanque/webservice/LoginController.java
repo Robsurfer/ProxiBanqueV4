@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.gtm.proxibanque.dao.IConseillerDao;
 import fr.gtm.proxibanque.domaine.Conseiller;
 
+/**
+ * @author Loriane Ce RestController permet la gestion des webservices relatifs
+ *         à l'authentification. Il comprend une méthode authent qui est
+ *         responsable de l'authentification.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
