@@ -4,13 +4,12 @@ import { LoginService } from '../login.service';
 
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: [ './nav.component.css' ]
+  selector: 'app-nav-haut',
+  templateUrl: './nav-haut.component.html',
+  styleUrls: [ './nav-haut.component.css' ]
 })
 
-export class NavComponent implements OnInit {
-  
+export class NavHautComponent implements OnInit {
   //Le titre provenant de app.component
   @Input() title: string;
   employe: Employe = {
@@ -21,6 +20,12 @@ export class NavComponent implements OnInit {
     role: ''
   };
   
+  isCollabsed = false;
+
+  toggleCollapsed(): void {
+    this.isCollabsed = !this.isCollabsed;
+  }
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {

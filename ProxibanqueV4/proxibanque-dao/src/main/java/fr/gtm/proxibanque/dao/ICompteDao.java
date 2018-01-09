@@ -1,4 +1,4 @@
-﻿package fr.gtm.proxibanque.dao;
+package fr.gtm.proxibanque.dao;
 
 import fr.gtm.proxibanque.domaine.Client;
 

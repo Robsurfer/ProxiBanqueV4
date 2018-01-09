@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class ClientService {
 
-    // URL vers le web service, remplacer conseiller "psanchez" quand login en place
+    // URL vers le web service
     private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
 
     constructor(
@@ -23,8 +23,7 @@ export class ClientService {
         private loginService: LoginService
     ){}
 
-
-  /** GET clientes from the server */
+  /** GET clients from the server */
   getClients (): Observable<Client[]> {
     console.log(this.http.get<Client[]>(this.clientsUrl));
     console.log(this.loginService.getLoginEmployeSession());

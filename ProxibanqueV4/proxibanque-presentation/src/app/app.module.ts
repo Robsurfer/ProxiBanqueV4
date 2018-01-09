@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; //Pour NgModel nécessaire au 2-way data binding
 // Pour la connexion Http
 import { HttpClientModule } from '@angular/common/http';
+// Pour les dropdown menu
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavComponent } from './nav/nav.component';
+import { NavGaucheComponent } from './nav-gauche/nav-gauche.component';
+import { NavHautComponent } from './nav-haut/nav-haut.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { VirementComponent } from './virement/virement.component';
+import { ClientCreationComponent } from './client-creation/client-creation.component';
+import { VirementListeComponent } from './virement-liste/virement-liste.component';
+import { CompteDetailComponent } from './compte-detail/compte-detail.component';
+import { CompteListeComponent } from './compte-liste/compte-liste.component';
+import { CompteCreationComponent } from './compte-creation/compte-creation.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   //Les composants
@@ -20,10 +31,19 @@ import { LoginService } from './login.service';
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavComponent,
+    NavGaucheComponent,
+    NavHautComponent,
     ClientsComponent,
     ClientDetailComponent,
-	LoginComponent
+    ClientCreationComponent,
+    LoginComponent,
+    PageNotFoundComponent,
+    VirementComponent,
+    VirementListeComponent,
+    CompteDetailComponent,
+    CompteListeComponent,
+    CompteCreationComponent,
+    LogoutComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
@@ -31,7 +51,8 @@ import { LoginService } from './login.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [
     ClientService,

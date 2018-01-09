@@ -1,6 +1,9 @@
 <div id="wrapper">
     <!------------------------------------------------ NAVIGATION ------------------------------------------------>
-    <app-nav [title]="title" *ngIf="loginService.getLoginEmployeSession()"></app-nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <app-nav-haut [title]="title"></app-nav-haut>
+        <app-nav-gauche *ngIf="loginService.getLoginEmployeSession()"></app-nav-gauche>
+    </nav>
    <!------------------------------------------------ /NAVIGATION ------------------------------------------------>
     
     <!------------------------------------------------ DEBUIT DE LA PAGE PRINCIPALE ------------------------------------------------>

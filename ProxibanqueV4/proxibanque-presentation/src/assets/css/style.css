@@ -202,9 +202,17 @@ a {
   color: #999;
 }
 
+.side-nav .divider {
+    padding-top: 2em; 
+    margin: 1rem;
+    font-size: 1.2em;
+    color: #999;
+  }
+
 /** LOGIN **/
 .login {
-	max-width: 40rem;
+    padding-top: 10rem;
+	max-width: 50rem;
 	margin:auto;
 }
 .panel-primary>.panel-heading {
@@ -212,10 +220,15 @@ a {
     background-color: #3388ee;
     border-color: #3388ee;
 }
+.panel-primary>.panel-body {
+    padding: 2rem;
+}
 .btn-primary {
+    margin-top:3rem;
+    margin-bottom:1rem;
     color: #fff;
     background-color: #3388ee;
-    border-color: #0055AA;
+    border-color: #0055AA;    
 }
 .btn-primary:hover, .btn-primary:focus {
     background-color: #004499;    

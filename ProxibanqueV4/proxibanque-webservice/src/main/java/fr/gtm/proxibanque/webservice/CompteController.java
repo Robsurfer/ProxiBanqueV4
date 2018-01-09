@@ -35,7 +35,7 @@ public class CompteController {
 	 * @return List<Compte>, la liste des comptes des clients associes à un
 	 *         conseiller
 	 */
-	@RequestMapping(value = "conseiller/{login}/clients/comptes", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "conseiller/{login}/comptes", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getAll(@PathVariable("login") String login) {
 		return compteDao.findAllByClient_Conseiller_login(login);
 	}
@@ -50,7 +50,7 @@ public class CompteController {
 	 * @return List<Compte>, la liste des comptes d'un client associes à un
 	 *         conseiller
 	 */
-	@RequestMapping(value = "conseiller/{login}/clients/comptes/{id}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "conseiller/{login}/comptes/client/{id}", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getById(@PathVariable("id") int id, @PathVariable("login") String login) {
 		return compteDao.findByClient_idAndClient_Conseiller_login(id, login);
 	}
