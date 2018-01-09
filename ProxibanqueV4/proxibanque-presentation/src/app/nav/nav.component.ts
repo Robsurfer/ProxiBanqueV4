@@ -27,4 +27,8 @@ export class NavComponent implements OnInit {
     this.employe.nom = this.loginService.getNomEmployeSession();
     this.employe.prenom = this.loginService.getPrenomEmployeSession();
   }
+
+  deconnexion(){
+    this.loginService.seDeconnecter();
+  }
 }
