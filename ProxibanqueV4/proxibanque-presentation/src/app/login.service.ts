@@ -22,9 +22,9 @@ export class LoginService {
   ){}
 
   authentification(login, password) {
-    console.log("Début de l'authentification");
+    //console.log("Début de l'authentification");
     const data = {login: login, password: password}
-    console.log("data envoyée : " + data.login + " " + data.password);
+    //console.log("data envoyée : " + data.login + " " + data.password);
     this.getEmployeFromWS(data).subscribe(employe => {
       if (employe == null) {
         this.erreur = "Login/password incorrect.";
@@ -49,6 +49,7 @@ export class LoginService {
 
   seDeconnecter(){
     sessionStorage.clear();
+    this.router.navigate(['login']);
   }
 
   getLoginEmployeSession(): string {

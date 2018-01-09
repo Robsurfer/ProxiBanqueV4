@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../client';
 import { ClientService } from '../client.service';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients',
@@ -18,9 +20,17 @@ export class ClientsComponent implements OnInit {
     this.clientService.getClients()
         .subscribe(clients => this.clients = clients);
   }
-  constructor(private clientService : ClientService){}
+  constructor(
+    private clientService : ClientService, 
+    private loginService : LoginService,
+    private router : Router){}
   
   ngOnInit() {
+
+    if (!this.loginService.getLoginEmployeSession()) {
+      this.router.navigate(['login']);
+    }
+
     this.getClients();
   }
 
