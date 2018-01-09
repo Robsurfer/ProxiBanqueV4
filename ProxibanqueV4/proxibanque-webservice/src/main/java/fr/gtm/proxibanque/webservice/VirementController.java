@@ -18,6 +18,11 @@ import fr.gtm.proxibanque.domaine.Conseiller;
 import fr.gtm.proxibanque.domaine.Virement;
 import fr.gtm.proxibanque.domaine.VirementFormulaire;
 
+/**
+ * @author Loriane Ce RestController permet la gestion des webservices relatifs
+ *         aux virements. Elle comprend une méthode virement qui réalise le
+ *         virement donné par le Front et le persiste en base de données.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class VirementController {
@@ -31,6 +36,17 @@ public class VirementController {
 	@Autowired
 	private IConseillerDao conseillerDao;
 
+	/**
+	 * Ce webservice permet de réaliser un virement avec les données reçues. Il
+	 * renvoie un message d'échec si le virement est impossible (si le solde est
+	 * insuffisant), et un message de succès si le virement est réalisé.
+	 * 
+	 * @param login,
+	 *            le login du conseiller
+	 * @param virementForm,
+	 *            les données du virement issues du formulaire en Front
+	 * @return String, la réponse (échec ou succès)
+	 */
 	@RequestMapping(value = "/conseiller/{login}/virement", method = RequestMethod.POST, produces = "text/plain")
 	public String virement(@PathVariable("login") String login, @RequestBody VirementFormulaire virementForm) {
 
