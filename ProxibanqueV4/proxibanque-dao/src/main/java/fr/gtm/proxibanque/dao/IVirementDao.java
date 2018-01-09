@@ -3,6 +3,7 @@ package fr.gtm.proxibanque.dao;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
 import fr.gtm.proxibanque.domaine.Compte;
 import fr.gtm.proxibanque.domaine.Conseiller;

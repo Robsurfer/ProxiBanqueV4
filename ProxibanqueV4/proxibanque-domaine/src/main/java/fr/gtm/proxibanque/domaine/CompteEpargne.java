@@ -21,14 +21,16 @@ public class CompteEpargne extends Compte
 	public CompteEpargne()
 	{
 		super();
+		super.setType("epargne");
 	}
 
-	public CompteEpargne(String numero)
+	public CompteEpargne(int numero)
 	{
 		super(numero);
+		super.setType("epargne");
 	}
 
-	public CompteEpargne(String numero, float solde, Date dateOuverture, double taux)
+	public CompteEpargne(int numero, double solde, Date dateOuverture, double taux)
 	{
 		super(numero, solde, dateOuverture);
 		this.taux = taux;

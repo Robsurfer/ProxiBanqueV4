@@ -37,8 +37,8 @@ public abstract class Compte
 	@Id
 	@SequenceGenerator(name = "generatorCompte", sequenceName = "seq_compte", initialValue = 729000, allocationSize = 10)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCompte")
-	private String numero;
-	private float solde;
+	private int numero;
+	private double solde;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATE_OUVERTURE")
 	private Date dateOuverture;
@@ -58,13 +58,13 @@ public abstract class Compte
 		super();
 	}
 
-	public Compte(String numero)
+	public Compte(int numero)
 	{
 		super();
 		this.numero = numero;
 	}
 
-	public Compte(String numero, float solde, Date dateOuverture)
+	public Compte(int numero, double solde, Date dateOuverture)
 	{
 		super();
 		this.numero = numero;
@@ -72,23 +72,30 @@ public abstract class Compte
 		this.dateOuverture = dateOuverture;
 
 	}
+	
+	public Compte(double solde, Date dateOuverture)
+	{
+		this.solde = solde;
+		this.dateOuverture = dateOuverture;
 
-	public String getNumero()
+	}
+
+	public int getNumero()
 	{
 		return numero;
 	}
 
-	public void setNumero(String numero)
+	public void setNumero(int numero)
 	{
 		this.numero = numero;
 	}
 
-	public float getSolde()
+	public double getSolde()
 	{
 		return solde;
 	}
 
-	public void setSolde(float solde)
+	public void setSolde(double solde)
 	{
 		this.solde = solde;
 	}

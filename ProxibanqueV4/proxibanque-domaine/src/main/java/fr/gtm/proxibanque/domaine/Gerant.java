@@ -26,11 +26,13 @@ public class Gerant extends Employe
 	public Gerant()
 	{
 		super();
+		super.setRole("gerant");
 	}
 
 	public Gerant(String login)
 	{
 		super(login);
+		super.setRole("gerant");
 	}
 
 	public List<Conseiller> getListeConseillers()
