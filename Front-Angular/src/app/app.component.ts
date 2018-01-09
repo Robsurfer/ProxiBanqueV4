@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Conseiller } from './conseiller';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,7 @@ import { Conseiller } from './conseiller';
 })
 export class AppComponent {
   title = 'Proxibanque';
-   
-  //Conseiller stocké en dur car pas encore de login
-  conseiller : Conseiller = {
-    prenom : "Bugs",
-    nom : "Bunny",
-    login : "Lapin",
-    password : "Lapin"
-  };
+
+  constructor(private loginService:LoginService){ }
 
 }

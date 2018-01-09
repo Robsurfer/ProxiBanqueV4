@@ -1,12 +1,10 @@
 	<div class="login">
-		<!--
-  <c:if test = "${!empty error}">
-    <div class="alert alert-danger">
+  
+    <div *ngIf="loginService.erreur" class="alert alert-danger">
       <h3><strong>Erreur !</strong></h3>
-      <h5>${error}</h5>             
+      <h5>{{loginService.erreur}}</h5>             
     </div>
-  </c:if>
--->
+
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				Connexion
@@ -14,12 +12,12 @@
 			<div class="panel-body">
 				<form class="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
 					<div class="form-group">
-            <label for="login">Identifiant {{conseiller.nom}}</label> 
-            <input class="form-control" name="login" placeholder="Entrez votre identifiant" required="required" type="text"  [(ngModel)]="conseiller.login" #loginC="ngModel">
+            <label for="login">Identifiant {{loginService.conseiller.nom}}</label> 
+            <input class="form-control" name="login" placeholder="Entrez votre identifiant" required="required" type="text"  [(ngModel)]="loginService.conseiller.login" #loginC="ngModel">
 					</div>
 					<div class="form-group">
             <label for="mdp">Mot de passe</label>
-            <input class="form-control" name="password" placeholder="Entrez votre mot de passe" required="required" type="password"  [(ngModel)]="conseiller.password" #passwordC="ngModel">
+            <input class="form-control" name="password" placeholder="Entrez votre mot de passe" required="required" type="password"  [(ngModel)]="loginService.conseiller.password" #passwordC="ngModel">
           </div>
           <input class="btn btn-primary btn-block" type="submit" value="Se connecter">
 				</form>

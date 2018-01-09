@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators/catchError';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,19 +14,36 @@ const httpOptions = {
 export class LoginService {
 
   private loginUrl = 'http://localhost:8082/login';
+  erreur:string;
+  conseiller:Conseiller = new Conseiller();
 
   constructor(
     private http: HttpClient,
+    public router: Router
   ){}
 
-  authentification(conseiller:Conseiller): Observable<Conseiller> {
-    
-    
-    console.log(conseiller);
-    console.log("Début de la requête http");
+  authentification() {
+    this.getEmploye(this.conseiller).subscribe(conseiller => {
+      if (conseiller == null) {
+        this.erreur = "Login/password incorrect.";
+        console.log(this.erreur);
+      } else {
+        this.erreur = null;
+        console.log("Le conseiller connecté est " + conseiller.prenom + " " + conseiller.nom);
+        this.conseiller = conseiller;
+        this.router.navigate(['clients']);
+      }
+    });
+  }
+
+  getEmploye(conseiller:Conseiller): Observable<Conseiller> {
     return this.http.post<Conseiller>(this.loginUrl, conseiller, httpOptions).pipe(
       catchError(this.handleError<Conseiller>('authentification'))
     );
+  }
+
+  seDeconnecter(){
+    this.conseiller = null;
   }
 
     /**

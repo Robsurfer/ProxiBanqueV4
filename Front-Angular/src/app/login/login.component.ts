@@ -10,19 +10,14 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
-
-  conseiller:Conseiller = new Conseiller();
-
   constructor(private loginService:LoginService) { }
 
   ngOnInit() {
-    this.conseiller.login = '';
-    this.conseiller.password = '';
+    this.loginService.conseiller.login='';
+    this.loginService.conseiller.password='';
   }
 
-  onSubmit(){
-    console.log("Début de l'authentification")
-    this.loginService.authentification(this.conseiller)
-        .subscribe(conseiller => this.conseiller = conseiller);        
+  onSubmit(){  
+    this.loginService.authentification();    
   }
 }

@@ -28,13 +28,13 @@ public class LoginController {
 		String passwordInsere = cons.getPassword();
 		String loginInsere = cons.getLogin();
 
-		Conseiller cons2 = conseillerDao.findByLogin(loginInsere);
+		Conseiller consAChercher = conseillerDao.findByLogin(loginInsere);
 
-		if (cons2 == null || cons2.getPassword() == null) {
-			conseillerAuthentifie = null;
+		if (consAChercher == null) {
+			// Aller chercher dans la table des gérants
 		} else {
-			if (cons2.getPassword() != null & cons2.getPassword().equals(passwordInsere)) {
-				conseillerAuthentifie = cons2;
+			if (consAChercher.getPassword() != null && consAChercher.getPassword().equals(passwordInsere)) {
+				conseillerAuthentifie = consAChercher;
 			}
 		}
 
