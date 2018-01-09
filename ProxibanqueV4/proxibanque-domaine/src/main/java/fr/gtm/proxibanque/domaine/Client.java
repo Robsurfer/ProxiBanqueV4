@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,14 +47,15 @@ public class Client
 	private String mail;	
 	@JoinColumn(name = "CONSEILLER", referencedColumnName = "LOGIN")
 	@ManyToOne
+	@JsonIgnore
 	private Employe conseiller;
 	@Transient
 	@JsonIgnore
 	private List<Compte> listeComptes;
-	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "client", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	private CompteEpargne compteEpargne;
-	@OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "client", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	private CompteCourant compteCourant;
 

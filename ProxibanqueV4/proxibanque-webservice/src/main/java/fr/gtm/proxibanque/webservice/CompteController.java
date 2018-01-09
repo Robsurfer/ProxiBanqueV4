@@ -15,16 +15,14 @@ import fr.gtm.proxibanque.domaine.Compte;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class CompteController {
-	
 	@Autowired
 	private ICompteDao compteDao;
 
-	
 	@RequestMapping(value = "conseiller/{login}/clients/comptes", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getAll(@PathVariable("login") String login) {
 		return compteDao.findAllByClient_Conseiller_login(login);
 	}
-	
+
 	@RequestMapping(value = "conseiller/{login}/clients/comptes/{id}", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getById(@PathVariable("id") int id, @PathVariable("login") String login) {
 		return compteDao.findByClient_idAndClient_Conseiller_login(id, login);
