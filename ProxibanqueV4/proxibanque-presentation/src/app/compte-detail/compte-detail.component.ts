@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 
 import { Compte } from '../compte';
-import { CompteDetailService } from '../compte-detail.service';
+import { CompteService } from '../compte.service';
 
 @Component({
   selector: 'app-compte-detail',
@@ -13,7 +13,7 @@ export class CompteDetailComponent implements OnInit {
   comptes: Compte[];
   @Input()  idClient : number;
 
-  constructor(private compteDetailService: CompteDetailService) { }
+  constructor(private compteService: CompteService) { }
 
   ngOnInit() {
     this.getComptes();
@@ -21,7 +21,7 @@ export class CompteDetailComponent implements OnInit {
 
   getComptes():void 
   {
-    this.compteDetailService.getComptes(this.idClient)
+    this.compteService.getComptes(this.idClient)
         .subscribe(comptes => this.comptes = comptes);
   }
 

@@ -1,3 +1,15 @@
-<p>
-  compte works!
-</p>
+<fieldset>
+  <legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
+
+  <form class="form">
+    <div class="form-group">
+      <label>Choisissez votre client :</label>
+        <select class="form-control" name="client" ngModel>
+          <option value="" disabled> Seletionner un client</option>
+            <option *ngFor="let client of clients" (click)="onSelect(client)">{{client.prenom}} {{client.nom}}</option>
+        </select>							    
+    </div>
+    <input type=submit class="btn btn-primary">
+  </form>
+</fieldset>
+

@@ -16,7 +16,7 @@ const httpOptions = {
 export class ClientService {
 
     // URL vers le web service, remplacer conseiller "psanchez" quand login en place
-    private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.conseiller.login + '/clients'; 
+    private clientsUrl = 'http://localhost:8082/conseiller/psanchez/clients'; 
 
     constructor(
         private http: HttpClient,

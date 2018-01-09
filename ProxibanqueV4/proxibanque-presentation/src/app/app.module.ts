@@ -16,7 +16,6 @@ import { LoginService } from './login.service';
 import { CompteComponent } from './compte/compte.component';
 import { CompteDetailComponent } from './compte-detail/compte-detail.component';
 import { CompteService } from './compte.service';
-import { CompteDetailService } from './compte-detail.service';
 
 @NgModule({
   //Les composants
@@ -29,7 +28,6 @@ import { CompteDetailService } from './compte-detail.service';
     ClientDetailComponent,
 	  LoginComponent,
 	  CompteComponent,
-	  CompteDetailComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
@@ -43,7 +41,6 @@ import { CompteDetailService } from './compte-detail.service';
     ClientService,
     LoginService,
     CompteService,
-    CompteDetailService
   ],
   bootstrap: [AppComponent]
 })
