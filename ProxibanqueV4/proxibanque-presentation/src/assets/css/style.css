@@ -272,3 +272,14 @@ table {
 	  background-color: #ddd;
 	}
 
+    .table-striped > tbody > tr:hover{
+        background-color: #e6f1ff;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .table-striped > tbody > tr:nth-of-type(even):hover{
+        background-color: #c4d0de;
+        cursor: pointer;
+        text-decoration: none;
+    }
