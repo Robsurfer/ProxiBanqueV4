@@ -17,6 +17,11 @@ import fr.gtm.proxibanque.dao.IVirementDao;
 import fr.gtm.proxibanque.domaine.Virement;
 
 /**
+ * Cette classe repertorie les methodes des webservices relatifs au gerant
+ * permettant l'audit de l'agence: recuperer la synthèse des virements effectues
+ * au sein de l'agence et afficher la liste des conseillers de l'agence. Ils
+ * seront integrés au front office.
+ * 
  * @author HLLRS
  *
  */
@@ -28,7 +33,9 @@ public class GerantController {
 	private IVirementDao virementDao;
 
 	/**
-	 * Ce webservice permet de retourner la liste des virements de l'agence
+	 * Ce webservice permet de retourner la liste des virements de l'agence. Il
+	 * prend en parametres d'entree des dates et produit un JSON contenant la liste
+	 * des virements pour une periode definie
 	 * 
 	 * @param date1,
 	 *            date la plus récente de l'intervalle de recherche

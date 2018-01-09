@@ -12,17 +12,44 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.gtm.proxibanque.dao.ICompteDao;
 import fr.gtm.proxibanque.domaine.Compte;
 
+/**
+ * Cette classe repertorie les methodes des webservices relatifs aux comptes
+ * bancaire qui vont chercher des informations en base de données. Ces derniers
+ * vont permettre de recuperer un certain nombre de JSON utiles pour la partie
+ * front office.
+ * 
+ * @author HLLRS
+ *
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class CompteController {
 	@Autowired
 	private ICompteDao compteDao;
 
+	/**
+	 * Ce webservice permet de retourner la liste des comptes des clients d'un
+	 * conseiller identifie. Il ne prend un login en paramètre d'entree
+	 * 
+	 * @param login
+	 * @return List<Compte>, la liste des comptes des clients associes à un
+	 *         conseiller
+	 */
 	@RequestMapping(value = "conseiller/{login}/clients/comptes", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getAll(@PathVariable("login") String login) {
 		return compteDao.findAllByClient_Conseiller_login(login);
 	}
 
+	/**
+	 * Ce webservice permet de retourner la liste des comptes d'un client d'un
+	 * conseiller identifie. Il ne prend un login de conseiller et un id de client
+	 * en paramètres d'entree
+	 * 
+	 * @param id
+	 * @param login
+	 * @return List<Compte>, la liste des comptes d'un client associes à un
+	 *         conseiller
+	 */
 	@RequestMapping(value = "conseiller/{login}/clients/comptes/{id}", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getById(@PathVariable("id") int id, @PathVariable("login") String login) {
 		return compteDao.findByClient_idAndClient_Conseiller_login(id, login);
