@@ -1,0 +1,24 @@
+<div>
+  <div  *ngIf="comptes">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Numero</th>
+          <th>Solde</th>
+          <th>Date d'ouverture</th>
+        </tr>
+      </thead>
+      <tbody >
+          <tr *ngFor="let compte of comptes">
+              <td>{{compte.typeCompte}}</td>
+              <td>{{compte.numeroCompte}}</td>
+              <td>{{compte.solde}}</td>
+              <td>{{compte.dateOuverture}}</td>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

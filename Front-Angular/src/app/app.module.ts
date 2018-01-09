@@ -12,8 +12,12 @@ import { BienvenuComponent } from './bienvenu/bienvenu.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
+
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+
+import { CompteService } from './compte.service';
+import { CompteComponent } from './compte/compte.component';
 
 @NgModule({
   //Les composants
@@ -25,7 +29,8 @@ import { LoginService } from './login.service';
     BienvenuComponent,
     ClientsComponent,
     ClientDetailComponent,
-    LoginComponent
+    LoginComponent,
+    CompteComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
@@ -37,8 +42,9 @@ import { LoginService } from './login.service';
   ],
   providers: [
     ClientService,
-    LoginService
-  ],
-  bootstrap: [AppComponent]
+    LoginService, 
+	CompteService],
+
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
