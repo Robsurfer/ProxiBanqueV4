@@ -27,20 +27,18 @@ public class LogVirement {
 		logger.info("Tentative de transaction");
 	}
 
-	@AfterReturning(pointcut = "loggingVirement()")
-	public void virementOk() {
-		int numCompteEmetteur = 1;
-		int numCompteCible = 2;
-		int montant = 121;
-
-		logger.info("Virement du compte débiteur n°" + numCompteEmetteur + " au compte créditeur n°" + numCompteCible
-				+ " de " + montant + "€");
-	}
-
 	/*
-	 * @AfterReturning(pointcut = "loggingVirement()", returning = "result") public
-	 * void virementOk(Object result) { logger.info(result.toString()); }
+	 * @AfterReturning(pointcut = "loggingVirement()") public void virementOk() {
+	 * int numCompteEmetteur = 1; int numCompteCible = 2; int montant = 121;
+	 * 
+	 * logger.info("Virement du compte débiteur n°" + numCompteEmetteur +
+	 * " au compte créditeur n°" + numCompteCible + " de " + montant + "€"); }
 	 */
+
+	@AfterReturning(pointcut = "loggingVirement()", returning = "result")
+	public void virementOk(Object result) {
+		logger.info(result.toString());
+	}
 
 	@AfterThrowing(pointcut = "loggingVirement()")
 	public void virementErreur() {
