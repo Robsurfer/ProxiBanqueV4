@@ -3,7 +3,6 @@ package fr.gtm.proxibanque.webservice;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,25 +14,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.gtm.proxibanque.dao.IVirementDao;
-import fr.gtm.proxibanque.domaine.Client;
 import fr.gtm.proxibanque.domaine.Virement;
 
+/**
+ * @author HLLRS
+ *
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class GerantController {
-	
+
 	@Autowired
 	private IVirementDao virementDao;
 
-	@RequestMapping(value = "conseiller/audit/{date1}/{date2}", method = RequestMethod.GET, produces = "application/json")
+	/**
+	 * Ce webservice permet de retourner la liste des virements de l'agence
+	 * 
+	 * @param date1
+	 * @param date2
+	 * @return List<Virement>, la liste des virements de l'agence observable par le
+	 *         gerant
+	 */
+	@RequestMapping(value = "gerant/audit/{date1}/{date2}", method = RequestMethod.GET, produces = "application/json")
 	public List<Virement> Audit(@PathVariable("date1") String date1, @PathVariable("date2") String date2) {
-		 DateFormat input = new SimpleDateFormat("ddMMyyyy");
-		 DateFormat output = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat input = new SimpleDateFormat("ddMMyyyy");
 
-			Date dateForm1 = new Date();
-			Date dateForm2 = new Date();
+		Date dateForm1 = new Date();
+		Date dateForm2 = new Date();
 		try {
-		
+
 			dateForm1 = input.parse(date1);
 			dateForm2 = input.parse(date2);
 		} catch (ParseException e) {
@@ -43,9 +52,5 @@ public class GerantController {
 
 		return virementDao.findByDateVirementBeforeAndDateVirementAfter(dateForm1, dateForm2);
 	}
-		
-	@RequestMapping(value = "conseiller/{login}/virements", method = RequestMethod.GET, produces = "application/json")
-	public Collection<Virement> getAll(@PathVariable("login") String login) {
-		return virementDao.findAllByConseiller_login(login);
-	}
+
 }
