@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BienvenuComponent } from './bienvenu/bienvenu.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
@@ -22,7 +21,6 @@ import { LoginService } from './login.service';
     AppComponent,
     DashboardComponent,
     NavComponent,
-    BienvenuComponent,
     ClientsComponent,
     ClientDetailComponent,
 	LoginComponent

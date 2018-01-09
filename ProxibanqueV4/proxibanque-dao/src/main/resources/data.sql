@@ -1,9 +1,9 @@
-insert into employe(login,password,nom,prenom,role) values ('gclaude','chef','Guillaume','Claude','gerant'); 
-insert into employe(login,password,nom,prenom,role) values ('pdupond','toto','Paul','Dupond','conseiller'); 
-insert into employe(login,password,nom,prenom,role) values ('jfontaine','tutu','Jean','Fontaine','conseiller');
-insert into employe(login,password,nom,prenom,role) values ('rhoareau','titi','Remi','Hoareau','conseiller');
-insert into employe(login,password,nom,prenom,role) values ('psanchez','tata','Pierre','Sanchez','conseiller');
-insert into employe(login,password,nom,prenom,role) values ('pierre.sanchez','tyty','Pierre','Sanchez','conseiller');
+insert into employe(login,password,prenom,nom,role) values ('gclaude','chef','Guillaume','Claude','gerant'); 
+insert into employe(login,password,prenom,nom,role) values ('pdupond','toto','Paul','Dupond','conseiller'); 
+insert into employe(login,password,prenom,nom,role) values ('jfontaine','tutu','Jean','Fontaine','conseiller');
+insert into employe(login,password,prenom,nom,role) values ('rhoareau','titi','Remi','Hoareau','conseiller');
+insert into employe(login,password,prenom,nom,role) values ('psanchez','tata','Pierre','Sanchez','conseiller');
+insert into employe(login,password,prenom,nom,role) values ('pierre.sanchez','tyty','Pierre','Sanchez','conseiller');
 
 insert into client(id, prenom, nom,adresse, code_postal, ville, telephone, mail, conseiller) values(sequencecli.nextval,'Maxwell','Sheffield','145 boulevard des capucins',75005,'paris','0126597820','msheff@free.com','pierre.sanchez');
 insert into client(id, prenom, nom,adresse, code_postal, ville, telephone, mail, conseiller) values(sequencecli.nextval,'John','Wayne','15 rue de la boeme',75007,'PARIS','0135678712','jwayne@gmail.com','rhoareau');

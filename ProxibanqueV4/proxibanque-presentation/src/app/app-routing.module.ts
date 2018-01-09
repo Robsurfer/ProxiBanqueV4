@@ -1,7 +1,6 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { BienvenuComponent }   from './bienvenu/bienvenu.component';
 import { ClientsComponent }   from './clients/clients.component';
 import { ClientDetailComponent }   from './client-detail/client-detail.component';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   //route par defaut au démarrage de l'appli
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'bienvenu', component: BienvenuComponent },
   { path: 'login', component: LoginComponent },
   { path: 'clients', component: ClientsComponent },
 
