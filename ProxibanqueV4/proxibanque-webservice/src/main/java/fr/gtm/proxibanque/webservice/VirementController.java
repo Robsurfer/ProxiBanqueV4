@@ -20,7 +20,7 @@ import fr.gtm.proxibanque.domaine.VirementFormulaire;
 
 /**
  * @author Loriane Ce RestController permet la gestion des webservices relatifs
- *         aux virements. Elle comprend une méthode virement qui réalise le
+ *         aux virements. Il comprend une méthode virement qui réalise le
  *         virement donné par le Front et le persiste en base de données.
  */
 @RestController
