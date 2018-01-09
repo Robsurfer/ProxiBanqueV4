@@ -1,9 +1,10 @@
 package fr.gtm.proxibanque.dao;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
 
 import fr.gtm.proxibanque.domaine.Compte;
 import fr.gtm.proxibanque.domaine.Conseiller;
@@ -23,4 +24,7 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	public Collection<Virement> findAllByCompteCible(Compte compteCible);
 	
 	public Collection<Virement> findAllByCompteCible_numero(String numero);
+	
+	public List<Virement> findByDateVirementBeforeAndDateVirementAfter(Date date1, Date date2);
+
 }
