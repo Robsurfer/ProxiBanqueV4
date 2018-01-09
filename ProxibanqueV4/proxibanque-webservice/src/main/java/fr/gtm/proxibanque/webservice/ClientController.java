@@ -58,7 +58,7 @@ public class ClientController
 			
 			//Attribution d'un compte courant au client
 			Date dateOuverture = new Date();
-			CompteCourant cc = new CompteCourant(0,dateOuverture,500);
+			CompteCourant cc = new CompteCourant(0,dateOuverture,-500);
 			cc.setClient(client);
 			compteDao.save(cc);
 			
