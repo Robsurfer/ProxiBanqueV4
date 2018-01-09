@@ -8,3 +8,4 @@ fr\gtm\proxibanque\dao\IClientDao.class
 fr\gtm\proxibanque\webservice\ClientController.class
 fr\gtm\proxibanque\domaine\Client.class
 fr\gtm\proxibanque\domaine\Compte.class
+fr\gtm\proxibanque\webservice\LoginController.class

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; //Pour NgModel nécessaire au 2-way data binding
 // Pour la connexion Http
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,6 +12,8 @@ import { BienvenuComponent } from './bienvenu/bienvenu.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.service';
 
 @NgModule({
   //Les composants
@@ -22,7 +24,8 @@ import { ClientService } from './client.service';
     NavComponent,
     BienvenuComponent,
     ClientsComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    LoginComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
@@ -32,7 +35,10 @@ import { ClientService } from './client.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ClientService],
+  providers: [
+    ClientService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
