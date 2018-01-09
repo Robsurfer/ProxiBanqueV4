@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'client/creer', component: ClientCreationComponent },
   //Route paramétrée par :id
   //Le signe deux-points (:) dans le chemin indique que: id est un espace réservé pour un identifiant de client spécifique.
-  { path: 'client/detail/:id', component: ClientDetailComponent},
+  { path: 'detail/:id', component: ClientDetailComponent},
   { path: 'virement', component: VirementComponent },
   { path: 'virement/liste', component: VirementListeComponent },
   { path: 'compte/liste', component: CompteListeComponent },
