@@ -31,6 +31,9 @@ export class ClientsComponent implements OnInit {
       this.router.navigate(['login']);
     }
 
+    sessionStorage.setItem('annulModif',null);
+    sessionStorage.setItem('messageModif',null);
+
     this.getClients();
   }
 

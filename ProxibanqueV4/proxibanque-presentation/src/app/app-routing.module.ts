@@ -5,12 +5,14 @@ import { ClientsComponent }   from './clients/clients.component';
 import { ClientDetailComponent }   from './client-detail/client-detail.component';
 import { ClientCreationComponent } from './client-creation/client-creation.component';
 import { LoginComponent } from './login/login.component';
+
 import { LogoutComponent } from './logout/logout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
 import { VirementListeComponent } from './virement-liste/virement-liste.component';
 import { CompteListeComponent } from './compte-liste/compte-liste.component';
 import { CompteCreationComponent } from './compte-creation/compte-creation.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
 
 const routes: Routes = [
   //route par defaut au démarrage de l'appli
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'clients', component: ClientsComponent },
   { path: 'client/creer', component: ClientCreationComponent },
+  { path: 'edit/:id', component: EditClientComponent },
+
   //Route paramétrée par :id
   //Le signe deux-points (:) dans le chemin indique que: id est un espace réservé pour un identifiant de client spécifique.
   { path: 'detail/:id', component: ClientDetailComponent},

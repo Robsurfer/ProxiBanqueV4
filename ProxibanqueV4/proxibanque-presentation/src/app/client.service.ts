@@ -17,6 +17,7 @@ export class ClientService {
 
     // URL vers le web service
     private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
+    private modifClientUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() +'/modifClient';
 
     constructor(
         private http: HttpClient,
@@ -59,7 +60,7 @@ export class ClientService {
   */
   /** PUT: update the client on the server */
   updateClient (client: Client): Observable<any> {
-    return this.http.put(this.clientsUrl, client, httpOptions).pipe(
+    return this.http.post(this.modifClientUrl, client, httpOptions).pipe(
       catchError(this.handleError<any>('updateClient'))
     );
   }

@@ -16,6 +16,7 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
 import { ClientCreationComponent } from './client-creation/client-creation.component';
@@ -25,6 +26,8 @@ import { CompteListeComponent } from './compte-liste/compte-liste.component';
 import { CompteCreationComponent } from './compte-creation/compte-creation.component';
 import { LogoutComponent } from './logout/logout.component';
 import { EtatRequeteComponent } from './etat-requete/etat-requete.component';
+
+import { EditClientComponent } from './edit-client/edit-client.component';
 
 @NgModule({
   //Les composants
@@ -36,6 +39,7 @@ import { EtatRequeteComponent } from './etat-requete/etat-requete.component';
     NavHautComponent,
     ClientsComponent,
     ClientDetailComponent,
+
     ClientCreationComponent,
     LoginComponent,
     PageNotFoundComponent,
@@ -46,6 +50,9 @@ import { EtatRequeteComponent } from './etat-requete/etat-requete.component';
     CompteCreationComponent,
     LogoutComponent,
     EtatRequeteComponent
+
+	  LoginComponent,
+	  EditClientComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
