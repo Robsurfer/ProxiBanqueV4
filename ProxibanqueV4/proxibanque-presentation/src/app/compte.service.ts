@@ -29,6 +29,13 @@ export class CompteService {
       );
   }
 
+  getComptesAgence (): Observable<Compte[]> {
+    return this.http.get<Compte[]>('http://localhost:8082/comptes')
+      .pipe(
+        catchError(this.handleError('getComptesAgence', []))
+      );
+  }
+
   getCompte(id: number): Observable<Compte> {
     const url = `${this.comptesUrl}/client/${id}`;
     return this.http.get<Compte>(url).pipe(

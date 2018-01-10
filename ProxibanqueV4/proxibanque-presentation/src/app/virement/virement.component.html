@@ -30,58 +30,68 @@
         <br></br>	
       -->
 
-      <h5>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h5>
+      <h4>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h4>
       
-      <!--
+      
         <fieldset>
         <legend>Effectuer un virement</legend>					
         <form class="form" method="post" action="EffectuerVirement">
-          <div class="form-group">
-            
-            <label  for="numCompteDebit">Compte à débiter :</label>          
-            <c:if test = "${!empty ListeComptesClients}">
-              <select class="form-control" required="required" id="numCompteDebit" name="numCompteDebit">
-                <c:forEach items="${ListeComptesClients}" var="compteDebit" >
-                  <option  name="numCompteDebit" required="required" value="${compteDebit.numeroCompte}">
-                    n°${compteDebit.numeroCompte} - Client : ${compteDebit.client.prenom} ${compteDebit.client.nom}	
-                  </option>
-                </c:forEach>
-              </select>
-            </c:if>
-            <c:if test = "${empty ListeComptesClients}">
-              Vous n'avez pas de client ayant un compte !
-              <select class="form-control" required="required"></select>
-            </c:if>				
-          			    
-          </div>
 
-          <div class="form-group">
-            <label  for="numCompteCredit">Compte à créditer :</label>
-            
-            <c:if test = "${!empty ListeComptesTotale}">
-              <select class="form-control" required="required" id="numCompteCredit" name="numCompteCredit">
-                <c:forEach items="${ListeComptesTotale}" var="compteCredit" >
-                  <option  name="numCompteCredit" required="required" value="${compteCredit.numeroCompte}">
-                    n°${compteCredit.numeroCompte} - 
-                    Client : ${compteCredit.client.prenom} ${compteCredit.client.nom}				
-                  </option>
-                </c:forEach>
-              </select>
-            </c:if>
-            <c:if test = "${empty ListeComptesTotale}">
-              Il n'y a pas de compte dans votre banque !
-              <select class="form-control" required="required"></select>
-            </c:if>		
-          
-          </div>
+            <form class="form">
+                <div class="form-group">
+                <label>Compte à débiter :</label>
+                  <!-- Il existe des clients ayant un compte -->
+                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="comptesConseiller">                    
+                    <option value="" disabled>
+                      Séletionner un compte
+                    </option>
+                    
+                    <option *ngFor="let compteEmetteur of comptesConseiller" (click)="onSelect(compteEmetteur)">
+                        n°{{compteEmetteur.numero}} - Client : {{compteEmetteur.client.prenom}} {{compteEmetteur.client.nom}}
+                      </option>
+                  </select>
+                  <!-- Le conseiller n'a pas de clients ayant un compte -->
+                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="!comptesConseiller">   
+                    <option value="" disabled>
+                      Vous n'avez pas de client ayant un compte !
+                    </option>
+                  </select>
+                </div>
+            </form>
+
+
+            <form class="form">
+                <div class="form-group">
+                <label>Compte à débiter :</label>
+                  <!-- Il existe des clients ayant un compte -->
+                  <select class="form-control" required="required" name="compteCible" *ngIf="comptesAgence">                    
+                    <option value="" disabled>
+                      Séletionner un compte
+                    </option>
+                    
+                    <option *ngFor="let compteCible of comptesConseiller" (click)="onSelect(comptesAgence)">
+                        n°{{compteCible.numero}} - Client : {{compteCible.client.prenom}} {{compteCible.client.nom}}
+                      </option>
+                  </select>
+                  <!-- Le conseiller n'a pas de clients ayant un compte -->
+                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="!comptesAgence">   
+                    <option value="" disabled>
+                      Il n'y a pas de compte dans votre banque !
+                    </option>
+                  </select>
+                </div>
+            </form>
+<!--
           <div class="form-group">
             <label  for="amout">Montant de la transaction :</label>
-            <input type="number" min="0" data-bind="value:replyNumber" class="form-control" required="required" name="montant">
+            <input type="number" min="0" data-bind="value:replyNumber" class="form-control" required="required" name="montant"></input>
           </div>
-          <input type="hidden" name="login" value=${conseiller.login}>
-          <input type=submit class="btn btn-primary" value="Effectuer le virement"></input>
-        </form>
+          <input type="hidden" name="login" value={{employeLogin}}>
+          <input class="btn btn-primary" value="Effectuer le virement"></input>
+        -->
+      </form>
+
       </fieldset>
-      <br></br> -->
+      
     </div>
   </div>

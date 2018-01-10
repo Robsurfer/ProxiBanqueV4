@@ -143,6 +143,10 @@ a {
 	margin-right:10px;
 }
 
+fieldset {
+    margin-top: 1.5em;
+  }
+
 /* Side Navigation */
 @media(min-width:768px) {
     .side-nav {

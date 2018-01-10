@@ -28,6 +28,18 @@ public class CompteController {
 	private ICompteDao compteDao;
 
 	/**
+	 * Ce webservice permet de retourner la liste des comptes des clients
+	 * del'agence. Il ne prend un login en paramètre d'entree
+	 * 
+	 * @param login
+	 * @return List<Compte>, la liste des comptes des clients de l'agence
+	 */
+	@RequestMapping(value = "comptes", method = RequestMethod.GET, produces = "application/json")
+	public List<Compte> getAllAgence() {
+		return compteDao.findAll();
+	}
+
+	/**
 	 * Ce webservice permet de retourner la liste des comptes des clients d'un
 	 * conseiller identifie. Il ne prend un login en paramètre d'entree
 	 * 
