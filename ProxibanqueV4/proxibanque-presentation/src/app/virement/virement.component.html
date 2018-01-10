@@ -90,7 +90,7 @@
               <label>Libellé :</label>
               <input type="text" maxlength="20" class="form-control" name="libelle" [(ngModel)]="libelle" [ngModelOptions]="{standalone: true}" (click)="reInitMessage()">
             </div>
-          <button class="btn btn-primary" type="submit" [disabled]="!productForm.form.valid">Effectuer le virement</button>
+          <button class="btn btn-primary" type="submit" [disabled]="!productForm.form.valid" (click)="reInitMessage()">Effectuer le virement</button>
           
         
       </form>
