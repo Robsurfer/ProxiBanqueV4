@@ -1,6 +1,4 @@
-								   ******************
-*********************************** ProxiBanqueSI V4 *************************************
-								   ******************
+# ProxiBanqueSI V4 
 								   
 Readme du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
 
