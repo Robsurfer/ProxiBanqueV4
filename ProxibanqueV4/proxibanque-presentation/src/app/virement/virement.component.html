@@ -1,7 +1,16 @@
 <div class="row">
     <div class="col-lg-12">
+        <div class="alert alert-success" *ngIf="(succesCreation) != null">
+             {{succesCreation}}
+        </div>
+        <div class="alert alert-warning" *ngIf="(warningCreation) != null" >
+            {{warningCreation}}
+        </div>
+        <div class="alert alert-error" *ngIf="(erreurCreation) != null">
+             {{erreurCreation}}
+        </div>
 
-      <!--
+        <!--
         <legend>Comptes modifiés</legend>
         <table class="table-striped">
           <thead>
@@ -14,7 +23,7 @@
           </thead> 
           <tbody>
             <tr>
-              <td>${compteDebiteur.numeroCompte}</td>
+              <td>{{virement.numCompteEmetteur}}</td>
               <td>${compteDebiteur.client.prenom} ${compteDebiteur.client.nom}</td>
               <td>${compteDebiteur.solde + montant}</td>									
               <td>${compteDebiteur.solde}</td>
@@ -27,68 +36,60 @@
             </tr>
           </tbody>				
         </table>						
-        <br></br>	
-      -->
+        <br></br>	-->
+      
 
       <h4>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h4>
       
       
         <fieldset>
         <legend>Effectuer un virement</legend>					
-        <form class="form" method="post" action="EffectuerVirement">
+        <form class="form" (ngSubmit)="effectuerVirement()" #productForm="ngForm">
 
-            <form class="form">
+            
                 <div class="form-group">
                 <label>Compte à débiter :</label>
                   <!-- Il existe des clients ayant un compte -->
-                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="comptesConseiller">                    
-                    <option value="" disabled>
-                      Séletionner un compte
-                    </option>
-                    
-                    <option *ngFor="let compteEmetteur of comptesConseiller" (click)="onSelect(compteEmetteur)">
+                  <select class="form-control" required="required" name="numCompteEmetteur" *ngIf="comptesConseiller" [(ngModel)]="numCompteEmetteur" (click)="reInitMessage()">                    
+                    <option *ngFor="let compteEmetteur of comptesConseiller" [value]="compteEmetteur.numero">
                         n°{{compteEmetteur.numero}} - Client : {{compteEmetteur.client.prenom}} {{compteEmetteur.client.nom}}
                       </option>
                   </select>
                   <!-- Le conseiller n'a pas de clients ayant un compte -->
-                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="!comptesConseiller">   
+                  <select class="form-control" required="required" name="numCompteEmetteur" *ngIf="!comptesConseiller">   
                     <option value="" disabled>
                       Vous n'avez pas de client ayant un compte !
                     </option>
                   </select>
                 </div>
-            </form>
-
-
-            <form class="form">
+         
                 <div class="form-group">
-                <label>Compte à débiter :</label>
+                <label>Compte à créditer :</label>
                   <!-- Il existe des clients ayant un compte -->
-                  <select class="form-control" required="required" name="compteCible" *ngIf="comptesAgence">                    
-                    <option value="" disabled>
-                      Séletionner un compte
+                  <select class="form-control" required="required" name="numCompteCible" *ngIf="comptesAgence" [(ngModel)]="numCompteCible" (click)="reInitMessage()">                    
+                     <option *ngFor="let compteCible of comptesAgence"  [value]="compteCible.numero">
+                      n°{{compteCible.numero}} - Client : {{compteCible.client.prenom}} {{compteCible.client.nom}}
                     </option>
-                    
-                    <option *ngFor="let compteCible of comptesConseiller" (click)="onSelect(comptesAgence)">
-                        n°{{compteCible.numero}} - Client : {{compteCible.client.prenom}} {{compteCible.client.nom}}
-                      </option>
                   </select>
                   <!-- Le conseiller n'a pas de clients ayant un compte -->
-                  <select class="form-control" required="required" name="compteEmetteur" *ngIf="!comptesAgence">   
+                  <select class="form-control" required="required" name="compteCible" *ngIf="!comptesAgence">   
                     <option value="" disabled>
                       Il n'y a pas de compte dans votre banque !
                     </option>
                   </select>
                 </div>
-            </form>
-<!--
-          <div class="form-group">
-            <label  for="amout">Montant de la transaction :</label>
-            <input type="number" min="0" data-bind="value:replyNumber" class="form-control" required="required" name="montant"></input>
-          </div>
-          <input type="hidden" name="login" value={{employeLogin}}>
-          <input class="btn btn-primary" value="Effectuer le virement"></input>
-        -->
+
+            <div class="form-group">
+              <label>Montant de la transaction :</label>
+              <input type="number" min="0" class="form-control" name="montant" required="required" [(ngModel)]="montant" [ngModelOptions]="{standalone: true}" (click)="reInitMessage()">
+            </div>
+            <div class="form-group">
+              <label>Libellé :</label>
+              <input type="text" maxlength="20" class="form-control" name="libelle" [(ngModel)]="libelle" [ngModelOptions]="{standalone: true}" (click)="reInitMessage()">
+            </div>
+          <button class="btn btn-primary" type="submit" [disabled]="!productForm.form.valid">Effectuer le virement</button>
+          
+        
       </form>
 
       </fieldset>

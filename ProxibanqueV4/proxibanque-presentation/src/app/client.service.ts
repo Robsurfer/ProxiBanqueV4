@@ -88,7 +88,7 @@ export class ClientService {
       // if not search term, return empty client array.
       return of([]);
     }
-    return this.http.get<Client[]>(`api/clients/?name=${term}`).pipe(
+    return this.http.get<Client[]>(this.clientsUrl+`/?name=${term}`).pipe(
       catchError(this.handleError<Client[]>('searchClients', []))
     );
   }
