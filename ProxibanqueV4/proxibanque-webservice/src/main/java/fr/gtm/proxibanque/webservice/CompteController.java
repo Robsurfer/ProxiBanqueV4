@@ -59,11 +59,20 @@ public class CompteController {
 	 * 
 	 * @param id
 	 * @param login
-	 * @return List<Compte>, la liste des comptes d'un client associes à un
+	 * @return List<Compte>, la liste des comptes d'un client associe à un
 	 *         conseiller
 	 */
 	@RequestMapping(value = "conseiller/{login}/comptes/client/{id}", method = RequestMethod.GET, produces = "application/json")
 	public List<Compte> getById(@PathVariable("id") int id, @PathVariable("login") String login) {
-		return compteDao.findByClient_idAndClient_Conseiller_login(id, login);
+
+		// Récupération de la liste
+		List<Compte> listeComptesClient = compteDao.findByClient_idAndClient_Conseiller_login(id, login);
+
+		// traitement sur la date
+		for (Compte compte : listeComptesClient) {
+			compte.getDateOuverture();
+			System.out.println(compte.getDateOuverture());
+		}
+		return listeComptesClient;
 	}
 }

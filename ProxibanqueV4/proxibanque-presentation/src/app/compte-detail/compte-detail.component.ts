@@ -2,6 +2,8 @@ import { Component, OnInit, Input} from '@angular/core';
 
 import { Compte } from '../compte';
 import { CompteService } from '../compte.service';
+import { Client } from '../client';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,25 +17,19 @@ export class CompteDetailComponent implements OnInit {
   @Input()  idClient : number;
   @Input() client: Client;
 
-
-
-
-  constructor(private compteService: CompteService) { }
+  constructor(
+    private compteService: CompteService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.getCompte();
-    this.getCompteBis();
   }
 
   getCompte():void
   {
-    this.compteService.getCompte(this.idClient)
-        .subscribe(comptes => this.comptes = comptes);
-  }
-
-  getCompteBis():void
-  {
-    this.compteService.getCompte(this.client.id)
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.compteService.getCompte(id)
         .subscribe(comptes => this.comptes = comptes);
   }
 

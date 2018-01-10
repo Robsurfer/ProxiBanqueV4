@@ -12,7 +12,7 @@
       <tr *ngFor= "let compte of comptes">
         <td>{{compte.numero}}</td>
         <td>{{compte.solde}}</td>
-        <td>{{compte.dateOuverture}}</td>
+        <td>{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
       </tr>
     </tbody>
   </table>
