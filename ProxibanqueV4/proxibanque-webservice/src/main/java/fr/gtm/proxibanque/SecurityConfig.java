@@ -1,6 +1,5 @@
 package fr.gtm.proxibanque;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,18 +13,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	  auth.inMemoryAuthentication().withUser("psanchez").password("tata").roles("CONSEILLER");
-	  auth.inMemoryAuthentication().withUser("pdupond").password("toto").roles("CONSEILLER");
-	  auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
+		// auth.inMemoryAuthentication().withUser("psanchez").password("tata").roles("CONSEILLER");
+		// auth.inMemoryAuthentication().withUser("pdupond").password("toto").roles("CONSEILLER");
+		auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-	  http.authorizeRequests()
-		.antMatchers("/conseiller/**").access("hasRole('ROLE_CONSEILLER')")
-		.antMatchers("/gerant/**").access("hasRole('ROLE_GERANT')")
-		.and().formLogin();
+		http.authorizeRequests()
+				// .antMatchers("/conseiller/**").access("hasRole('ROLE_CONSEILLER')")
+				// .antMatchers("/gerant/**").access("hasRole('ROLE_GERANT')")
+				.antMatchers("/**").access("hasRole('ROLE_ADMIN')").and().formLogin();
 
 	}
 }
