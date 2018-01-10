@@ -8,8 +8,10 @@
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
-          <th>Téléphone</th>
-          <th>eMail</th>
+          <!--
+          <th>Editer</th>
+          <th>Supprimer</th>
+          -->	
         </tr>
       </thead> 
       <tbody >			          	
@@ -18,8 +20,10 @@
               <td>{{client.nom}}</td>
               <td>{{client.prenom}}</td>									
               <td>{{client.adresse}}</td>
-              <td>{{client.telephone}}</td>
-              <td>{{client.mail}}</td>						
+              <!--
+              <td><i class="fa fa-fw fa-edit" routerLink="/edit/{{client.id}}"></i></td>
+              <td><i class="fa fa-fw fa-edit" routerLink="/edit/{{client.id}}"></i></td>			
+              -->		
           </tr>		
       </tbody>				
     </table>	                  

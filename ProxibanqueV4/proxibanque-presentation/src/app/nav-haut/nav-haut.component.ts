@@ -30,8 +30,8 @@ export class NavHautComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    this.employe.nom = this.loginService.getNomEmployeSession();
-    this.employe.prenom = this.loginService.getPrenomEmployeSession();  
+    this.loginService.getNomEmployeSessionObs().subscribe(nom => this.employe.nom = nom);
+    this.loginService.getPrenomEmployeSessionObs().subscribe(prenom => this.employe.prenom = prenom);  
   }
 
   deconnexion(){
