@@ -27,6 +27,7 @@ export class ClientsComponent implements OnInit {
   
   ngOnInit() {
 
+    //Redirection vers la page de login si aucun conseiller en session
     if (!this.loginService.getLoginEmployeSession()) {
       this.router.navigate(['login']);
     }

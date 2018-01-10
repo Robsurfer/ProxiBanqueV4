@@ -11,7 +11,7 @@
 <ul class="nav navbar-right top-nav"  *ngIf="loginService.getLoginEmployeSession()">
   <li class="dropdown" ngbDropdown>
       <a class="dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
-        <i class="fa fa-user"></i> {{employe.prenom}} {{employe.nom}}<b class="caret"></b>
+        <i class="fa fa-user"></i> {{employe?.prenom}} {{employe?.nom}}<b class="caret"></b>
       </a>
       <ul class="dropdown-menu" ngbDropdownMenu>
         <li>

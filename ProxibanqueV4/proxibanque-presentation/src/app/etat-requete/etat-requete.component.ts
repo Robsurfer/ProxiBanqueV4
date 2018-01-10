@@ -10,6 +10,7 @@ export class EtatRequeteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

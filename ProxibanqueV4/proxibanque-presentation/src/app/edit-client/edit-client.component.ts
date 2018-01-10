@@ -3,6 +3,8 @@ import { Client } from '../client';
 import { ClientService } from '../client.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-client',
@@ -16,11 +18,18 @@ export class EditClientComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private clientService: ClientService,
-    private location: Location
+    private location: Location,
+    private loginService : LoginService,
+    private router : Router
     ) { }
 
   ngOnInit() {
     this.getClient();
+
+    //Redirection vers la page de login si aucun conseiller en session
+    if (!this.loginService.getLoginEmployeSession()) {
+      this.router.navigate(['login']);
+    }
   }
 
   getClient(): void {
