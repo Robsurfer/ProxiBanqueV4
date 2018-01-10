@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../client';
 import { ClientService } from '../client.service';
 import { LoginService } from '../login.service';
+import { CompteService } from '../compte.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,6 +28,7 @@ getClients(): void {
 constructor(
   private clientService : ClientService, 
   private loginService : LoginService,
+  private compteService: CompteService,
   private router : Router){}
 
 ngOnInit() {
@@ -41,9 +43,10 @@ ngOnInit() {
   this.getClients();
 }
 
-onSelect(client: Client): void
+onClick(client: Client): void
 {
-  this.selectedClient = client;
+  this.compteService.getCompte(client.id)
+      .subscribe(comptes => this.comptes = comptes);
 }
 
 
