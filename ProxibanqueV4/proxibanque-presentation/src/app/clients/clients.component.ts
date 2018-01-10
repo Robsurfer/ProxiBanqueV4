@@ -34,7 +34,7 @@ export class ClientsComponent implements OnInit {
 
     //Redirection vers la page de login si gerant en session
     if (this.loginService.getRoleEmployeSession() == 'gerant') {
-      this.router.navigate(['conseillers']);
+      this.router.navigate(['/conseillers']);
     }
 
     sessionStorage.setItem('annulModif',null);

@@ -23,6 +23,7 @@ export class ConseillersComponent implements OnInit {
   constructor(private conseillerService : ConseillerService){}
   
   ngOnInit() {
+    console.log("test");
     this.getConseillers();
   }
 }
