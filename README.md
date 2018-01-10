@@ -69,28 +69,26 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 		 grant connect, resource to proxibanque;	 
 
 #### B. Lancer le serveur Apache Tomcat
-	1. Vérifiez que le programme n'utilise pas le port 8080 (utilisé par défaut par Oracle et Tomcat)
-		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
-		   -> accédez au dossier \conf
-		ii. Ouvrez le fichier 'server.xml' avec un éditeur de texte 
-		    (type bloc-note sous Windows, text-edit sous OS X)
-		iii. Vérifiez que le port 8080 n'apparait pas.
-		     S'il apparait remplacez toutes les occurences par un autre port
-		     (nous recommandons le port 8081)
-		iv. Sauvegardez et quittez
-	2. Charger l'application dans le serveur Apache Tomcat
+	
+	1. Charger la partie webservices de l'application telechargée sour forme de .war (fichier ProxibanqueV4.war) dans le serveur Apache Tomcat
 		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
 		   -> accédez au dossier \webapps
-		ii. Copiez-collez dans le dossier \webapps le fichier 'ProxibanqueV3.war'
-	   	    (le fichier 'ProxibanqueV3.war' se trouve à la racine du dossier du projet)
+		ii. Copiez-collez dans le dossier \webapps le fichier 'ProxibanqueV4.war'
+	   	    (le fichier 'ProxibanqueV4.war' se trouve à la racine du dossier du projet)
+			
+	2. Charger dans le dossier /webapps de Tomcat la partie présentation de l'application (dossier ProxibanqueV4).
+		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
+		   -> accédez au dossier \webapps
+		ii. Copiez-collez dans le dossier \webapps le dossier 'ProxibanqueV4'
+	
 	3. Lancez le serveur
 		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
 		   -> accédez au dossier \bin
 		ii. Double-cliquez sur le fichier 'startup.bat' -> le serveur et lancez	 
 
 #### C. Accéder à la page d'acceuil de l'application ProxibanqueSI
-	1. Lancez votre navigateur et accédez à l'url : http://localhost:8081/ProxibanqueV3/
-	   Veillez à remplacer 8081 par le port indiqué à l'étape B.1.iii précédente
+	1. Lancez votre navigateur et accédez à l'url : http://localhost:8082/ProxibanqueV4/
+	   
 	2. Pour vous identifier saisissez un login/mot de passe valides pour un conseiller ou un gerant dont la liste est la suivante 
 	   (attention le login est sensible à la casse)
 	   Conseillers:
