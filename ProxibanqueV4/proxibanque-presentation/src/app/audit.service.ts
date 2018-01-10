@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ListeVirementService } from './listevirement.service';
+import { VirementService } from './virement.service';
 import { Virement } from './virement';
 
 @Injectable()
@@ -7,7 +7,7 @@ export class AuditService {
 
   virements: Virement[];
 
-  constructor(private virementService: ListeVirementService) { }
+  constructor(private virementService: VirementService) { }
 
   getVirements(){
     this.virementService.getVirementsAgence().subscribe(virements => this.virements = virements)
