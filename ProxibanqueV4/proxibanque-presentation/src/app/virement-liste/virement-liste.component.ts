@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ListeVirementService } from '../listevirement.service';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { Virement } from '../virement';

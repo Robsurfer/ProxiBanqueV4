@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { ListeVirementService } from '../listevirement.service';
+import { VirementService } from '../virement.service';
 import { AuditService } from '../audit.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class AuditComponent implements OnInit {
 
   constructor(
     private loginService : LoginService,
-    private virementService : ListeVirementService, 
+    private virementService : VirementService, 
     private auditService : AuditService,
     private router : Router) { }
 
