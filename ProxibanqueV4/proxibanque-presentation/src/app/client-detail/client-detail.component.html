@@ -1,38 +1,30 @@
-<div class="row tomove">                    
-  <div class="col-lg-12">
-
+<div class="row">
+  <div class="col-lg-12"> 	
       <div class="alert alert-success" *ngIf="(message) != null">
           {{message}}
       </div>
       <div class="alert alert-info" *ngIf="(annulModif) != null">
           {{annulModif}}
       </div>
-    
-      <fieldset>
-        <legend>Client {{client?.prenom}} {{client?.nom}} </legend>
-        <div class="form-group">
-          <label  for="nom">Nom :</label>
-          <input disabled type="text" class="form-control" required="required" placeholder={{client?.nom}} name="nom" title="Maximum 20 caractères non accentués" pattern="[aA-Z][a-zA-Z-]+">
-        </div>
-        <div class="form-group">
-          <label  for="prenom">Prénom :</label>
-          <input disabled type="text" class="form-control" required="required" name="prenom" placeholder={{client?.prenom}} title="Maximum 20 caractères non accentués" pattern="[a-zA-Z][a-zA-Z-]+">
-        </div>
-        <div class="form-group">
-          <label for="adresse">Adresse :</label>
-          <input disabled type="text" class="form-control" name="adresse"placeholder={{client?.adresse}} title="Numéro de rue et adresse. Maximum 60 caractères non accentués" pattern="[0-9]+\s[a-zA-Z-\s]+" maxlength="60">
-        </div>
-        <div class="form-group">
-          <label  for="telephone">Téléphone :</label>
-          <input disabled type="tel" class="form-control" name="telephone" placeholder={{client?.telephone}} pattern="^0[1-9][0-9]{8}$"> 
-        </div>
-        <div class="form-group">
-          <label  for="mail">Email :</label>
-          <input disabled type="email" class="form-control" name="mail" placeholder={{client?.mail}} title="Exemple : toto@toto.fr" name="mail" maxlength="40">
-        </div>
 
-      </fieldset>
-      <a routerLink="/edit/{{client?.id}}">Modifier Client</a>
-  </div>
+    <ul>
+      <li><strong>Nom :</strong> {{client?.nom}}</li>
+      <li><strong>Prénom :</strong> {{client?.prenom}}</li>
+      <li><strong>Adresse :</strong> {{client?.adresse}}</li>
+      <li><strong>Code Postal :</strong> {{client?.codePostal}} </li>
+      <li><strong>Ville :</strong> {{client?.ville}}</li>
+      <li><strong>Téléphone :</strong> {{client?.telephone}}</li>
+      <li><strong>Email :</strong> {{client?.mail}}</li>
+    </ul>						
+  </div>	
 </div>
-<!-- /.row -->
+
+<div class="row">
+  <div class="col-auto">
+    <form action="ClientAction" method="Post">
+      <div class="text-center">
+        <button type=submit class="btn btn-primary" name="action" value="ModifClient" routerLink="/edit/{{client?.id}}">Modifier le client</button>							
+      </div>
+    </form>
+  </div>					
+</div>
