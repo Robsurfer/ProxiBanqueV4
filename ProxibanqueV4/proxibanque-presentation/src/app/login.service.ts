@@ -40,10 +40,14 @@ export class LoginService {
         //console.log("Le conseiller en session est :");
         //console.log(localStorage.getItem('employe'));
         console.log(employe.role);
-        if (JSON.stringify(employe.role) == 'conseiller') {
+        if (employe.role === 'conseiller') {
           this.router.navigate(['clients']);
-        } else {
+        } 
+        else if(employe.role === 'gerant'){
           this.router.navigate(['conseillers']);
+        }
+        else{
+          this.router.navigate(['**']);
         }
         
       }

@@ -3,17 +3,18 @@
 
     <Appenders>
     	<!-- Pour mettre un fichier proxibanque.log dans le dossier parent -->
-		<RollingFile name="fileLogger" fileName="../logs/proxibanque.log" 
-		             filePattern="../logs/proxibanque-%d{yyyy-MM-dd}-%i.log">
+		<RollingFile name="fileLogger" fileName="/logs/proxibanque.log" 
+		             filePattern="/logs/proxibanque-%d{yyyy-MM-dd HH}.log">
 		    <PatternLayout>
                 <pattern>%d{yyyy-MM-dd HH:mm} - %msg%n</pattern>
             </PatternLayout>
 		    <Policies>
 		        <SizeBasedTriggeringPolicy size="10MB" />
-		        <!-- fait un fichier sauvegarde tous les jours -->
+		        <!-- pattern = yyyy-MM-dd + interval="1" = fait un fichier sauvegarde tous les jours -->
+		        <!-- pattern yyyy-MM-dd HH:mm + interval="1" = fait un fichier sauvegarde toutes les minutes -->
 		        <TimeBasedTriggeringPolicy interval="1" modulate="true" />
 		    </Policies>
-		    <!--  -->
+		    <!-- Nombre max de lignes dans le fichier  -->
 		    <DefaultRolloverStrategy max="100"/>
 		</RollingFile>
 

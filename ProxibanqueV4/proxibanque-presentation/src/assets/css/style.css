@@ -237,6 +237,7 @@ fieldset {
 .btn-primary:hover, .btn-primary:focus {
     background-color: #004499;    
 }
+
 /* TABLE */
 table {
 	border:3px solid #1c1a19;

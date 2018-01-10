@@ -9,14 +9,14 @@
         <div class="alert alert-warning" *ngIf="(warningCreation) != null" >
             {{warningCreation}}
         </div>
-        <div class="alert alert-error" *ngIf="(erreurCreation) != null">
+        <div class="alert alert-danger" *ngIf="(erreurCreation) != null">
              {{erreurCreation}}
         </div>
       
 
+
+      <!-- Formulaire de création du virement -->
       <h4>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h4>
-      
-      
         <fieldset>
         <legend>Effectuer un virement</legend>					
         <form class="form" (ngSubmit)="effectuerVirement()" #productForm="ngForm">

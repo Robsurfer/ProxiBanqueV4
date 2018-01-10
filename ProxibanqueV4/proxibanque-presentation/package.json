@@ -1,11 +1,11 @@
 {
-  "name": "proxibanque",
+  "name": "Proxibanquev4",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build -prod -base-href .",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

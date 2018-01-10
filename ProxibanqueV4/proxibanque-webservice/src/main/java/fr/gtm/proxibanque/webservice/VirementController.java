@@ -64,7 +64,7 @@ public class VirementController {
 		if (montant > soldeCompteEmetteur) {
 			reponse = "Le solde du compte émetteur est insuffisant pour le virement du compte n°"
 					+ compteEmetteurBDD.getNumero() + " au compte n°" + compteCibleBDD.getNumero() + " d'un montant de "
-					+ virementForm.getMontant() + " €.}";
+					+ virementForm.getMontant() + " €.";
 		} else {
 
 			double newSoldeCompteEmetteur = soldeCompteEmetteur - montant;

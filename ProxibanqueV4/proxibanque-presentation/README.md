@@ -1,4 +1,10 @@
-# AngularTourOfHeroes
+# Pour le déploiement sur tomcat
+Taper 'ng build -prod -bh . -d /ProxibanqueV4/
+	- Cela va mettre le base-href à '.' pour Tomcat (attention à n'avoir que des routerLink et pas de href du coup)
+	- -d /ProxibanqueV4/ va mettre dans le nom du dossier dans le lien src = "nomduscript" (ProxibanqueV4 étant le dossier généré par le build)
+
+
+	
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
 
@@ -13,6 +19,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Pour le déploiement sur tomcat
 
 ## Running unit tests
 
