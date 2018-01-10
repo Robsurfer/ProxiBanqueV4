@@ -49,7 +49,7 @@ export class LoginService {
 
   seDeconnecter(){
     sessionStorage.clear();
-    this.router.navigate(['login']);
+    this.router.navigate(['logout']);
   }
 
   getLoginEmployeSession(): string {
