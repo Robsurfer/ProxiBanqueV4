@@ -79,7 +79,7 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 		
 		--> votre jar est déploié
 			
-	2. Charger dans le dossier /webapps de Tomcat la partie présentation de l'application (dossier ProxibanqueV4).
+	2. Copier-coller dans le dossier /webapps de Tomcat la partie présentation de l'application (dossier ProxibanqueV4).
 		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
 		   -> accédez au dossier \conf
 		ii. Ouvrez le fichier 'server.xml' avec un éditeur de texte 
