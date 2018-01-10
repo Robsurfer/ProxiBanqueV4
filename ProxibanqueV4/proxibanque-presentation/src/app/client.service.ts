@@ -18,6 +18,7 @@ export class ClientService {
     // URL vers le web service
     private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
     private modifClientUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() +'/modifClient';
+    private creationClientUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() +'/creationClient';
 
     constructor(
         private http: HttpClient,
@@ -72,7 +73,7 @@ export class ClientService {
   */
   /** POST: add a new client to the server */
   addClient (client: Client): Observable<Client> {
-    return this.http.post<Client>(this.clientsUrl, client, httpOptions).pipe(
+    return this.http.post<Client>(this.creationClientUrl, client, httpOptions).pipe(
       catchError(this.handleError<Client>('addClient'))
     );
   }

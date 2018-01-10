@@ -1,4 +1,4 @@
-package fr.gtm.proxibanque.dao;
+package fr.gtm.proxibanque.dao.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

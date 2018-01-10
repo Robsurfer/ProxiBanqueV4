@@ -4,6 +4,8 @@ export class Client {
     nom: string;
     prenom: string;
     adresse: string;
+    ville: string;
+    codePostal: string;
     telephone: string;
     mail: string;
   }

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Employe } from '../conseiller';
 import { Router } from '@angular/router';
+import { ClientService } from '../client.service';
+import { Client } from '../client';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-client-creation',
@@ -9,8 +12,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-creation.component.css']
 })
 export class ClientCreationComponent implements OnInit {
+
   employeLogin : string;  
-  constructor(private loginService : LoginService, private router : Router) { }
+
+  @Input() client: Client = {
+    id:null,
+    nom:'',
+    prenom:'',
+    ville:'',
+    codePostal:'',
+    adresse:'',
+    telephone:'',
+    mail:''
+  };
+
+  constructor(
+    private loginService : LoginService, 
+    private router : Router,
+    private clientService : ClientService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
     this.employeLogin = this.loginService.getLoginEmployeSession();
@@ -23,7 +44,21 @@ export class ClientCreationComponent implements OnInit {
   }
 
   creationClient() {
+    console.log(this.client.id);
+    this.clientService.addClient(this.client).subscribe(client => {
+      console.log(client);
+      this.client = client;
+      var message = "Le client " + this.client.prenom + " " + this.client.nom + " a bien été créé."
+      sessionStorage.setItem('messageCreation',message);
+      var idclient = this.client.id;
+      console.log(idclient);
+      this.router.navigate(['detail/'+idclient]);
+    });
+  }
 
+  goBack(): void {
+    sessionStorage.setItem('annulCreation','La création d\'un nouveau client a été annulée.');
+    this.location.back();
   }
 
 }
