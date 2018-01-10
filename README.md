@@ -68,18 +68,27 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 		 create user proxibanque identified by proxibanque;
 		 grant connect, resource to proxibanque;	 
 
-#### B. Lancer le serveur Apache Tomcat
+#### B. Lancer l'application
 	
-	1. Charger la partie webservices de l'application telechargée sour forme de .war (fichier ProxibanqueV4.war) dans le serveur Apache Tomcat
-		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
-		   -> accédez au dossier \webapps
-		ii. Copiez-collez dans le dossier \webapps le fichier 'ProxibanqueV4.war'
-	   	    (le fichier 'ProxibanqueV4.war' se trouve à la racine du dossier du projet)
+	1. Telecharger le fichier excécutable Proxibanque-webservice.jar du github https://github.com/Robsurfer/ProxiBanqueV4/tree/master/ProxibanqueV4
+	
+		i. Copier le fichier contenant les webservices nommé Proxibanque-webservices.jar dans le dossier de votre choix
+		ii. Pour le lancer, ouvrez l'invité de commande et changez le repertoire avec le chemin du dossier contenant le fichier .jar precedemment telechargé.
+		iii. suite au changement de répertoire, tapez la commande:
+		java -jar Proxibanque-webservice.jar
+		
+		--> votre jar est déploié
 			
 	2. Charger dans le dossier /webapps de Tomcat la partie présentation de l'application (dossier ProxibanqueV4).
 		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
+		   -> accédez au dossier \conf
+		ii. Ouvrez le fichier 'server.xml' avec un éditeur de texte 
+		    (type bloc-note sous Windows, text-edit sous OS X)
+		iii. Changez le port par défaut par le port 8081)
+		iv. Sauvegardez et quittez
+		v. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
 		   -> accédez au dossier \webapps
-		ii. Copiez-collez dans le dossier \webapps le dossier 'ProxibanqueV4'
+		vi. Copiez-collez dans le dossier \webapps le dossier 'ProxibanqueV4'
 	
 	3. Lancez le serveur
 		i. Dans le dossier d'intallation du programme Apache Tomcat 8.5.23,
@@ -87,8 +96,7 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 		ii. Double-cliquez sur le fichier 'startup.bat' -> le serveur et lancez	 
 
 #### C. Accéder à la page d'acceuil de l'application ProxibanqueSI
-	1. Lancez votre navigateur et accédez à l'url : http://localhost:8082/ProxibanqueV4/
-	   (Le port 8082 est configuré dans les fichiers de configuration interne au projet de webservices)
+	1. Lancez votre navigateur et accédez à l'url : http://localhost:8081/ProxibanqueV4/
 	   
 	2. Pour vous identifier saisissez un login/mot de passe valides pour un conseiller ou un gerant dont la liste est la suivante 
 	   (attention le login est sensible à la casse)
