@@ -49,7 +49,7 @@ import { EditClientComponent } from './edit-client/edit-client.component';
     CompteListeComponent,
     CompteCreationComponent,
     LogoutComponent,
-    EtatRequeteComponent
+    EtatRequeteComponent,
 
 	  LoginComponent,
 	  EditClientComponent
