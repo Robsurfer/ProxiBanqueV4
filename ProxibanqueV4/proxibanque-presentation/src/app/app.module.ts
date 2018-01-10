@@ -31,6 +31,7 @@ import { AuditComponent } from './audit/audit.component';
 import { ConseillersComponent } from './conseillers/conseillers.component';
 
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   //Les composants
@@ -57,7 +58,9 @@ import { EditClientComponent } from './edit-client/edit-client.component';
     ConseillersComponent,
     EtatRequeteComponent,
     LoginComponent,
-	  EditClientComponent
+    EditClientComponent,
+    
+    FilterPipe
 ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
