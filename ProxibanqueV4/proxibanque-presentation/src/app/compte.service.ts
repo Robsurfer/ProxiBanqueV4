@@ -10,9 +10,9 @@ import { LoginService } from './login.service';
 
 @Injectable()
 export class CompteService {
-  
-  private compteDetailUrl = 'http://localhost:8082/conseiller/' + this.loginService.conseiller.login + '/clients/comptes';
 
+  private compteDetailUrl = 'http://localhost:8082/conseiller/' + this.loginService.conseiller.login + '/clients/comptes';
+  
   constructor(
     private http: HttpClient,
     private loginService: LoginService
@@ -21,7 +21,7 @@ export class CompteService {
   getComptes(id: number): Observable<Compte[]>{
     const url = `${this.compteDetailUrl}/${id}`;
     return this.http.get<Compte[]>(this.compteDetailUrl)
-      
+
   }
 
 }

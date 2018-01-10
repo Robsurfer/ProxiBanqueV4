@@ -1,6 +1,6 @@
-<div class="row">                    
+<div class="row">
   <div class="col-lg-12">
-    
+
       <fieldset>
         <legend>Client {{client.prenom}} {{client.nom}} </legend>
         <div class="form-group">
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <label  for="telephone">Téléphone :</label>
-          <input type="tel" class="form-control" name="telephone" placeholder={{client.telephone}} pattern="^0[1-9][0-9]{8}$"> 
+          <input type="tel" class="form-control" name="telephone" placeholder={{client.telephone}} pattern="^0[1-9][0-9]{8}$">
         </div>
         <div class="form-group">
           <label  for="mail">email :</label>
@@ -29,25 +29,7 @@
   </div>
 </div>
 
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Numéro de compte</th>
-        <th>Solde</th>
-        <th>Date d'ouverture</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr *ngFor= "let compte of comptes">
-        <td>{{compte.numero}}</td>
-        <td>{{compte.solde}}</td>
-        <td>{{compte.dateOuverture}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 
 
