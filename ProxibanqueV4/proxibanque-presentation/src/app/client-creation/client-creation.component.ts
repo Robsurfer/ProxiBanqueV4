@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Employe } from '../conseiller';
+import { Employe } from '../employe';
 import { Router } from '@angular/router';
 import { ClientService } from '../client.service';
 import { Client } from '../client';
