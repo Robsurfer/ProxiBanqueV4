@@ -2,83 +2,29 @@
   virement-liste works!
 </p>
 
-<!--
-  <div class="row">
-			<div class="col-lg-12">
-				<%@include file="etatRequete.jsp" %>
-
-				<fieldset>
-					<legend>Choisissez le compte d'un de vos clients dont vous souhaitez afficher la liste des virements</legend>
-
-					<form class="form" method="post" action="ListeVirements">
-						<div class="form-group">
-							<label  for="numCompte">Compte  :</label>
-							<c:if test = "${!empty ListeComptesClients}">
-								<select class="form-control" required="required" id="numCompte" name="numCompte">
-									<c:forEach items="${ListeComptesClients}" var="compte" >
-										<option  name="numCompte" required="required" value="${compte.numeroCompte}">
-											n°${compte.numeroCompte} - Client : ${compte.client.prenom} ${compte.client.nom}	
-										</option>
-									</c:forEach>
-								</select>
-							</c:if>
-							<c:if test = "${empty ListeComptesClients}">
-								Vous n'avez pas de client ayant un compte !
-								<select class="form-control" required="required"></select>
-							</c:if>	
-						</div>
-						<input type="hidden" name="login" value=${conseiller.login}>
-						<input type=submit class="btn btn-primary" value="Afficher les virements"></input>
-					</form>
-				</fieldset>
-				</br></br>               
-
-				<c:if test = "${!empty ListeDebits}">		
-					<legend>Ensemble des opérations débitant le compte ${numCompteSelect}</legend>
-					<table class="table-striped">                            
-						<thead>
-							<tr>
-								<th>Date du virement</th>
-								<th>Compte Créditeur</th>
-								<th>Client</th>
-								<th>Montant</th>
-							</tr>
-						</thead> 
-						<tbody>
-							<c:forEach items="${ListeDebits}" var="debit">
-								<tr>
-									<td>${debit.dateVirement}</td>
-									<td>${debit.compteCrediteur.numeroCompte}</td>
-									<td>${debit.compteCrediteur.client.prenom} ${debit.compteCrediteur.client.nom}</td>
-									<td>${debit.montant}</td>
-								</tr>    
-							</c:forEach>
-						</tbody>
-					</table>
-				</c:if>
-				<c:if test = "${!empty ListeCredits}">		
-					<legend>Ensemble des opérations créditant le compte ${numCompteSelect}</legend>
-					<table class="table-striped">                            
-						<thead>
-							<tr>
-								<th>Date du virement</th>
-								<th>Compte débiteur</th>
-								<th>Client</th>
-								<th>Montant</th>
-							</tr>
-						</thead> 
-						<tbody>
-							<c:forEach items="${ListeCredits}" var="credit">
-								<tr>
-									<td>${credit.dateVirement}</td>
-									<td>${credit.compteDebiteur.numeroCompte}</td>
-									<td>${credit.compteDebiteur.client.prenom} ${credit.compteDebiteur.client.nom}</td>
-									<td>${credit.montant}</td>
-								</tr>    
-							</c:forEach>
-						</tbody>
-					</table>						
-				</c:if>
-			</div>
-    </div>
-  -->
+<div class="row tomove">
+	<div class="col-lg-12" *ngIf="virements">
+  
+	  <table class="table table-striped">						
+		<thead>
+		  <tr>
+			<th>Date de réalisation</th>
+			<th>Compte débiteur</th>
+			<th>Compte émetteur</th>
+			<th>Montant</th>
+			<th>Libellé</th>
+		  </tr>
+		</thead> 
+		<tbody >			          	
+			<tr *ngFor="let virement of virements">
+				<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
+				<td>{{virement.compteEmetteur}}</td>
+				<td>{{virement.compteCible}</td>									
+				<td>{{virement.montant}}</td>
+				<td>{{virement.libelle}}</td>					
+			</tr>		
+		</tbody>				
+	  </table>	                  
+	</div>
+  </div>
+  <!-- /.row -->

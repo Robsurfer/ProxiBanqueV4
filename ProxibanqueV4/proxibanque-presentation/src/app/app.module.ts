@@ -16,6 +16,8 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { ConseillerService } from './conseiller.service';
+import { VirementService } from './virement.service';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
@@ -30,6 +32,7 @@ import { AuditComponent } from './audit/audit.component';
 import { ConseillersComponent } from './conseillers/conseillers.component';
 
 import { EditClientComponent } from './edit-client/edit-client.component';
+
 
 @NgModule({
   //Les composants
@@ -69,7 +72,9 @@ import { EditClientComponent } from './edit-client/edit-client.component';
   ],
   providers: [
     ClientService,
-    LoginService
+    LoginService,
+    ConseillerService,
+    VirementService
   ],
   bootstrap: [AppComponent]
 })
