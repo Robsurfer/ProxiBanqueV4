@@ -88,20 +88,26 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 		   -> accédez au dossier \bin
 		ii. Double-cliquez sur le fichier 'startup.bat' -> le serveur et lancez	 
 
-#### C. Accéder à la page d'acceuil de l'application ProxibanqueV3
+#### C. Accéder à la page d'acceuil de l'application ProxibanqueSI
 	1. Lancez votre navigateur et accédez à l'url : http://localhost:8081/ProxibanqueV3/
 	   Veillez à remplacer 8081 par le port indiqué à l'étape B.1.iii précédente
-	2. Pour vous identifier saisissez un login/mot de passe valides pour un conseiller dont la liste est la suivante 
+	2. Pour vous identifier saisissez un login/mot de passe valides pour un conseiller ou un gerant dont la liste est la suivante 
 	   (attention le login est sensible à la casse)
-	   	i. Conseiller1 / password1
-		ii. Conseiller2 / password2
-		iii. Conseiller3 / password3
+	   Conseillers:
+	   1) psanchez / tata ==> compte conseiller à privilégier pour le test de l'application car le plus fourni en clients
+	   2) pdupond / toto
+	   3) jfontaine / tutu
+	   4) pierre.sanchez / tyty
+	   
+	   Gerant:
+	   1) gclaude / chef
+		
 
 	L'ensemble des données de connexion se trouve dans la table 'Conseiller' de la base de données créée à l'étape A)
 
 #### D. Importer le projet Maven
-	1. Rendez vous sur le repository Github à l'adresse suivante : https://github.com/Liyukimi/ProxibanqueV3
-	2. Choisissez "Clone or Download" et téléchargez l'archive zip
+	1. Rendez vous sur le repository Github à l'adresse suivante : https://github.com/Robsurfer/ProxiBanqueV4
+	2. Choisissez "Clone or Download" et téléchargez l'archive zip nommée ProxibanqueV4
 	3. Décompressez l'archive et importez le projet via votre IDE habituel 
 	   (import -> existing Maven project dans la plupart)
 	4. Lancez un invite de commande et faites un 'mvn install clean package'
