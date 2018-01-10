@@ -26,7 +26,7 @@ import fr.gtm.proxibanque.domaine.Virement;
  *
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
 public class GerantController {
 
 	@Autowired

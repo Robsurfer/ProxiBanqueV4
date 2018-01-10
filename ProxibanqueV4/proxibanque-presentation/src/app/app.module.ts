@@ -37,6 +37,7 @@ import { EditClientComponent } from './edit-client/edit-client.component';
 import { ListeVirementService } from './listevirement.service';
 import { AuditService } from './audit.service';
 
+import { VirementService } from './virement.service';
 
 @NgModule({
   //Les composants
@@ -48,7 +49,6 @@ import { AuditService } from './audit.service';
     NavHautComponent,
     ClientsComponent,
     ClientDetailComponent,
-
     ClientCreationComponent,
     LoginComponent,
     PageNotFoundComponent,

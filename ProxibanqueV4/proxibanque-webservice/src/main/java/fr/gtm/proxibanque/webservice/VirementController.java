@@ -25,7 +25,7 @@ import fr.gtm.proxibanque.domaine.VirementFormulaire;
  *         virement donné par le Front et le persiste en base de données.
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
 public class VirementController {
 
 	@Autowired
@@ -64,7 +64,7 @@ public class VirementController {
 		if (montant > soldeCompteEmetteur) {
 			reponse = "Le solde du compte émetteur est insuffisant pour le virement du compte n°"
 					+ compteEmetteurBDD.getNumero() + " au compte n°" + compteCibleBDD.getNumero() + " d'un montant de "
-					+ virementForm.getMontant() + " €.";
+					+ virementForm.getMontant() + " €.}";
 		} else {
 
 			double newSoldeCompteEmetteur = soldeCompteEmetteur - montant;

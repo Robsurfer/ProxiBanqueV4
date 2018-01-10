@@ -16,7 +16,7 @@ const httpOptions = {
 export class CompteService {
 // URL vers le web service
   private comptesUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/comptes'; 
-
+  private comptesAgenceUrl = 'http://localhost:8082/comptes'; 
   constructor(
       private http: HttpClient,
       private loginService: LoginService
@@ -30,7 +30,7 @@ export class CompteService {
   }
 
   getComptesAgence (): Observable<Compte[]> {
-    return this.http.get<Compte[]>('http://localhost:8082/comptes')
+    return this.http.get<Compte[]>(this.comptesAgenceUrl)
       .pipe(
         catchError(this.handleError('getComptesAgence', []))
       );
