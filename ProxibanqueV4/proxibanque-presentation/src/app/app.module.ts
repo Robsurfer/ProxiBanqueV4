@@ -13,6 +13,7 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { EditClientComponent } from './edit-client/edit-client.component';
 
 @NgModule({
   //Les composants
@@ -23,7 +24,8 @@ import { LoginService } from './login.service';
     NavComponent,
     ClientsComponent,
     ClientDetailComponent,
-	LoginComponent
+	  LoginComponent,
+	  EditClientComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin
