@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Employe } from '../conseiller';
+import { Employe } from '../employe';
 import { Router } from '@angular/router';
 import { ClientService } from '../client.service';
 import { Client } from '../client';
@@ -44,14 +44,14 @@ export class ClientCreationComponent implements OnInit {
   }
 
   creationClient() {
-    console.log(this.client.id);
+    //console.log(this.client.id);
     this.clientService.addClient(this.client).subscribe(client => {
-      console.log(client);
+      //console.log(client);
       this.client = client;
       var message = "Le client " + this.client.prenom + " " + this.client.nom + " a bien été créé."
       sessionStorage.setItem('messageCreation',message);
       var idclient = this.client.id;
-      console.log(idclient);
+      //console.log(idclient);
       this.router.navigate(['detail/'+idclient]);
     });
   }

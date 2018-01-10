@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -9,8 +10,12 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class NavGaucheComponent implements OnInit {
   
-  constructor() { }
+  roleEmploye : string;
+  constructor(private loginService : LoginService) { }
 
   ngOnInit() {
+    //console.log(this.loginService.getRoleEmployeSession());
+    this.roleEmploye = this.loginService.getRoleEmployeSession();
+    //console.log(this.roleEmploye);
   }
 }

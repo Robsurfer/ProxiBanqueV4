@@ -23,8 +23,10 @@
   <div class="col-auto">
     <form action="ClientAction" method="Post">
       <div class="text-center">
-        <button type=submit class="btn btn-primary" name="action" value="ModifClient" routerLink="/edit/{{client?.id}}">Modifier le client</button>							
+        <button class="btn btn-primary" routerLink="/edit/{{client?.id}}">Modifier le client</button>							
       </div>
     </form>
   </div>					
 </div>
+
+<app-compte-detail></app-compte-detail>

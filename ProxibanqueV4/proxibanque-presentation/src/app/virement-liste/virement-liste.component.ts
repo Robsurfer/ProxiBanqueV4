@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { LoginService } from '../login.service';
-import { Router } from '@angular/router';
 
-=======
 import { Virement } from '../virement';
 import { ListeVirementService } from '../listevirement.service';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
->>>>>>> listevirements
 @Component({
   selector: 'app-virement-liste',
   templateUrl: './virement-liste.component.html',
@@ -16,13 +11,10 @@ import { Router } from '@angular/router';
 })
 export class VirementListeComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private loginService : LoginService, private router : Router) { }
-=======
+
   //Liste des virements
   virements: Virement[];
-  constructor() { }
->>>>>>> listevirements
 
   ngOnInit() {
 
