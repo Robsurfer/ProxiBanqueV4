@@ -11,6 +11,8 @@ import { VirementComponent } from './virement/virement.component';
 import { VirementListeComponent } from './virement-liste/virement-liste.component';
 import { CompteListeComponent } from './compte-liste/compte-liste.component';
 import { CompteCreationComponent } from './compte-creation/compte-creation.component';
+import { AuditComponent } from './audit/audit.component';
+import { ConseillersComponent } from './conseillers/conseillers.component';
 
 const routes: Routes = [
   //route par defaut au démarrage de l'appli
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'virement/liste', component: VirementListeComponent },
   { path: 'compte/liste', component: CompteListeComponent },
   { path: 'compte/creer', component: CompteCreationComponent },
+  { path: 'audit', component: AuditComponent },
+  { path: 'conseillers', component: ConseillersComponent },
   //Erreur 404
   { path: '**', component: PageNotFoundComponent }
 ];

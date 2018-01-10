@@ -1,0 +1,8 @@
+A faire sur le front Angular (bonus en plus du codage des components):
+	1 - Logout : chez moi en se déconnectant et se reconnectant avec quelqu'un d'autre on garde en "session" le premier connecté
+	2 - Trouver comment récupérer l'URL pour afficher le titre correspondant dans le DashboardComponent
+	3 - La récupération du prenom/nom en haut à droite bug lors de l'arrivée sur la page d'accueil (récup asynchrone du flux JSON? Pas de chargement sur cette page?)
+	4 - Trouver comment faire pour que l'appli soit "responsive" au niveau du menu car plus géré par le script bootstrap
+		Se passe dans NavHautComponent pour masquer/afficher le menu qui est dans NavGaucheComponent en cliquant sur un bouton lorsque la fenêtre est petite (format mobile)
+		Avant : data-toggle="collapse"  data-target=".navbar-ex1-collapse" (cible = la div dans NavGaucheComponent)		
+		

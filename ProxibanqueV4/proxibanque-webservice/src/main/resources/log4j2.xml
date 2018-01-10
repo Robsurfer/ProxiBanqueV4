@@ -4,13 +4,13 @@
     <Appenders>
     	<!-- Pour mettre un fichier proxibanque.log dans le dossier parent -->
 		<RollingFile name="fileLogger" fileName="../logs/proxibanque.log" 
-		             filePattern="../logs/proxibanque-%d{yyyy-MM-dd HH:mm}-%i.log">
+		             filePattern="../logs/proxibanque-%d{yyyy-MM-dd}-%i.log">
 		    <PatternLayout>
                 <pattern>%d{yyyy-MM-dd HH:mm} - %msg%n</pattern>
             </PatternLayout>
 		    <Policies>
 		        <SizeBasedTriggeringPolicy size="10MB" />
-		        <!-- fait un zip tous les jours -->
+		        <!-- fait un fichier sauvegarde tous les jours -->
 		        <TimeBasedTriggeringPolicy interval="1" modulate="true" />
 		    </Policies>
 		    <!--  -->
