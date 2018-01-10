@@ -1,8 +1,8 @@
-								   **************
-*********************************** ProxiBanqueV4 *************************************
-								   **************
+								   ******************
+*********************************** ProxiBanqueSI V4 *************************************
+								   ******************
 								   
-GitHub du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
+Readme du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## Description de l'application ProxibanqueSI
@@ -88,6 +88,7 @@ Pour lancer l'application, veuillez suivre indications suivantes :
 
 #### C. Accéder à la page d'acceuil de l'application ProxibanqueSI
 	1. Lancez votre navigateur et accédez à l'url : http://localhost:8082/ProxibanqueV4/
+	   (Le port 8082 est configuré dans les fichiers de configuration interne au projet de webservices)
 	   
 	2. Pour vous identifier saisissez un login/mot de passe valides pour un conseiller ou un gerant dont la liste est la suivante 
 	   (attention le login est sensible à la casse)

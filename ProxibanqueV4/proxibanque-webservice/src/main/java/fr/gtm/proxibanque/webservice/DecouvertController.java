@@ -21,7 +21,7 @@ import fr.gtm.proxibanque.domaine.Conseiller;
  *         découvert selon le profil de l'utilisateur.
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
 public class DecouvertController {
 
 	@Autowired

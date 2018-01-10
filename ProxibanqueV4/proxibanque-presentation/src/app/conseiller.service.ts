@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class ConseillerService {
 // URL vers le web service
-  private conseillersUrl = 'http://localhost:8082//listeConseillers'; 
+  private conseillersUrl = 'http://localhost:8082/listeConseillers'; 
 
   constructor(
       private http: HttpClient,

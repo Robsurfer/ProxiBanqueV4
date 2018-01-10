@@ -1,29 +1,37 @@
+<h1 class="page-header">
+	Liste des virements que vous avez réalisé
+</h1>
 <div class="row tomove">
 	<div class="col-lg-12" *ngIf="virements">
   
 	  <table class="table table-striped">						
 		<thead>
 		  <tr>
-			<th>Id</th>
-			<th>Conseiller(ID)</th>
-			<th>Compte emetteur</th>
-			<th>Compte cible</th>
-			<th>Montant</th>
-			<th>Date du virement</th>
-			<th>Libelle</th>
-		  </tr>
+			<th rowspan="2">Date</th>
+			<th colspan="2">Compte débiteur</th>
+			<th colspan="2">Compte créditeur</th>
+			<th rowspan="2">Montant</th>
+			<th rowspan="2">Libellé</th>
+			</tr>
+			<tr>
+				<th>Client</th>
+				<th>N° de compte</th>
+				<th>Client</th>
+				<th>N° de compte</th>
+			</tr>
 		</thead> 
 		<tbody >			          	
-			<tr *ngFor="let virement of virements" routerLink="/listeVirements">
-				<td>{{virement.id}}</td>
-				<td>{{virement.conseiller}}</td>
-				<td>{{virement.compte_emetteur}}</td>									
-				<td>{{virement.compte_cible}}</td>
-				<td>{{virement.montant}}</td>
-				<td>{{virement.date_virement}}</td>
-				<td>{{virement.libelle}}</td>						
+			<tr *ngFor="let virement of virements">
+				<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
+				<td>{{virement.compteEmetteur.client.nom}}</td>
+				<td>{{virement.compteEmetteur.numero}}</td>									
+				<td>{{virement.compteCible.client.nom}}</td>
+				<td>{{virement.compteCible.numero}}</td>
+				<td>{{virement.montant | number : '1.2-2'}}</td>
+				<td>{{virement.libelle}}</td>					
 			</tr>		
 		</tbody>				
 	  </table>	                  
 	</div>
   </div>
+  <!-- /.row -->

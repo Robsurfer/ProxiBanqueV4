@@ -1,3 +1,26 @@
-<p>
-  conseillers works!
-</p>
+<h1 class="page-header">
+  Liste des conseillers de votre agence
+</h1>
+
+<div class="row">
+  <div class="col-lg-12" *ngIf="conseillers">
+
+    <table class="table table-striped">						
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Login</th>
+        </tr>
+      </thead> 
+      <tbody >			          	
+          <tr *ngFor="let employe of conseillers">
+              <td>{{employe.nom}}</td>
+              <td>{{employe.prenom}}</td>
+              <td>{{employe.login}}</td>															
+          </tr>		
+      </tbody>				
+    </table>	                  
+  </div>
+</div>
+<!-- /.row -->

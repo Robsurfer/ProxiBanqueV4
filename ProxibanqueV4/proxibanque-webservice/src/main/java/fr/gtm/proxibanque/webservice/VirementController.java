@@ -25,7 +25,7 @@ import fr.gtm.proxibanque.domaine.VirementFormulaire;
  *         virement donné par le Front et le persiste en base de données.
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
 public class VirementController {
 
 	@Autowired

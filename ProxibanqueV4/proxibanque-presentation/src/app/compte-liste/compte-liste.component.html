@@ -1,23 +1,43 @@
+<h1 class="page-header">
+    Liste des comptes de vos clients
+</h1>
 
 <fieldset>
 	<legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
   
-	<form class="form">
+	<form class="form" (ngSubmit)= "onClick()">
 	  <div class="form-group">
 		<label>Choisissez votre client :</label>
-		  <select class="form-control" name="client">
-			  <option value="" disabled>
-				Seletionner un client
-			  </option>
-			  <option *ngFor="let client of clients">
-				{{client.id}} {{client.prenom}} {{client.nom}}
+		  <select class="form-control" name="client" [(ngModel)]="id">
+			  <option  *ngFor="let client of clients" [value]="client.id">
+					{{client.prenom}} {{client.nom}}
 			  </option>
 		  </select>
 	  </div>
 	
   
-	  <input type=submit class="btn btn-primary" (click)="onClick(client)" >
+	  <button type=submit class="btn btn-primary" >Valider</button>
   
 	</form>
+
+	<div *ngIf = "comptes">
+		<table>
+		  <thead>
+			<tr>
+			  <th>Numéro de compte</th>
+			  <th>Solde</th>
+			  <th>Date d'ouverture</th>
+			</tr>
+		  </thead>
+	  
+		  <tbody>
+			<tr *ngFor= "let compte of comptes">
+			  <td>{{compte.numero}}</td>
+			  <td>{{compte.solde}}</td>
+			  <td>{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
   
-	<app-compte-detail></app-compte-detail>
+<!--	<app-compte-detail></app-compte-detail> -->

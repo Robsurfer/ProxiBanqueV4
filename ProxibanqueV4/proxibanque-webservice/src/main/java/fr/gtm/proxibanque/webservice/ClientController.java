@@ -24,7 +24,7 @@ import fr.gtm.proxibanque.domaine.Conseiller;
  *         client, créer un client...
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
 public class ClientController {
 
 	@Autowired

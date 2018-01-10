@@ -17,6 +17,9 @@ import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { CompteService } from './compte.service';
+import { ConseillerService } from './conseiller.service';
+import { VirementService } from './virement.service';
+
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
@@ -31,6 +34,9 @@ import { AuditComponent } from './audit/audit.component';
 import { ConseillersComponent } from './conseillers/conseillers.component';
 
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { ListeVirementService } from './listevirement.service';
+import { AuditService } from './audit.service';
+
 import { VirementService } from './virement.service';
 
 @NgModule({
@@ -43,7 +49,7 @@ import { VirementService } from './virement.service';
     NavHautComponent,
     ClientsComponent,
     ClientDetailComponent,
-   ClientCreationComponent,
+    ClientCreationComponent,
     LoginComponent,
     PageNotFoundComponent,
     VirementComponent,
@@ -71,8 +77,11 @@ import { VirementService } from './virement.service';
   providers: [
     ClientService,
     LoginService,
+    CompteService,
+    ConseillerService,
     VirementService,
-    CompteService
+    ListeVirementService,
+    AuditService
   ],
   bootstrap: [AppComponent]
 })
