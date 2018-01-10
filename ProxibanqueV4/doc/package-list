@@ -1,0 +1,6 @@
+fr.gtm.proxibanque
+fr.gtm.proxibanque.dao
+fr.gtm.proxibanque.dao.tests
+fr.gtm.proxibanque.domaine
+fr.gtm.proxibanque.util
+fr.gtm.proxibanque.webservice
