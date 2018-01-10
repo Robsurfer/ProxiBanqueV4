@@ -15,7 +15,7 @@ export class CompteDetailComponent implements OnInit {
 
   comptes: Compte;
   @Input()  idClient : number;
-  @Input() client: Client;
+ 
 
   constructor(
     private compteService: CompteService,
