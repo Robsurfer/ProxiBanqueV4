@@ -24,6 +24,7 @@ import { CompteDetailComponent } from './compte-detail/compte-detail.component';
 import { CompteListeComponent } from './compte-liste/compte-liste.component';
 import { CompteCreationComponent } from './compte-creation/compte-creation.component';
 import { LogoutComponent } from './logout/logout.component';
+import { EtatRequeteComponent } from './etat-requete/etat-requete.component';
 
 @NgModule({
   //Les composants
@@ -43,7 +44,8 @@ import { LogoutComponent } from './logout/logout.component';
     CompteDetailComponent,
     CompteListeComponent,
     CompteCreationComponent,
-    LogoutComponent
+    LogoutComponent,
+    EtatRequeteComponent
   ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
+import { Employe } from '../conseiller';
 
 @Component({
   selector: 'app-client-creation',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-creation.component.css']
 })
 export class ClientCreationComponent implements OnInit {
-
-  constructor() { }
+  employeLogin : string;  
+  constructor(private loginService : LoginService) { }
 
   ngOnInit() {
+    this.employeLogin = this.loginService.getLoginEmployeSession();
+    
   }
 
 }

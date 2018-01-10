@@ -8,10 +8,10 @@
   <a class="navbar-brand" href=""><i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}</a>
 </div>
 <!-- Top Menu Items -->
-<ul class="nav navbar-right top-nav">
+<ul class="nav navbar-right top-nav"  *ngIf="loginService.getLoginEmployeSession()">
   <li class="dropdown" ngbDropdown>
       <a class="dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
-        <i class="fa fa-user" *ngIf="employe.prenom"></i> {{employe.prenom}} {{employe.nom}}<b class="caret"></b>
+        <i class="fa fa-user"></i> {{employe.prenom}} {{employe.nom}}<b class="caret"></b>
       </a>
       <ul class="dropdown-menu" ngbDropdownMenu>
         <li>

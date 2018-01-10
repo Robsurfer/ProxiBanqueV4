@@ -26,11 +26,12 @@ export class NavHautComponent implements OnInit {
     this.isCollabsed = !this.isCollabsed;
   }
 
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.employe.nom = this.loginService.getNomEmployeSession();
-    this.employe.prenom = this.loginService.getPrenomEmployeSession();
+    this.employe.prenom = this.loginService.getPrenomEmployeSession();  
   }
 
   deconnexion(){

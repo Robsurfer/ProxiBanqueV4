@@ -64,5 +64,4 @@ export class LoginService {
     return JSON.parse(sessionStorage.getItem('prenom'));
   }
 
-
 }
