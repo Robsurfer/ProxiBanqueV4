@@ -1,3 +1,22 @@
-<p>
-  conseillers works!
-</p>
+<div class="row">
+  <div class="col-lg-12" *ngIf="conseillers">
+
+    <table class="table table-striped">						
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Login</th>
+        </tr>
+      </thead> 
+      <tbody >			          	
+          <tr *ngFor="let employe of conseillers">
+              <td>{{employe.nom}}</td>
+              <td>{{employe.prenom}}</td>
+              <td>{{employe.login}}</td>															
+          </tr>		
+      </tbody>				
+    </table>	                  
+  </div>
+</div>
+<!-- /.row -->

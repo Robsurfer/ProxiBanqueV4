@@ -1,7 +1,13 @@
-//Classe Virement
+import { Employe } from "./employe";
+import { Compte } from "./compte";
+
 export class Virement {
-    numCompteEmetteur: string;
-    numCompteCible: string;
+    id : number;
+    conseiller: Employe;
+    compteEmetteur: Compte;
+    compteCible: Compte;
     montant: number;
-    libelle: number;
-  }
+    dateVirement: Date;
+    libelle: string;
+
+}
