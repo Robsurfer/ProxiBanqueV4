@@ -17,8 +17,6 @@ export class VirementComponent implements OnInit {
   comptesConseiller : Compte[];
   comptesAgence : Compte[];
 
-  compteEmetteur : Compte;
-  compteCible : Compte;
 
   @Input() numCompteEmetteur : number;
   @Input() numCompteCible : number;
@@ -67,8 +65,9 @@ export class VirementComponent implements OnInit {
         {
           this.erreurCreation = message;
         }        
-      });
+      });      
     }
+    this.montant = null;
   }
 
   constructor(
@@ -94,6 +93,6 @@ export class VirementComponent implements OnInit {
   reInitMessage() {
     this.erreurCreation = null;
     this.succesCreation = null;
-    this.warningCreation = null;
+    this.warningCreation = null;    
   }
 }

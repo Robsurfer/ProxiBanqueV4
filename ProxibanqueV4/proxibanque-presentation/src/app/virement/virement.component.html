@@ -12,34 +12,6 @@
         <div class="alert alert-error" *ngIf="(erreurCreation) != null">
              {{erreurCreation}}
         </div>
-
-        <!--
-        <legend>Comptes modifiés</legend>
-        <table class="table-striped">
-          <thead>
-            <tr>
-              <th>Numéro de compte</th>
-              <th>Client</th>
-              <th>Ancien Solde</th>
-              <th>Nouveau Solde</th>
-            </tr>
-          </thead> 
-          <tbody>
-            <tr>
-              <td>{{virement.numCompteEmetteur}}</td>
-              <td>${compteDebiteur.client.prenom} ${compteDebiteur.client.nom}</td>
-              <td>${compteDebiteur.solde + montant}</td>									
-              <td>${compteDebiteur.solde}</td>
-            </tr>
-            <tr>
-              <td>${compteCrediteur.numeroCompte}</td>
-              <td>${compteCrediteur.client.prenom} ${compteCrediteur.client.nom}</td>
-              <td>${compteCrediteur.solde - montant}</td>									
-              <td>${compteCrediteur.solde}</td>
-            </tr>
-          </tbody>				
-        </table>						
-        <br></br>	-->
       
 
       <h4>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h4>

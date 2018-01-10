@@ -43,6 +43,13 @@ export class CompteService {
     );
   }
 
+  getCompteNumero(numero: number): Observable<Compte> {
+    const url = `${this.comptesUrl}/${numero}`;
+    return this.http.get<Compte>(url).pipe(
+      catchError(this.handleError<Compte>(`getCompteNumero id=${numero}`))
+    );
+  }
+
    /**
  * Handle Http operation that failed.
  * Let the app continue.

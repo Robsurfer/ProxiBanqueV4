@@ -7,7 +7,11 @@
 
     <form class="form" method="post" action="CreationClient" >
       <fieldset>
-        <legend>Création d'un nouveau client</legend>
+        
+        <i>Attention, la création d'un nouveau client engendrera la création d'un compte courant qui lui sera associé.</i>
+        <br>
+        <br>
+        <br>  
         <div class="form-group">
           <label  for="nom">Nom :</label>
           <input type="text" class="form-control" required="required" name="nom" title="Maximum 20 caractères non accentués" pattern="[a-zA-Z][a-zA-Z-]*" [(ngModel)]="client.nom">
