@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../client';
 import { ClientService } from '../client.service';
 import { LoginService } from '../login.service';
 import { CompteService } from '../compte.service';
 import { Router } from '@angular/router';
+import { Compte } from '../compte';
 
 @Component({
   selector: 'app-compte-liste',
@@ -14,9 +15,10 @@ export class CompteListeComponent implements OnInit {
 
 //Liste des clients
 clients: Client[];
+comptes: Compte;
 
 //client selectionné
-selectedClient: Client;
+@Input() id: number;
 
 //Attend que l'Observable émette le tableau des clients
 //Subscribe passe ensuite le tableau émis au callback, qui définit la propriété clients du composant.
@@ -43,9 +45,9 @@ ngOnInit() {
   this.getClients();
 }
 
-onClick(client: Client): void
+onClick(): void
 {
-  this.compteService.getCompte(client.id)
+  this.compteService.getCompte(this.id)
       .subscribe(comptes => this.comptes = comptes);
 }
 
