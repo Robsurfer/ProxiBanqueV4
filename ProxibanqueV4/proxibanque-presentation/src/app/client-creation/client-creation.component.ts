@@ -44,14 +44,14 @@ export class ClientCreationComponent implements OnInit {
   }
 
   creationClient() {
-    console.log(this.client.id);
+    //console.log(this.client.id);
     this.clientService.addClient(this.client).subscribe(client => {
-      console.log(client);
+      //console.log(client);
       this.client = client;
       var message = "Le client " + this.client.prenom + " " + this.client.nom + " a bien été créé."
       sessionStorage.setItem('messageCreation',message);
       var idclient = this.client.id;
-      console.log(idclient);
+      //console.log(idclient);
       this.router.navigate(['detail/'+idclient]);
     });
   }

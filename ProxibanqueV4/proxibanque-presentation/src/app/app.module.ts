@@ -16,6 +16,7 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientService } from './client.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { CompteService } from './compte.service';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
@@ -69,7 +70,8 @@ import { EditClientComponent } from './edit-client/edit-client.component';
   ],
   providers: [
     ClientService,
-    LoginService
+    LoginService,
+    CompteService
   ],
   bootstrap: [AppComponent]
 })
