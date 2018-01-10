@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+import { ListeVirementService } from '../listevirement.service';
+import { AuditService } from '../audit.service';
 
 @Component({
   selector: 'app-audit',
@@ -9,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class AuditComponent implements OnInit {
 
-  constructor(private loginService : LoginService, private router : Router) { }
+  constructor(
+    private loginService : LoginService,
+    private virementService : ListeVirementService, 
+    private auditService : AuditService,
+    private router : Router) { }
 
   ngOnInit() {
 
@@ -18,6 +24,11 @@ export class AuditComponent implements OnInit {
       this.router.navigate(['login']);
     }
 
+  }
+
+  getVirementsTries() {
+    this.auditService.getVirements();
+    console.log(this.auditService.getVirements());
   }
 
 }

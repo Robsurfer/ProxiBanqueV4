@@ -20,12 +20,21 @@ export class LoginComponent implements OnInit {
     this.employe.nom = '';
     this.employe.prenom = '';
 
-    if (this.loginService.getLoginEmployeSession()) {
-      this.router.navigate(['clients']);
-    }
+
   }
 
   onSubmit(){  
-    this.loginService.authentification(this.employe.login, this.employe.password);    
+    this.loginService.authentification(this.employe.login, this.employe.password);  
+
+    this.loginService.getLoginEmployeSessionObs().subscribe(login => this.employe.login = login);
+    this.loginService.getRoleEmployeSessionObs().subscribe(role => this.employe.role = role);
+
+    if (this.loginService.getLoginEmployeSession() && (this.loginService.getRoleEmployeSession() =='conseiller')) {
+      this.router.navigate(['clients']);
+    }
+
+    if (this.loginService.getLoginEmployeSession() && (this.loginService.getRoleEmployeSession() =='gerant')) {
+      this.router.navigate(['conseillers']);
+    } 
   }
 }

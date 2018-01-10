@@ -32,9 +32,9 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
     <ul class="nav navbar-nav side-nav">
       
-      <li class="divider">Gestion des clients</li>    
+      <li class="divider">Gestion des conseillers</li>    
         <li>
-          <a href="clients"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des clients</a>
+          <a href="conseillers"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des conseillers</a>
         </li>
   
       <li class="divider">Gestion des comptes</li>
@@ -45,6 +45,11 @@
       <li class="divider">Opérations bancaires</li>
         <li>
           <a href="virement/liste"><i class="fa fa-fw fa-calculator"></i> Liste des virements</a>
+        </li>
+
+        <li class="divider">Audit de l'agence</li>
+        <li>
+          <a href="audit"><i class="fa fa-long-arrow-right"></i>Transactions</a>
         </li>
   
     </ul>
