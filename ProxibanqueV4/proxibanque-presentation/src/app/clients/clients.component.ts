@@ -32,10 +32,17 @@ export class ClientsComponent implements OnInit {
       this.router.navigate(['login']);
     }
 
+    //Redirection vers la page de login si gerant en session
+    if (this.loginService.getRoleEmployeSession() == 'gerant') {
+      this.router.navigate(['conseillers']);
+    }
+
     sessionStorage.setItem('annulModif',null);
     sessionStorage.setItem('messageModif',null);
 
     this.getClients();
+
+    sessionStorage.setItem('titrePage', 'Liste de vos clients');
   }
 
 }

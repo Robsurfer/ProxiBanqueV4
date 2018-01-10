@@ -34,6 +34,8 @@ import { AuditComponent } from './audit/audit.component';
 import { ConseillersComponent } from './conseillers/conseillers.component';
 
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { ListeVirementService } from './listevirement.service';
+import { AuditService } from './audit.service';
 
 
 @NgModule({
@@ -77,7 +79,9 @@ import { EditClientComponent } from './edit-client/edit-client.component';
     LoginService,
     CompteService,
     ConseillerService,
-    VirementService
+    VirementService,
+    ListeVirementService,
+    AuditService
   ],
   bootstrap: [AppComponent]
 })

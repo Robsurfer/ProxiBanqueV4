@@ -40,6 +40,7 @@ export class ClientCreationComponent implements OnInit {
     if (!this.loginService.getLoginEmployeSession()) {
       this.router.navigate(['login']);
     }
+    sessionStorage.setItem('titrePage', "Création d'un nouveau client");
 
   }
 

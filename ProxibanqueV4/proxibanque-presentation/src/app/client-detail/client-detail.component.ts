@@ -47,6 +47,7 @@ export class ClientDetailComponent implements OnInit {
       this.annulModif = "La modification a bien été annulée.";
       sessionStorage.setItem('annulModif', null);
     }
+
   }
 
   getClient(): void {
@@ -57,6 +58,10 @@ export class ClientDetailComponent implements OnInit {
     //L'opérateur JavaScript (+) convertit la chaîne en un nombre, ce que devrait être un identifiant de héros.
     const id = +this.route.snapshot.paramMap.get('id');
     this.clientService.getClient(id)
-      .subscribe(client => this.client = client);
+      .subscribe(client => {
+        this.client = client;
+        var titre = "Détails du client " + this.client.prenom + " " + this.client.nom;
+        sessionStorage.setItem('titrePage', titre);
+      });
   }
 }
