@@ -1,5 +1,6 @@
 package fr.gtm.proxibanque.webservice;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class VirementController {
 	 *            les données du virement issues du formulaire en Front
 	 * @return String, la réponse (échec ou succès)
 	 */
-	@RequestMapping(value = "/conseiller/{login}/virement", method = RequestMethod.POST, produces = "text/plain")
+	@RequestMapping(value = "conseiller/{login}/virement", method = RequestMethod.POST, produces = "text/plain")
 	public String virement(@PathVariable("login") String login, @RequestBody VirementFormulaire virementForm) {
 
 		String reponse;
@@ -98,6 +99,20 @@ public class VirementController {
 		}
 
 		return reponse;
+	}
+
+	/**
+	 * Ce webservice permet de retourner la liste des virements d'un conseiller
+	 * donné.
+	 * 
+	 * @param login
+	 *            , l'id du conseiller identifie
+	 * @return Collection<Virement>, la liste de tout les virements que le
+	 *         conseiller a realise
+	 */
+	@RequestMapping(value = "conseiller/{login}/virement/liste", method = RequestMethod.GET, produces = "application/json")
+	public Collection<Virement> getAllVir(@PathVariable("login") String login) {
+		return virementDao.findAllByConseiller_login(login);
 	}
 
 }
