@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
   onSubmit(){  
     this.loginService.authentification(this.employe.login, this.employe.password);  
 
-    this.loginService.getLoginEmployeSessionObs().subscribe(login => this.employe.login = login);
-    this.loginService.getRoleEmployeSessionObs().subscribe(role => this.employe.role = role);
+    //this.loginService.getLoginEmployeSessionObs().subscribe(login => this.employe.login = login);
+    //this.loginService.getRoleEmployeSessionObs().subscribe(role => this.employe.role = role);
 
+    /*
     if (this.loginService.getLoginEmployeSession() && (this.loginService.getRoleEmployeSession() =='conseiller')) {
       this.router.navigate(['clients']);
     }
@@ -36,5 +37,6 @@ export class LoginComponent implements OnInit {
     if (this.loginService.getLoginEmployeSession() && (this.loginService.getRoleEmployeSession() =='gerant')) {
       this.router.navigate(['conseillers']);
     } 
+    */
   }
 }

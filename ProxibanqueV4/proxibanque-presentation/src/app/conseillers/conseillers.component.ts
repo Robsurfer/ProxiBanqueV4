@@ -20,7 +20,10 @@ export class ConseillersComponent implements OnInit {
     this.conseillerService.getConseillers()
         .subscribe(conseillers => this.conseillers = conseillers);
   }
-  constructor(private conseillerService : ConseillerService){}
+  constructor(private conseillerService : ConseillerService){
+    console.log("test");
+    this.getConseillers();
+  }
   
   ngOnInit() {
     console.log("test");

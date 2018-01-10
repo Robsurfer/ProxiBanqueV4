@@ -39,7 +39,13 @@ export class LoginService {
         sessionStorage.setItem('role', JSON.stringify(employe.role));
         //console.log("Le conseiller en session est :");
         //console.log(localStorage.getItem('employe'));
-        this.router.navigate(['clients']);
+        console.log(employe.role);
+        if (JSON.stringify(employe.role) == 'conseiller') {
+          this.router.navigate(['clients']);
+        } else {
+          this.router.navigate(['conseillers']);
+        }
+        
       }
     });
   }
