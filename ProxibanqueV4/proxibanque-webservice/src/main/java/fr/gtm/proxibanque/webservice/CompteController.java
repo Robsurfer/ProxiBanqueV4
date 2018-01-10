@@ -42,8 +42,9 @@ public class CompteController {
 	/**
 	 * Ce webservice permet de retourner un compte à partir de son numéro
 	 * 
-	 * @param login
-	 * @return List<Compte>, la liste des comptes des clients de l'agence
+	 * @param numero
+	 *            : le numero du compte demandé
+	 * @return Compte, le compte associé au numéro
 	 */
 	@RequestMapping(value = "comptes/{numero}", method = RequestMethod.GET, produces = "application/json")
 	public Compte getCompteByNumero(@PathVariable("numero") int numero) {
