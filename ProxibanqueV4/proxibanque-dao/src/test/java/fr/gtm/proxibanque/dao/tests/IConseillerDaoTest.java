@@ -1,6 +1,8 @@
-package fr.gtm.proxibanque.dao;
+package fr.gtm.proxibanque.dao.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,4 +41,12 @@ public class IConseillerDaoTest {
     	Conseiller conseiller_dao = conseillerDao.findByLogin("pierre.sanchez");
     		assertThat(conseiller_dao).isNotNull();
     }
+	
+	@Test
+    public void findAllConseillers() {
+    	
+    	List<Conseiller> conseillers_dao = conseillerDao.findAll();
+    		assertThat(conseillers_dao).isNotNull();
+    }
+	
 }

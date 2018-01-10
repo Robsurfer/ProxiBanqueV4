@@ -67,7 +67,7 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	 * @param numero
 	 * @return une liste de virements
 	 */
-	public Collection<Virement> findAllByCompteEmetteur_numero(String numero);
+	public Collection<Virement> findAllByCompteEmetteur_numero(int numero);
 	
 	/**
 	 * 
@@ -86,7 +86,7 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	 * @param compteCible
 	 * @return une liste de virements
 	 */
-	public Collection<Virement> findAllByCompteCible_numero(String numero);
+	public Collection<Virement> findAllByCompteCible_numero(int numero);
 	
 	
 	/**

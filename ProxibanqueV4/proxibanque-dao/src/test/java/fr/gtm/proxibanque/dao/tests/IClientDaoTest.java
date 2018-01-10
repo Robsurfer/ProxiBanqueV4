@@ -1,6 +1,8 @@
-package fr.gtm.proxibanque.dao;
+package fr.gtm.proxibanque.dao.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Collection;
 
 import org.junit.After;
 import org.junit.Before;
@@ -35,7 +37,7 @@ public class IClientDaoTest {
     
     @Before
     public void createClient () {
-    	client = new Client (30,"Marc","WELLBERG","rue de Biarritz","13010","AIX-EN-PROVENCE","0312556585","jsmith@hotmail.fr");
+    	client = new Client ("Marc","WELLBERG","rue de Biarritz","13010","AIX-EN-PROVENCE","0312556585","jsmith@hotmail.fr");
     }
     
     @After
@@ -50,10 +52,28 @@ public class IClientDaoTest {
     }
     
     @Test
-    public void findClient() {
+    public void findClientById() {
     	
     	Client client_dao = clientDao.findById(1);
     		assertThat(client_dao).isNotNull();
+    }
+    
+    @Test
+    public void findClientByConseiller () {
+    	Collection<Client> liste_clients_dao = clientDao.findByConseiller_login("pierre.sanchez");
+    	assertThat(liste_clients_dao).isNotNull();
+    }
+    
+    @Test
+    public void findByIdAndConseiller_login () {
+    	 Client client_dao = clientDao.findByIdAndConseiller_login(7, "psanchez");
+    	    assertThat(client_dao).isNotNull();	
+    }
+  
+    @Test
+    public void saveClient () {
+    	clientDao.save(client);
+    	
     }
     
   
