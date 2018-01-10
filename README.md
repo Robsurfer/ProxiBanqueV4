@@ -2,7 +2,7 @@
 *********************************** ProxiBanqueSI V4 *************************************
 								   ******************
 								   
-GitHub du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
+Readme du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## Description de l'application ProxibanqueSI
