@@ -1,13 +1,19 @@
-# ProxiBanqueV4
+								   **************
+*********************************** ProxiBanqueV4 *************************************
+								   **************
+								   
 GitHub du projet ProxiBanqueV4 (Hattmann, Lise, Loriane, Robinson, Solène)
 
-# Description de l'application ProxibanqueSI
-1) ProxiBanqueSI est une application visant à exécuter des services bancaires pour les conseillers et les gerants des agences de la banque Proxibanque à travers une interface web.
+------------------------------------------------------------------------------------------------------------------------------------
+## Description de l'application ProxibanqueSI
+------------------------------------------------------------------------------------------------------------------------------------
+#### A. ProxiBanqueSI est une application visant à exécuter des services bancaires pour les conseillers et les gerants des 
+agences de la banque Proxibanque à travers une interface web.
 Elle permet une gestion clientèle simplifiée, ergonomique et numérique.
 
-2) Les fonctionnalités de l'application sont :
+#### B. Les fonctionnalités de l'application sont :
 
-a) Pour chaque conseiller de l'agence:
+	1. Pour chaque conseiller de l'agence:
 * gérer l'authentification des conseillers grâce à des identifiants et des mots de passe associés
 * visualiser la liste des clients de chaque conseiller
 * visualiser les informations d'un client
@@ -17,41 +23,47 @@ a) Pour chaque conseiller de l'agence:
 * garder une trace de chacun des virements effectués par un conseiller
 * visualiser l'ensemble de virements effectués par un conseiller
 
-/!\ Dans une future version
-* créer un nouveau compte à un client dejà existant
-* créer un nouveau client avec une attribution de compte automatique (un nouveau client est forcement associé à nouveau compte)
-
-b) Pour les gérants des agences
+	2. Pour les gérants des agences
 * gérer l'authentification des gerants des agences grâce à des identifiants et des mots de passe associés
 * observer graphiquement les performances de son agence et de ses conseillers
 * visualiser la liste des conseillers de l'agence
 
-/!\ Dans une future version
+/!\ Ces fonctionnalités ne sont pas disponibles dans cette version
+* créer un nouveau compte à un client dejà existant
+* créer un nouveau client avec une attribution de compte automatique (un nouveau client est forcement associé à nouveau compte)
 * prendre la place d'un conseiller
 
-3) L'application prend en compte un systeme de gestion des erreurs afin d'indiquer aux utilisateurs
+#### C. L'application prend en compte un systeme de gestion des erreurs afin d'indiquer aux utilisateurs
 les dysfonctionnements.
 
-4) L'application utilise également uniquement des webservices permettant une interopérabilté des fonctions proposés par le serveur.
+#### D. L'application utilise également uniquement des webservices permettant une interopérabilté des fonctions proposés par le serveur.
 
+------------------------------------------------------------------------------------------------------------------------------------
 ## Prérequis pour l'utilisation
+------------------------------------------------------------------------------------------------------------------------------------
 * Installation Apache Tomcat v8.5
 * Installation OracleXE
 
-## Documentation :
-La documentation est disponnible dans le dossier du projet
+------------------------------------------------------------------------------------------------------------------------------------
+## Documentation 
+------------------------------------------------------------------------------------------------------------------------------------
+La documentation est disponible dans le dossier du projet
 
 	1. Veuillez accéder au dossier 'javadoc/'
 	2. Double cliquez sur 'index.html'.
 
-## Execution de l'application :
+------------------------------------------------------------------------------------------------------------------------------------
+## Execution de l'application 
+------------------------------------------------------------------------------------------------------------------------------------
 Avant de commencer, veuillez vous assurer de remplir les préquis d'utilisation listés ci-dessus.
 
 Pour lancer l'application, veuillez suivre indications suivantes :
 #### A. Lancer la base de données
 	1. Lancez le programme Run SQL command line (nécessite l'installation d'OracleXE)
+	
 	2. Connectez vous au system en saisissant la commande suivante : 'connect identifiant/motdepasse' en remplacant les 
 	champs "identifiant" et "motdepasse" par ceux que vous avez configuré lors de l'installation d'OracleXE.
+	
 	3. Creez un nouvel utilisateur en tapant les commandes suivantes
 		 create user proxibanque identified by proxibanque;
 		 grant connect, resource to proxibanque;	 
