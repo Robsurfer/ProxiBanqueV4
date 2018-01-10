@@ -11,13 +11,13 @@ import { VirementService } from '../virement.service';
 })
 export class VirementListeComponent implements OnInit {
 
-  //Liste des clients
+  //Liste des virements
     virements: Virement[];
 
-    //Attend que l'Observable émette le tableau des clients
-    //Subscribe passe ensuite le tableau émis au callback, qui définit la propriété clients du composant.
-    //Cette approche asynchrone fonctionne lorsque ClientService demande des clients au serveur.
-    getVirements(): void {
+    //Attend que l'Observable émette le tableau des virements
+    //Subscribe passe ensuite le tableau émis au callback, qui définit la propriété virements du composant.
+    //Cette approche asynchrone fonctionne lorsque ViçrementService demande des virements au serveur.
+    getVirementsConseiller(): void {
       this.virementService.getVirementsConseiller()
           .subscribe(virements => this.virements = virements);
     }
@@ -34,6 +34,7 @@ export class VirementListeComponent implements OnInit {
       this.router.navigate(['login']);
     }
 
+    this.getVirementsConseiller();
   }
 
 }
