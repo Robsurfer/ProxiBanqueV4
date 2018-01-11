@@ -7,10 +7,10 @@
 <fieldset>
   <legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
 
-	<form class="form" (ngSubmit)= "onClick()">
+	<form class="form" >
 	  <div class="form-group">
 		<label>Choisissez votre client :</label>
-		  <select class="form-control" name="client" [(ngModel)]="id">
+		  <select class="form-control" name="client" [(ngModel)]="id" (click)="onClick()">
 			  <option  *ngFor="let client of clients" [value]="client.id">
 					{{client.prenom}} {{client.nom}}
 			  </option>
@@ -18,8 +18,7 @@
 	  </div>
 	</form>
 
-	<div *ngIf = "comptes" class="tomove">
-
+	<div *ngIf="comptes" class="tomove">
 		<br>
 		<label>Sélectionner un des comptes du tableau ci-dessous pour afficher les opérations lui étant associées :</label>
 		<table class="table table-striped">
@@ -44,11 +43,11 @@
 		</div>
 
 
-		<div *ngIf = "selectedCompte" class="tomove">
+		<div *ngIf="selectedCompte" class="tomove">
 				<br><br><br>
 				<h3>Opérations effectuées sur le <strong>compte {{selectedCompte.type | uppercase }} n°{{selectedCompte.numero}}</strong></h3>
 				<br>
-				<div *ngIf = "virementsDebit">
+				<div *ngIf="virementsDebit">
 					<h4>DEBIT</h4>
 					<table class="table table-striped">
 							<thead>
@@ -75,7 +74,7 @@
 					</table>
 			  </div>
 			<br>
-			<div *ngIf = "virementsCredit">
+			<div *ngIf="virementsCredit">
 				<h4>CREDIT</h4>
 				<table class="table table-striped">
 						<thead>
