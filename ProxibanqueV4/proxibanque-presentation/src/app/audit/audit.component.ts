@@ -23,6 +23,11 @@ export class AuditComponent implements OnInit {
     }
   };
 
+  chartOptionsPie = {
+    responsive: true
+    };
+  
+
   virements : Virement[];
   chartDataPie = [];
   chartDataHisto = [];

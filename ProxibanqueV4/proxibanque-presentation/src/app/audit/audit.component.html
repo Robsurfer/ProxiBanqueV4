@@ -1,31 +1,35 @@
 <h1 class="page-header">
-    Audit de votre agence
+    <i class="fa fa-fw fa-bar-chart"></i> Audit de votre agence
 </h1>
 
-<h4 class="center">Montant des virements sur les 3 derniers mois</h4>
-<br>
-<div style="width: 40%;" *ngIf="chartDataPie"> 
-    <canvas        
-        baseChart
-        [chartType]="'pie'"
-        [data]="chartDataPie"
-        [labels]="chartLabelsPie"
-        [legend]="true"
-        [colors]="colors">
-    </canvas>
-</div>
-<br>
-<br>
-<h4 class="center">Nombre de virement sur les 5 derniers mois</h4>
-<br>
-<div style="width: 40%;" *ngIf="chartDataHisto"> 
-    <canvas        
-        baseChart
-        [chartType]="'bar'"
-        [data]="chartDataHisto"
-        [options]="chartOptions"
-        [labels]="chartLabelsHisto"
-        [legend]="false"
-        [colors]="colors">
-    </canvas>
+<div class="row">
+    <div class="col-lg-5" *ngIf="chartDataPie">
+        <h3 class="center">Montant des virements sur les 3 derniers mois</h3>
+        <br>
+            <canvas        
+                baseChart
+                [chartType]="'pie'"
+                [data]="chartDataPie"
+                [labels]="chartLabelsPie"
+                [legend]="true"
+                [colors]="colors">
+            </canvas>
+    
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5"  *ngIf="chartDataHisto">
+        <h3 class="center">Nombre de virement sur les 5 derniers mois</h3>
+        <br>
+            <canvas        
+                baseChart
+                [chartType]="'bar'"
+                [data]="chartDataHisto"
+                [options]="chartOptions"
+                [labels]="chartLabelsHisto"
+                [legend]="false"
+                [colors]="colors">
+            </canvas>
+ 
+    </div>
+
 </div>
