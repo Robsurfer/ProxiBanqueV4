@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators/catchError';
 import { Router } from '@angular/router';
+import { WebserviceService } from './webservice.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,12 +14,13 @@ const httpOptions = {
 @Injectable()
 export class LoginService {
 
-  private loginUrl = 'http://localhost:8082/login';
+  private loginUrl = this.webService.getRootUrl()+'login';
   erreur:string;
 
   constructor(
     private http: HttpClient,
-    public router: Router
+    public router: Router,
+    private webService : WebserviceService
   ){}
 
   authentification(login, password) {

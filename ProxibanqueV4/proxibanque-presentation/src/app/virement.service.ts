@@ -8,6 +8,7 @@ import { Virement } from './virement';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { WebserviceService } from './webservice.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,12 +21,13 @@ const httpOptionsPOST = {
 export class VirementService {
 
     // URL vers le web service
-    private virementsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement/liste'; 
-    private creationVirementsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement';
+    private virementsUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement/liste'; 
+    private creationVirementsUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement';
 
     constructor(
         private http: HttpClient,
-        private loginService: LoginService
+        private loginService: LoginService,
+        private webService: WebserviceService
     ){}
 
   addVirement (virement: VirementFormulaire): Observable<string>{
@@ -46,14 +48,11 @@ export class VirementService {
 
   /** GET listeVirements from the server */
   getVirementsAgence(): Observable<Virement[]> {
-    console.log(Date.now());
     var date1= '12012018';
-    var date2= '12122017';
-    var listeVirementsAgenceUrl = 'http://localhost:8082/gerant/audit/'+date1+"/"+date2;
+    var date2= '01092017';
+    var listeVirementsAgenceUrl = this.webService.getRootUrl()+'gerant/audit/'+date1+"/"+date2;
 
-    console.log(this.http.get<Virement[]>(this.virementsUrl));
-    console.log(this.loginService.getLoginEmployeSession());
-    return this.http.get<Virement[]>(this.virementsUrl)
+    return this.http.get<Virement[]>(listeVirementsAgenceUrl)
       .pipe(
         catchError(this.handleError('getVirementConseillers', []))
       );

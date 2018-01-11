@@ -1,5 +1,5 @@
 # Pour le déploiement sur tomcat
-Taper 'ng build -prod -bh /ProxibanqueV4/ -d /ProxibanqueV4/
+Taper 'ng build --env=prod -bh /ProxibanqueV4/ -d /ProxibanqueV4/'
 	- ProxibanqueV4 étant le dossier généré par le build (cf angular-cli.json outDir)
 	- Cela va mettre le base-href à '/ProxibanqueV4' pour Tomcat (attention à n'avoir que des routerLink et pas de href du coup)
 	- -d /ProxibanqueV4/ va mettre dans le nom du dossier dans le lien src = "nomduscript" 

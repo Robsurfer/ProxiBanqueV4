@@ -7,6 +7,7 @@ import { Client } from './client';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { WebserviceService } from './webservice.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,13 +17,14 @@ const httpOptions = {
 export class ClientService {
 
     // URL vers le web service
-    private clientsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
-    private modifClientUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() +'/modifClient';
-    private creationClientUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() +'/creationClient';
+    private clientsUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/clients'; 
+    private modifClientUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() +'/modifClient';
+    private creationClientUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() +'/creationClient';
 
     constructor(
         private http: HttpClient,
-        private loginService: LoginService
+        private loginService: LoginService,
+        private webService: WebserviceService
     ){}
 
   /** GET clients from the server */

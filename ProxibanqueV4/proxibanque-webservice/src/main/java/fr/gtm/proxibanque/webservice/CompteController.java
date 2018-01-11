@@ -23,7 +23,7 @@ import fr.gtm.proxibanque.domaine.Compte;
  */
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
-public class CompteController {
+public class CompteController extends BaseController{
 	@Autowired
 	private ICompteDao compteDao;
 

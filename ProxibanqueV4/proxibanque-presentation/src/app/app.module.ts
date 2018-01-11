@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms'; //Pour NgModel nécessaire au 2-wa
 import { HttpClientModule } from '@angular/common/http';
 // Pour les dropdown menu
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// Pour les charts
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -35,6 +37,7 @@ import { ConseillersComponent } from './conseillers/conseillers.component';
 
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { AuditService } from './audit.service';
+import { WebserviceService } from './webservice.service';
 
 @NgModule({
   //Les composants
@@ -69,6 +72,7 @@ import { AuditService } from './audit.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
     NgbModule.forRoot()
   ],
   providers: [
@@ -77,7 +81,8 @@ import { AuditService } from './audit.service';
     CompteService,
     ConseillerService,
     VirementService,
-    AuditService
+    AuditService,
+    WebserviceService
   ],
   bootstrap: [AppComponent]
 })

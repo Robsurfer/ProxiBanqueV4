@@ -22,7 +22,7 @@ import fr.gtm.proxibanque.domaine.Conseiller;
  */
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
-public class DecouvertController {
+public class DecouvertController extends BaseController{
 
 	@Autowired
 	private IConseillerDao conseillerDao;

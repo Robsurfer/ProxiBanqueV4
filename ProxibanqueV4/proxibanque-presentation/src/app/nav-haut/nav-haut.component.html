@@ -5,7 +5,12 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand"><i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}</a>
+  <a routerLink="clients" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
+    <i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}
+  </a>
+  <a routerLink="conseillers" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
+      <i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}
+    </a>
 </div>
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav"  *ngIf="employe">
