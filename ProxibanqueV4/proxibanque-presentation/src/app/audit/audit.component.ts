@@ -120,7 +120,8 @@ getChartDataHisto(){
 
     console.log(this.donneesHisto);
     console.log(this.chartLabelsHisto);
-    this.chartDataHisto = this.donneesHisto;
+    //this.chartDataHisto = this.donneesHisto;
+    this.chartDataHisto = [{ data: this.donneesHisto, label: 'Nombre de virements' }];
 });
 }
 
