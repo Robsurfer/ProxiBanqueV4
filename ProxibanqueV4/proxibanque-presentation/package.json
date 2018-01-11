@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config -proxy-conf.json",
-    "build": "ng build --env=prod -bh /ProxibanqueV4/ -d /ProxibanqueV4/",
+    "build": "ng build --env=prod --output-path=Proxibanquev4 -bh /ProxibanqueV4/ -d /ProxibanqueV4/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

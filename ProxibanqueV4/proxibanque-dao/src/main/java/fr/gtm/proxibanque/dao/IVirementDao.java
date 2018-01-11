@@ -81,12 +81,23 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	
 	/**
 	 * 
-	 * La méthode findAllByCompteCible renvoie une liste de virements associés à un compte cible (ie. débiteur).
+	 * La méthode findAllByCompteCible renvoie une liste de virements associés à un compte cible (ie. créditeur).
 	 * 
 	 * @param compteCible
 	 * @return une liste de virements
 	 */
 	public Collection<Virement> findAllByCompteCible_numero(int numero);
+	
+	/**
+	 * 
+	 * La méthode findByCompteCible_numeroOrCompteEmetteur_numero renvoie une liste de virements associés à un compte. 
+	 * Cette liste présente toutes les opérations réalisées sur un compte, qu'il soit cible (ie. créditeur) 
+	 * ou émetteur (ie. débiteur) identifié par son numéro de compte.
+	 * 
+	 * @param numero
+	 * @return une liste de virements
+	 */
+	public Collection<Virement> findByCompteCible_numeroOrCompteEmetteur_numero(int numero1,int numero2);
 	
 	
 	/**

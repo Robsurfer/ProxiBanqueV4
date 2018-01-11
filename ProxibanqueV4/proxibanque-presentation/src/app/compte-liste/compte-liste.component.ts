@@ -6,6 +6,7 @@ import { CompteService } from '../compte.service';
 import { Router } from '@angular/router';
 import { Compte } from '../compte';
 import { Virement } from '../virement';
+import { VirementService } from '../virement.service';
 
 @Component({
   selector: 'app-compte-liste',
@@ -18,7 +19,8 @@ export class CompteListeComponent implements OnInit {
 clients: Client[];
 comptes: Compte;
 selectedCompte: Compte;
-virements: Virement;
+virementsDebit: Virement[];
+virementsCredit: Virement[];
 
 //client selectionné
 @Input() id: number;
@@ -34,6 +36,7 @@ constructor(
   private clientService : ClientService, 
   private loginService : LoginService,
   private compteService: CompteService,
+  private virementService: VirementService,
   private router : Router){}
 
 ngOnInit() {
@@ -57,7 +60,10 @@ onClick(): void
 
 onSelect(compte: Compte): void {
   this.selectedCompte = compte;
-
+  this.virementService.getVirementsByCompteCible(compte.numero)
+      .subscribe(virementsDebit => this.virementsDebit = virementsDebit);
+  this.virementService.getVirementsByCompteEmetteur(compte.numero)
+      .subscribe(virementsCredit => this.virementsCredit = virementsCredit);
 }
 
 

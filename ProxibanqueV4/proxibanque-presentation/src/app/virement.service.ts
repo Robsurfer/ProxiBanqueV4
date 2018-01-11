@@ -54,7 +54,27 @@ export class VirementService {
 
     return this.http.get<Virement[]>(listeVirementsAgenceUrl)
       .pipe(
-        catchError(this.handleError('getVirementConseillers', []))
+        catchError(this.handleError('getVirementsAgence', []))
+      );
+  }
+
+  /** GET listeVirements from the server */
+  getVirementsByCompteEmetteur(numero : number): Observable<Virement[]> {
+    var listeVirementsCompteEmetteurUrl = this.webService.getRootUrl()+'comptes/'+numero+'/virement/liste_debit';
+
+    return this.http.get<Virement[]>(listeVirementsCompteEmetteurUrl)
+      .pipe(
+        catchError(this.handleError('getVirementsByCompteEmetteur', []))
+      );
+  }
+
+  /** GET listeVirements from the server */
+  getVirementsByCompteCible(numero : number): Observable<Virement[]> {
+    var listeVirementsCompteCibleUrl = this.webService.getRootUrl()+'comptes/'+numero+'/virement/liste_credit';
+
+    return this.http.get<Virement[]>(listeVirementsCompteCibleUrl)
+      .pipe(
+        catchError(this.handleError('getVirementsByCompteCible', []))
       );
   }
 

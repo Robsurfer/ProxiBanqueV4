@@ -45,24 +45,56 @@
 		
 		<div *ngIf = "selectedCompte">
 				<br><br><br>
-				<h3>Virements réalisés depuis le compte n°{{selectedCompte.numero}}</h3>
+				<h3>Opérations effectuées sur le <strong>compte {{selectedCompte.type | uppercase }} n°{{selectedCompte.numero}}</strong></h3>
+				<br>
+				<h4>DEBIT</h4>
 			<table class="table table-striped">
-				<thead>
-				<tr>
-					<th>Numéro de compte</th>
-					<th>Solde</th>
-					<th>Date d'ouverture</th>
-				</tr>
-				</thead>
-			
-				<tbody>
-				<!--<tr *ngFor= "let compte of comptes">-->
-				<tr >
-					<td>{{selectedCompte.numero}}</td>
-					<td>{{selectedCompte.solde}}</td>
-					<td>{{selectedCompte.dateOuverture | date :'dd/MM/yyyy'}}</td>
-				</tr>
-				</tbody>
+					<thead>
+							<tr>
+							<th rowspan="2">Date</th>
+							<th colspan="2">Compte créditeur</th>
+							<th rowspan="2">Montant (en €)</th>
+							<th rowspan="2">Libellé</th>
+							</tr>
+							<tr>
+								<th>Client</th>
+								<th>n° de compte</th>
+							</tr>
+						</thead> 
+						<tbody >			          	
+							<tr *ngFor="let virement of virementsDebit">
+								<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>								
+								<td>{{virement.compteCible.client.nom}}</td>
+								<td>{{virement.compteCible.numero}}</td>
+								<td>{{virement.montant | number : '1.2-2'}}</td>
+								<td>{{virement.libelle}}</td>					
+							</tr>		
+						</tbody>	
+			</table>
+			<br>
+			<h4>CREDIT</h4>
+			<table class="table table-striped">
+					<thead>
+							<tr>
+							<th rowspan="2">Date</th>
+							<th colspan="2">Compte débiteur</th>
+							<th rowspan="2">Montant (en €)</th>
+							<th rowspan="2">Libellé</th>
+							</tr>
+							<tr>
+								<th>Client</th>
+								<th>n° de compte</th>
+							</tr>
+						</thead> 
+						<tbody >			          	
+							<tr *ngFor="let virement of virementsCredit">
+								<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
+								<td>{{virement.compteEmetteur.client.nom}}</td>
+								<td>{{virement.compteEmetteur.numero}}</td>									
+								<td>{{virement.montant | number : '1.2-2'}}</td>
+								<td>{{virement.libelle}}</td>					
+							</tr>		
+						</tbody>	
 			</table>
 			</div>
   

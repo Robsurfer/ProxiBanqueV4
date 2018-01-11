@@ -92,6 +92,13 @@ public class IVirementDaoTest {
 	    }
 	 
 	 @Test
+	    public void findByCompteCible_numeroOrCompteEmetteur_numero() {
+	    	
+	    	Collection<Virement> virements_dao = virementDao.findByCompteCible_numeroOrCompteEmetteur_numero(716562,716562);
+	    		assertThat(virements_dao).isNotNull();
+	    }
+	 
+	 @Test
 	    public void findVirementByDateVirementBeforeAndDateVirementAfter() throws ParseException {
 		 
 		 	Date date1 = new Date();

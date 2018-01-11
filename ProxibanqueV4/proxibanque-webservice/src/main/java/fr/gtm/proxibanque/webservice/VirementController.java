@@ -115,4 +115,32 @@ public class VirementController extends BaseController{
 		return virementDao.findAllByConseiller_login(login);
 	}
 
+	/**
+	 * Ce webservice permet de retourner la liste des virements associés à un compte donné
+	 * donné.
+	 * 
+	 * @param login
+	 *            , l'id du conseiller identifie
+	 * @return Collection<Virement>, la liste de tout les virements que le
+	 *         conseiller a realise
+	 */
+	@RequestMapping(value = "comptes/{numero}/virement/liste_debit", method = RequestMethod.GET, produces = "application/json")
+	public Collection<Virement> getAllVirByCompteEmetteur(@PathVariable("numero") int numero) {
+		return virementDao.findAllByCompteEmetteur_numero(numero);
+	}
+	
+	/**
+	 * Ce webservice permet de retourner la liste des virements associés à un compte donné
+	 * donné.
+	 * 
+	 * @param login
+	 *            , l'id du conseiller identifie
+	 * @return Collection<Virement>, la liste de tout les virements que le
+	 *         conseiller a realise
+	 */
+	@RequestMapping(value = "comptes/{numero}/virement/liste_credit", method = RequestMethod.GET, produces = "application/json")
+	public Collection<Virement> getAllVirByCompteCible(@PathVariable("numero") int numero) {
+		return virementDao.findAllByCompteCible_numero(numero);
+	}
+	
 }
