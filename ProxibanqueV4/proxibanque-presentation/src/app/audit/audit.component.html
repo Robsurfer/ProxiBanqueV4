@@ -9,7 +9,6 @@
         baseChart
         [chartType]="'pie'"
         [data]="chartDataPie"
-        [options]="chartOptions"
         [labels]="chartLabelsPie"
         [legend]="true"
         [colors]="colors">
@@ -17,7 +16,7 @@
 </div>
 <br>
 <br>
-<h4 class="center">Nombre de virement sur les 4 derniers mois</h4>
+<h4 class="center">Nombre de virement sur les 5 derniers mois</h4>
 <br>
 <div style="width: 40%;" *ngIf="chartDataHisto"> 
     <canvas        

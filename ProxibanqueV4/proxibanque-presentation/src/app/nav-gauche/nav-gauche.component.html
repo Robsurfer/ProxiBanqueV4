@@ -1,8 +1,8 @@
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 <div class="collapse navbar-collapse navbar-ex1-collapse" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
   <ul class="nav navbar-nav side-nav">
-    
-    <li class="divider">Gestion des clients</li>    
+
+    <li class="divider">Gestion des clients</li>
       <li>
         <a routerLink="/clients"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des clients</a>
       </li>
@@ -16,12 +16,12 @@
       </li>
       <li>
         <a routerLink="/compte/creer"><i class="fa fa-fw fa-edit"></i> Créer un compte</a>
-      </li>	
+      </li>
 
     <li class="divider">Opérations bancaires</li>
       <li>
         <a routerLink="/virement"><i class="fa fa-fw fa-credit-card"></i> Virement compte à compte</a>
-      </li>	
+      </li>
       <li>
         <a routerLink="/virement/liste"><i class="fa fa-fw fa-calculator"></i> Liste des virements</a>
       </li>
@@ -31,26 +31,16 @@
 
 <div class="collapse navbar-collapse navbar-ex1-collapse" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
     <ul class="nav navbar-nav side-nav">
-      
-      <li class="divider">Gestion des conseillers</li>    
+
+      <li class="divider">Gestion des conseillers</li>
         <li>
           <a routerLink="/conseillers"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des conseillers</a>
-        </li>
-  
-      <li class="divider">Gestion des comptes</li>
-        <li>
-          <a routerLink="/compte/liste"><i class="fa fa-fw fa-list-alt"></i> Liste des comptes</a>
-        </li>
-  
-      <li class="divider">Opérations bancaires</li>
-        <li>
-          <a routerLink="/virement/liste"><i class="fa fa-fw fa-calculator"></i> Liste des virements</a>
         </li>
 
         <li class="divider">Audit de l'agence</li>
         <li>
           <a routerLink="/audit"><i class="fa fa-long-arrow-right"></i>Transactions</a>
         </li>
-  
+
     </ul>
   </div>

@@ -13,7 +13,14 @@ import { Virement } from '../virement';
 export class AuditComponent implements OnInit {
 
   chartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true 
+        }
+      }]
+    }
   };
 
   virements : Virement[];
@@ -24,8 +31,7 @@ export class AuditComponent implements OnInit {
   colors = [{backgroundColor: ["#3ebf9b", "#4d86dc", "#f3af37", "#e84351", "#434a54"]}];
 
   chartLabelsPie = ['Inférieurs à 500€', 'Entre 500€ et 1000€', 'Entre 1000€ et 5000€', 'Entre 5000€ et 20000€', 'Supérieurs à 20000€'];
-  //chartLabelsHisto = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
-  chartLabelsHisto = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
+  chartLabelsHisto = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
 
   constructor(
     private loginService : LoginService,
@@ -42,14 +48,7 @@ export class AuditComponent implements OnInit {
     this.getChartDataHisto();
   }
 
-  /*
-  getVirementsTries() {
-    this.auditService.triVirementsMontant().subscribe(chartData => {this.chartData = chartData;console.log("haha" + this.chartData);});
-  }
-*/
-
   getChartDataPie(){
-    //this.getVirementsTries();
 
     var nb1 = 0;
     var nb2 = 0;
@@ -85,7 +84,6 @@ export class AuditComponent implements OnInit {
 }
 
 getChartDataHisto(){
-  //this.getVirementsTries();
 
   var nb1 = 0;
   var nb2 = 0;
@@ -113,18 +111,13 @@ getChartDataHisto(){
         nb5 = nb5 + 1;
       }
     }
-    /*
+    
     this.donneesHisto[0] = nb1;
     this.donneesHisto[1] = nb2;
     this.donneesHisto[2] = nb3;
     this.donneesHisto[3] = nb4;
     this.donneesHisto[4] = nb5;
-    */
-    
-    this.donneesHisto[0] = nb2;
-    this.donneesHisto[1] = nb3;
-    this.donneesHisto[2] = nb4;
-    this.donneesHisto[3] = nb5;
+
     console.log(this.donneesHisto);
     console.log(this.chartLabelsHisto);
     this.chartDataHisto = this.donneesHisto;
