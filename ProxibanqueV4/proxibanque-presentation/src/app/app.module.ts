@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms'; //Pour NgModel nécessaire au 2-wa
 import { HttpClientModule } from '@angular/common/http';
 // Pour les dropdown menu
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// Pour les charts
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -69,6 +71,7 @@ import { AuditService } from './audit.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
     NgbModule.forRoot()
   ],
   providers: [
