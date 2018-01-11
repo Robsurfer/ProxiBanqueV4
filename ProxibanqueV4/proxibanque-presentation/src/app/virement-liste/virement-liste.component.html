@@ -9,15 +9,12 @@
 			<form class="form" (ngSubmit)= "onClick()">
 				<div class="form-group">
 				<label>Sélectionner un de vos clients dans la liste ci-dessous pour afficher les opérations réalisées sur ses comptes :</label>
-					<select class="form-control" name="client" [(ngModel)]="id">
+					<select class="form-control" name="client" [(ngModel)]="id"  (click)="onClick()">
 						<option  *ngFor="let client of clients" [value]="client.id">
 							{{client.prenom}} {{client.nom}}
 						</option>
 					</select>
 				</div>
-
-				<button type=submit class="btn btn-primary" >Valider</button>
-
 			</form>
 
 <div class="row tomove">

@@ -33,10 +33,15 @@
 
 		  <tbody>
 			<tr *ngFor= "let compte of comptes" routerLink="/virement/compte/{{compte.numero}}">
-				<td>{{compte.type | uppercase }}</td>
-			  <td>{{compte.numero}}</td>
-			  <td>{{compte.solde | number : '1.2-2'}}</td>
-			  <td>{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
+				<td *ngIf="compte.solde > 0">{{compte.type | uppercase }}</td>
+			  <td *ngIf="compte.solde > 0">{{compte.numero}}</td>
+			  <td *ngIf="compte.solde > 0">{{compte.solde | number : '1.2-2'}}</td>
+				<td *ngIf="compte.solde > 0">{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
+
+				<td *ngIf="compte.solde <= 0" class="decouvert">{{compte.type | uppercase }}</td>
+			  <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.numero}}</td>
+			  <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.solde | number : '1.2-2'}}</td>
+			  <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
 			</tr>
 		  </tbody>
 		</table>

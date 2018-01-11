@@ -29,20 +29,20 @@ export class VirementDetailComponent implements OnInit {
   ){}
 
   goBack(): void {
-    this.location.back();
+    this.location.back();    
   }
 
-  getVirement() :void
+  getVirement(numero : number) :void
   {
-    this.virementService.getVirementsByCompteCible(this.numCompte)
-      .subscribe(virementsDebit => this.virementsDebit = virementsDebit);
-    this.virementService.getVirementsByCompteEmetteur(this.numCompte)
-      .subscribe(virementsCredit => this.virementsCredit = virementsCredit);
+    this.virementService.getVirementsByCompteCible(numero)
+      .subscribe(debit => this.virementsDebit = debit);
+    this.virementService.getVirementsByCompteEmetteur(numero)
+      .subscribe(credit => this.virementsCredit = credit);
   }
 
   ngOnInit() {
-    this.numCompte = +this.route.snapshot.paramMap.get('numero');  
-    this.getVirement();    
+    this.numCompte = +this.route.snapshot.paramMap.get('numero');
+    this.getVirement(this.numCompte)  ;    
   }
 
 }

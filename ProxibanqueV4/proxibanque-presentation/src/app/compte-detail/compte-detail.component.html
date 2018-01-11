@@ -14,8 +14,8 @@
     </thead>
 
     <tbody>
-      <tr *ngFor= "let compte of comptes">
-          <td *ngIf="compte.solde <= 0" class="decouvert" >{{compte.type | uppercase }}</td>
+      <tr *ngFor= "let compte of comptes" routerLink="/virement/compte/{{compte.numero}}">
+          <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.type | uppercase }}</td>
           <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.numero}}</td>
           <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.solde | number : '1.2-2'}}</td>
           <td *ngIf="compte.solde <= 0" class="decouvert">{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>

@@ -29,8 +29,11 @@ export class VirementListeComponent implements OnInit {
    
     onClick(): void
     {
-      this.virementService.getVirementsByClient(this.id)
-          .subscribe(virements => this.virements = virements);
+      if(this.id)
+      {
+        this.virementService.getVirementsByClient(this.id)
+            .subscribe(virements => this.virements = virements);
+      }
     }
 
   constructor(
