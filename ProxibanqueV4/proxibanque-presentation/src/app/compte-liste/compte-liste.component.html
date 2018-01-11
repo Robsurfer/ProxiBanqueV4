@@ -2,6 +2,7 @@
     <i class="fa fa-fw fa-list-alt"></i> Liste des comptes de vos clients
 </h1>
 
+<div class="tomove">
 <fieldset>
 	<legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
   
@@ -20,7 +21,7 @@
   
 	</form>
 
-	<div *ngIf = "comptes">
+	<div *ngIf = "comptes" class="tomove">
 		<table>
 		  <thead>
 			<tr>
@@ -39,5 +40,5 @@
 		  </tbody>
 		</table>
 	  </div>
-  
+
 <!--	<app-compte-detail></app-compte-detail> -->
