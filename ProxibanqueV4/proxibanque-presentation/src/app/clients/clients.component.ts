@@ -20,6 +20,7 @@ export class ClientsComponent implements OnInit {
     this.clientService.getClients()
         .subscribe(clients => this.clients = clients);
   }
+  
   constructor(
     private clientService : ClientService, 
     private loginService : LoginService,

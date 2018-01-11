@@ -5,7 +5,7 @@
 <div class="row tomove">                    
   <div class="col-lg-12">
 
-    <form class="form" method="post" action="CreationClient" >
+    <form class="form" (ngSubmit)="creationClient()" #creationForm="ngForm">
       <fieldset>
         
         <i>Attention, la création d'un nouveau client engendrera la création d'un compte courant qui lui sera associé.</i>
@@ -35,15 +35,15 @@
         <div class="form-group">
           <label  for="telephone">Téléphone :</label>
           <!-- pattern = expression régulière, un 0 en 1er et 9 chiffres -->
-          <input type="tel" class="form-control" name="telephone" pattern="^0[1-9][0-9]{8}$" [(ngModel)]="client.telephone" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> 
+          <input type="tel" class="form-control" required="required" name="telephone" pattern="^0[1-9][0-9]{8}$" [(ngModel)]="client.telephone" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> 
         </div>
         <div class="form-group">
           <label  for="mail">Email :</label>
           <input type="email" class="form-control" name="mail" title="Exemple : toto@toto.fr" maxlength="40" [(ngModel)]="client.mail">
         </div>
         <input type="hidden" name="login" value={{employeLogin}}>
-        <button type="submit" class="btn btn-primary" (click)="creationClient()">Valider</button>
-        <button type="submit" class="btn btn-primary" (click)="goBack()">Annuler</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!creationForm.form.valid" >Valider</button>
+        <button class="btn btn-primary" (click)="goBack()">Annuler</button>
       </fieldset>
     </form>
   </div>

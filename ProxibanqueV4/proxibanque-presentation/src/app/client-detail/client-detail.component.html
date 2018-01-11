@@ -2,37 +2,34 @@
 <h1 class="page-header">
     <i class="fa fa-address-card"></i> Détails du client
 </h1>
+
 <div class="tomove">
-<div class="row">
-  <div class="col-lg-12"> 	
-      <div class="alert alert-success" *ngIf="(message) != null">
-          {{message}}
-      </div>
-      <div class="alert alert-info" *ngIf="(annulModif) != null">
-          {{annulModif}}
-      </div>
+  <div class="row">
+    <div class="col-lg-12"> 	
+        <div class="alert alert-success" *ngIf="(message) != null">
+            {{message}}
+        </div>
+        <div class="alert alert-info" *ngIf="(annulModif) != null">
+            {{annulModif}}
+        </div>
 
-    <ul>
-      <li><strong>Nom :</strong> {{client?.nom}}</li>
-      <li><strong>Prénom :</strong> {{client?.prenom}}</li>
-      <li><strong>Adresse :</strong> {{client?.adresse}}</li>
-      <li><strong>Code Postal :</strong> {{client?.codePostal}} </li>
-      <li><strong>Ville :</strong> {{client?.ville}}</li>
-      <li><strong>Téléphone :</strong> {{client?.telephone}}</li>
-      <li><strong>Email :</strong> {{client?.mail}}</li>
-    </ul>						
-  </div>	
-</div>
+      <ul>
+        <li><strong>Nom :</strong> {{client?.nom}}</li>
+        <li><strong>Prénom :</strong> {{client?.prenom}}</li>
+        <li><strong>Adresse :</strong> {{client?.adresse}}</li>
+        <li><strong>Code Postal :</strong> {{client?.codePostal}} </li>
+        <li><strong>Ville :</strong> {{client?.ville}}</li>
+        <li><strong>Téléphone :</strong> {{client?.telephone}}</li>
+        <li><strong>Email :</strong> {{client?.mail}}</li>
+      </ul>						
+    </div>	
 
-<div class="row tomove">
-  <div class="col-auto">
-    <form action="ClientAction" method="Post">
-      <div class="text-center">
-        <button class="btn btn-primary" routerLink="/edit/{{client?.id}}">Modifier le client</button>							
-      </div>
-    </form>
-  </div>					
-</div>
+    <div class="text-center">
+      <button class="btn btn-primary" routerLink="/edit/{{client?.id}}">Modifier le client</button>							
+    </div>
+
+  </div>
+
 
 <app-compte-detail></app-compte-detail>
 </div>

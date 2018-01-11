@@ -13,7 +13,7 @@
     </c:if>						
   -->
 
-    <form class="form" method="post" action="ModifClient"  *ngIf="client">
+  <form class="form" (ngSubmit)="editClient()" #editForm="ngForm" *ngIf="client">
       <fieldset>
         <legend>Modifier les informations du client</legend>
         <div class="form-group">
@@ -21,21 +21,21 @@
             <!--
             <input type="text" class="form-control" placeholder="Entrer le nom" name="nom" [(ngModel)]="client.nom" title="Maximum 20 caractères non accentués" pattern="[a-zA-Z][a-zA-Z-]*">
             -->
-            <input type="text" class="form-control" placeholder="Entrer le nom" name="nom" [(ngModel)]="client.nom">
+            <input type="text" class="form-control" required="required"  placeholder="Entrer le nom" name="nom" [(ngModel)]="client.nom">
           </div>
           <div class="form-group">
             <label for="prenom">Prénom:</label>
             <!--
             <input type="text" class="form-control" placeholder="Entrer le prénom" name="prenom" [(ngModel)]="client.prenom" title="Maximum 20 caractères non accentués" pattern="[a-zA-Z][a-zA-Z-]*">
           -->
-          <input type="text" class="form-control" placeholder="Entrer le prénom" name="prenom" [(ngModel)]="client.prenom">
+          <input type="text" class="form-control" required="required" placeholder="Entrer le prénom" name="prenom" [(ngModel)]="client.prenom">
           </div>
           <div class="form-group">
             <label for="adresse">Adresse:</label>
             <!--
             <input type="text" class="form-control" placeholder="Entrer l'adresse" name="adresse" [(ngModel)]="client.adresse" title="Numéro de rue et adresse. Maximum 60 caractères non accentués" pattern="[0-9]+\s[a-zA-Z-\s]+" maxlength="60">
           -->
-          <input type="text" class="form-control" placeholder="Entrer l'adresse" name="adresse" [(ngModel)]="client.adresse">
+          <input type="text" class="form-control" required="required" placeholder="Entrer l'adresse" name="adresse" [(ngModel)]="client.adresse">
 
           </div>
           <div class="form-group">
@@ -43,7 +43,7 @@
             <!--
             <input type="text" class="form-control" placeholder="Entrer le code postal" name="codePostal" [(ngModel)]="client.codePostal" title="5 chiffres" pattern="[0-9]{5}"> 
           -->
-          <input type="text" class="form-control" placeholder="Entrer le code postal" name="codePostal" [(ngModel)]="client.codePostal" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> 
+          <input type="text" class="form-control" required="required" placeholder="Entrer le code postal" name="codePostal" [(ngModel)]="client.codePostal" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> 
 
           </div>
           <div class="form-group">
@@ -51,7 +51,7 @@
             <!--
             <input type="text" class="form-control" placeholder="Entrer la ville" name="ville" [(ngModel)]="client.ville" pattern="[a-zA-Z][a-zA-Z-\s]+" title="Maximum 20 caractères" maxlength="20">
           -->
-          <input type="text" class="form-control" placeholder="Entrer la ville" name="ville" [(ngModel)]="client.ville">
+          <input type="text" class="form-control" required="required" placeholder="Entrer la ville" name="ville" [(ngModel)]="client.ville">
 
           </div>
           <div class="form-group">
@@ -59,7 +59,7 @@
             <!--
             <input type="tel" class="form-control" placeholder="Entrer le numéro de téléphone" name="telephone" [(ngModel)]="client.telephone" pattern="^0[1-9][0-9]{8}$">
           -->
-          <input type="tel" class="form-control" placeholder="Entrer le numéro de téléphone" name="telephone" [(ngModel)]="client.telephone" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+          <input type="tel" class="form-control" required="required" placeholder="Entrer le numéro de téléphone" name="telephone" [(ngModel)]="client.telephone" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
 
           </div>
           <div class="form-group">
@@ -68,8 +68,8 @@
             <input type="email" class="form-control" placeholder="Entrer l'email" name="mail" [(ngModel)]="client.mail" title="Exemple : toto@toto.fr" name="mail" maxlength="40">
           -->
           </div>
-        <button type="submit" class="btn btn-primary" (click)="editClient()">Valider</button>
-        <button type="submit" class="btn btn-primary" (click)="goBack()">Annuler</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Valider</button>
+        <button class="btn btn-primary" (click)="goBack()">Annuler</button>
       </fieldset>
     </form>
   </div>

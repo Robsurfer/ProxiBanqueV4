@@ -1,3 +1,5 @@
+import { Compte } from "./compte";
+
 //Classe client
 export class Client {
     id : number;

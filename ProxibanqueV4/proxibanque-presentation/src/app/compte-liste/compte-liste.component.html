@@ -6,19 +6,15 @@
 <fieldset>
 	<legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
   
-	<form class="form" (ngSubmit)= "onClick()">
+	<form class="form" > <!--(ngSubmit)= "onClick()">-->
 	  <div class="form-group">
 		<label>Choisissez votre client :</label>
-		  <select class="form-control" name="client" [(ngModel)]="id">
+		  <select class="form-control" name="client" [(ngModel)]="id" (click)="onClick()">
 			  <option  *ngFor="let client of clients" [value]="client.id">
 					{{client.prenom}} {{client.nom}}
 			  </option>
 		  </select>
-	  </div>
-	
-  
-	  <button type=submit class="btn btn-primary" >Valider</button>
-  
+	  </div>	  
 	</form>
 
 	<div *ngIf = "comptes" class="tomove">

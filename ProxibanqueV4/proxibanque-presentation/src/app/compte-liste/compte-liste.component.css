@@ -1,0 +1,16 @@
+.decouvert
+{
+    background-color: #e4b9b9;
+}
+
+.table-striped > tbody > tr:hover{
+    background-color: #fff;
+    cursor: context-menu;
+    text-decoration: none;
+}
+
+.table-striped > tbody > tr:nth-of-type(even):hover{
+    background-color: #ddd;
+    cursor: context-menu;
+    text-decoration: none;
+}

@@ -19,7 +19,7 @@
       <h4>Vous pouvez effectuer un virement depuis l'un des comptes de vos clients vers l'ensemble des comptes de la banque.</h4>
         <fieldset>
         <legend>Effectuer un virement</legend>					
-        <form class="form" (ngSubmit)="effectuerVirement()" #productForm="ngForm">
+        <form class="form" (ngSubmit)="effectuerVirement()" #virementForm="ngForm">
 
             
                 <div class="form-group">
@@ -27,7 +27,7 @@
                   <!-- Il existe des clients ayant un compte -->
                   <select class="form-control" required="required" name="numCompteEmetteur" *ngIf="comptesConseiller" [(ngModel)]="numCompteEmetteur" (click)="reInitMessage()">                    
                     <option *ngFor="let compteEmetteur of comptesConseiller" [value]="compteEmetteur.numero">
-                        n°{{compteEmetteur.numero}} - Client : {{compteEmetteur.client.prenom}} {{compteEmetteur.client.nom}}
+                        Compte {{compteEmetteur.type}} n°{{compteEmetteur.numero}} - Client : {{compteEmetteur.client.prenom}} {{compteEmetteur.client.nom}}
                       </option>
                   </select>
                   <!-- Le conseiller n'a pas de clients ayant un compte -->
@@ -43,7 +43,7 @@
                   <!-- Il existe des clients ayant un compte -->
                   <select class="form-control" required="required" name="numCompteCible" *ngIf="comptesAgence" [(ngModel)]="numCompteCible" (click)="reInitMessage()">                    
                      <option *ngFor="let compteCible of comptesAgence"  [value]="compteCible.numero">
-                      n°{{compteCible.numero}} - Client : {{compteCible.client.prenom}} {{compteCible.client.nom}}
+                      Compte {{compteCible.type}} n°{{compteCible.numero}} - Client : {{compteCible.client.prenom}} {{compteCible.client.nom}}
                     </option>
                   </select>
                   <!-- Le conseiller n'a pas de clients ayant un compte -->
@@ -62,7 +62,7 @@
               <label>Libellé :</label>
               <input type="text" maxlength="20" class="form-control" name="libelle" [(ngModel)]="libelle" [ngModelOptions]="{standalone: true}" (click)="reInitMessage()">
             </div>
-          <button class="btn btn-primary" type="submit" [disabled]="!productForm.form.valid" (click)="reInitMessage()">Effectuer le virement</button>
+          <button class="btn btn-primary" type="submit" [disabled]="!virementForm.form.valid" (click)="reInitMessage()">Effectuer le virement</button>
           
         
       </form>
