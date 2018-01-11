@@ -3,6 +3,7 @@
 </h1>
 
 <div class="tomove">
+<h4>Vous pouvez sélectionner un client afin d'afficher ses comptes puis les opérations leur étant associées.</h4>
 <fieldset>
   <legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
 
@@ -18,6 +19,9 @@
 	</form>
 
 	<div *ngIf = "comptes" class="tomove">
+
+		<br>
+		<label>Sélectionner un des comptes du tableau ci-dessous pour afficher les opérations lui étant associées :</label>
 		<table class="table table-striped">
 		  <thead>
 			<tr>
