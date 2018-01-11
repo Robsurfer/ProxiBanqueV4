@@ -17,10 +17,7 @@ export class CompteListeComponent implements OnInit {
 
 //Liste des clients
 clients: Client[];
-comptes: Compte;
-selectedCompte: Compte;
-virementsDebit: Virement[];
-virementsCredit: Virement[];
+comptes: Compte[];
 
 //client selectionné
 @Input() id: number;
@@ -53,17 +50,11 @@ ngOnInit() {
 
 onClick(): void
 {
-  this.selectedCompte = null;
-  this.compteService.getCompte(this.id)
+  if(this.id)
+  {
+    this.compteService.getCompte(this.id)
       .subscribe(comptes => this.comptes = comptes);
-}
-
-onSelect(compte: Compte): void {
-  this.selectedCompte = compte;
-  this.virementService.getVirementsByCompteCible(compte.numero)
-      .subscribe(virementsDebit => this.virementsDebit = virementsDebit);
-  this.virementService.getVirementsByCompteEmetteur(compte.numero)
-      .subscribe(virementsCredit => this.virementsCredit = virementsCredit);
+  }
 }
 
 

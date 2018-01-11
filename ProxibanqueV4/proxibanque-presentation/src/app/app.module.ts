@@ -22,7 +22,6 @@ import { CompteService } from './compte.service';
 import { ConseillerService } from './conseiller.service';
 import { VirementService } from './virement.service';
 
-
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
 import { ClientCreationComponent } from './client-creation/client-creation.component';
@@ -38,6 +37,7 @@ import { ConseillersComponent } from './conseillers/conseillers.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { AuditService } from './audit.service';
 import { WebserviceService } from './webservice.service';
+import { VirementDetailComponent } from './virement-detail/virement-detail.component';
 
 @NgModule({
   //Les composants
@@ -63,7 +63,8 @@ import { WebserviceService } from './webservice.service';
     ConseillersComponent,
     EtatRequeteComponent,
     LoginComponent,
-	  EditClientComponent
+	  EditClientComponent,
+	  VirementDetailComponent
 ],
   //le tableau des importations de métadonnées de @NgModule
   //Contient une liste de modules externes dont l'application a besoin

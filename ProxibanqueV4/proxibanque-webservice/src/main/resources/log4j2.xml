@@ -4,7 +4,7 @@
     <Appenders>
     	<!-- Pour mettre un fichier proxibanque.log dans le dossier parent -->
 		<RollingFile name="fileLogger" fileName="./logs/proxibanque.log" 
-		             filePattern="./logs/proxibanque-%d{yyyy-MM-dd HH}.log">
+		             filePattern="./logs/proxibanque-%d{yyyy-MM-dd}.log">
 		    <PatternLayout>
                 <pattern>%d{yyyy-MM-dd HH:mm} - %msg%n</pattern>
             </PatternLayout>

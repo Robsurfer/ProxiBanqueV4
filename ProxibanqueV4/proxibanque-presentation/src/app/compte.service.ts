@@ -38,10 +38,10 @@ export class CompteService {
       );
   }
 
-  getCompte(id: number): Observable<Compte> {
+  getCompte(id: number): Observable<Compte[]> {
     const url = `${this.comptesUrl}/client/${id}`;
-    return this.http.get<Compte>(url).pipe(
-      catchError(this.handleError<Compte>(`getCompte id=${id}`))
+    return this.http.get<Compte[]>(url).pipe(
+      catchError(this.handleError<Compte[]>(`getCompte id=${id}`))
     );
   }
 

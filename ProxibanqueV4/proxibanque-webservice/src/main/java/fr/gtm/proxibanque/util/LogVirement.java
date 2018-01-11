@@ -1,9 +1,13 @@
 package fr.gtm.proxibanque.util;
 
+import java.util.Arrays;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -32,6 +36,12 @@ public class LogVirement {
 	public void loggingVirement() {
 	}
 
+	
+	@Around(value = "loggingVirement()")
+	public void getParameter(JoinPoint joinPoint)
+	{
+		logger.info("\t ARGS " + Arrays.toString(joinPoint.getArgs()));
+	}
 	/**
 	 * Mise en oeuvre d'un greffon s'exécutant avant l'appel de la méthode définie
 	 * par @Pointcut.

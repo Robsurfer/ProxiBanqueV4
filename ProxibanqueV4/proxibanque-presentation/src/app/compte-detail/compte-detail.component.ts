@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CompteDetailComponent implements OnInit {
 
-  comptes: Compte;
+  comptes: Compte[];
   @Input()  idClient : number;
  
 

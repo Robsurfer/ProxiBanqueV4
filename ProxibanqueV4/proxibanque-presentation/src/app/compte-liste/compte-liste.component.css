@@ -4,13 +4,11 @@
 }
 
 .table-striped > tbody > tr:hover{
-    background-color: #fff;
-    cursor: context-menu;
+    cursor: pointer;
     text-decoration: none;
 }
 
 .table-striped > tbody > tr:nth-of-type(even):hover{
-    background-color: #ddd;
-    cursor: context-menu;
+    cursor: pointer;
     text-decoration: none;
 }

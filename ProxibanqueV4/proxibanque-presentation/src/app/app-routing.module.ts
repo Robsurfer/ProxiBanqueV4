@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VirementComponent } from './virement/virement.component';
+import { VirementDetailComponent } from './virement-detail/virement-detail.component';
 import { VirementListeComponent } from './virement-liste/virement-liste.component';
 import { CompteListeComponent } from './compte-liste/compte-liste.component';
 import { CompteCreationComponent } from './compte-creation/compte-creation.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: ClientDetailComponent},
   { path: 'virement', component: VirementComponent },
   { path: 'virement/liste', component: VirementListeComponent },
+  { path: 'virement/compte/:numero', component: VirementDetailComponent },  
   { path: 'compte/liste', component: CompteListeComponent },
   { path: 'compte/creer', component: CompteCreationComponent },
   { path: 'audit', component: AuditComponent },

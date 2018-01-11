@@ -12,6 +12,8 @@ import { ClientService } from '../client.service';
 
 export class NavHautComponent implements OnInit {
   //Le titre provenant de app.component
+  @Input() isCollapsed : boolean;
+
   @Input() title: string;
   employe: Employe = {
     login: '',
@@ -29,25 +31,19 @@ export class NavHautComponent implements OnInit {
         .subscribe(clients => this.clients = clients);
   }
 
-  isCollabsed = false;
-
-  toggleCollapsed(): void {
-    this.isCollabsed = !this.isCollabsed;
-  }
-
-
   constructor(
     private loginService: LoginService,
-    private clientService : ClientService 
+    private clientService : ClientService
   ) { }
 
   ngOnInit() {
     this.loginService.getNomEmployeSessionObs().subscribe(nom => this.employe.nom = nom);
     this.loginService.getPrenomEmployeSessionObs().subscribe(prenom => this.employe.prenom = prenom);  
     this.getClients();
+    this.isCollapsed = true;
   }
 
   deconnexion(){
-    this.loginService.seDeconnecter();
+    this.loginService.seDeconnecter();    
   }
 }

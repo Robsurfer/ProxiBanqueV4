@@ -1,10 +1,11 @@
 <div class="navbar-header">
-  <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target=".navbar-ex1-collapse" (click)="toggleCollapsed()">
+  <button type="button" class="navbar-toggle" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="navbar-ex1-collapse">
     <span class="sr-only">Menu</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
+      
   <a routerLink="clients" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
     <i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}
   </a>
@@ -32,5 +33,47 @@
   </li>
 </ul>
 <!-- /Top Menu Items -->
-
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse" [ngbCollapse]="isCollapsed" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
+    <ul class="nav navbar-nav side-nav">
+      <li class="divider" *ngIf="isCollapsed">Gestion des clients</li>
+        <li>
+          <a routerLink="/clients"><i class="fa fa-fw fa-address-book"></i> Liste des clients</a>
+        </li>
+        <li>
+          <a routerLink="/client/creer"><i class="fa fa-fw fa-edit"></i> Création d'un client</a>
+        </li>  
+      <li class="divider" *ngIf="isCollapsed">Gestion des comptes</li>
+        <li>
+          <a routerLink="/compte/liste"><i class="fa fa-fw fa-list-alt"></i> Liste des comptes</a>
+        </li>
+        <li>
+          <a routerLink="/compte/creer"><i class="fa fa-fw fa-edit"></i> Créer un compte</a>
+        </li>  
+      <li class="divider" *ngIf="isCollapsed">Opérations bancaires</li>
+        <li>
+          <a routerLink="/virement"><i class="fa fa-fw fa-credit-card"></i> Virement compte à compte</a>
+        </li>
+        <li>
+          <a routerLink="/virement/liste"><i class="fa fa-fw fa-calculator"></i> Liste des virements</a>
+        </li>  
+    </ul>
+  </div>
+  
+  <div class="collapse navbar-collapse navbar-ex1-collapse" [ngbCollapse]="isCollapsed" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
+      <ul class="nav navbar-nav side-nav">
+  
+        <li class="divider" *ngIf="isCollapsed">Gestion des conseillers</li>
+          <li>
+            <a routerLink="/conseillers"><i class="fa fa-fw fa-address-book"></i> Liste des conseillers</a>
+          </li>
+  
+          <li class="divider" *ngIf="isCollapsed">Audit de l'agence</li>
+          <li>
+            <a routerLink="/audit"><i class="fa fa-fw fa-bar-chart"></i> Transactions</a>
+          </li>
+  
+      </ul>
+    </div>
+  
 

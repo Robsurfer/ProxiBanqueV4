@@ -42,7 +42,7 @@ export class VirementService {
     console.log(this.loginService.getLoginEmployeSession());
     return this.http.get<Virement[]>(this.virementsUrl)
       .pipe(
-        catchError(this.handleError('getVirementConseillers', []))
+        catchError(this.handleError<Virement[]>('getVirementConseillers', []))
       );
   }
 
@@ -54,7 +54,7 @@ export class VirementService {
 
     return this.http.get<Virement[]>(listeVirementsAgenceUrl)
       .pipe(
-        catchError(this.handleError('getVirementsAgence', []))
+        catchError(this.handleError<Virement[]>('getVirementsAgence', []))
       );
   }
 
@@ -64,7 +64,7 @@ export class VirementService {
 
     return this.http.get<Virement[]>(listeVirementsCompteEmetteurUrl)
       .pipe(
-        catchError(this.handleError('getVirementsByCompteEmetteur', []))
+        catchError(this.handleError<Virement[]>('getVirementsByCompteEmetteur', []))
       );
   }
 
@@ -74,7 +74,7 @@ export class VirementService {
 
     return this.http.get<Virement[]>(listeVirementsCompteCibleUrl)
       .pipe(
-        catchError(this.handleError('getVirementsByCompteCible', []))
+        catchError(this.handleError<Virement[]>('getVirementsByCompteCible', []))
       );
   }
 
@@ -84,7 +84,7 @@ export class VirementService {
 
     return this.http.get<Virement[]>(listeVirementsClientUrl)
       .pipe(
-        catchError(this.handleError('getVirementsByClient', []))
+        catchError(this.handleError<Virement[]>('getVirementsByClient', []))
       );
   }
 

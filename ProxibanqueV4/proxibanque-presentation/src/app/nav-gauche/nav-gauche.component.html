@@ -1,10 +1,10 @@
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-<div class="collapse navbar-collapse navbar-ex1-collapse" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
+<!--<div class="collapse navbar-collapse navbar-ex1-collapse" [ngbCollapse]="isCollapsed" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
   <ul class="nav navbar-nav side-nav">
 
     <li class="divider">Gestion des clients</li>
       <li>
-        <a routerLink="/clients"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des clients</a>
+        <a routerLink="/clients"><i class="fa fa-fw fa-address-book"></i> Liste des clients</a>
       </li>
       <li>
         <a routerLink="/client/creer"><i class="fa fa-fw fa-edit"></i> Création d'un client</a>
@@ -29,12 +29,12 @@
   </ul>
 </div>
 
-<div class="collapse navbar-collapse navbar-ex1-collapse" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
+<div class="collapse navbar-collapse navbar-ex1-collapse" [ngbCollapse]="isCollapsed" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
     <ul class="nav navbar-nav side-nav">
 
       <li class="divider">Gestion des conseillers</li>
         <li>
-          <a routerLink="/conseillers"><!--class="active"--><i class="fa fa-fw fa-address-book"></i> Liste des conseillers</a>
+          <a routerLink="/conseillers"><i class="fa fa-fw fa-address-book"></i> Liste des conseillers</a>
         </li>
 
         <li class="divider">Audit de l'agence</li>
@@ -44,3 +44,4 @@
 
     </ul>
   </div>
+-->

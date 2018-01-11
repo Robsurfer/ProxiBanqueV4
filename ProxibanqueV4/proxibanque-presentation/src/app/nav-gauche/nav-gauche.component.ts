@@ -10,12 +10,14 @@ import { LoginService } from '../login.service';
 
 export class NavGaucheComponent implements OnInit {
   
+  @Input() isCollapsed : boolean;
+
   roleEmploye : string;
-  constructor(private loginService : LoginService) { }
+  constructor(
+    private loginService : LoginService
+  ) { }
 
   ngOnInit() {
-    //console.log(this.loginService.getRoleEmployeSession());
     this.roleEmploye = this.loginService.getRoleEmployeSession();
-    //console.log(this.roleEmploye);
   }
 }

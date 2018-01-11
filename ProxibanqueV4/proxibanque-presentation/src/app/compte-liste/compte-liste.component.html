@@ -3,9 +3,9 @@
 </h1>
 
 <div class="tomove">
-<h4>Vous pouvez sélectionner un client afin d'afficher ses comptes puis les opérations leur étant associées.</h4>
+
 <fieldset>
-  <legend>Sélectionner un de vos clients dans la liste ci-dessous pour afficher ses comptes</legend>
+  <legend>Vous pouvez sélectionner un client afin d'afficher ses comptes puis les opérations leur étant associées</legend>
 
 	<form class="form" >
 	  <div class="form-group">
@@ -32,7 +32,7 @@
 		  </thead>
 
 		  <tbody>
-			<tr *ngFor= "let compte of comptes" (click)="onSelect(compte)">
+			<tr *ngFor= "let compte of comptes" routerLink="/virement/compte/{{compte.numero}}">
 				<td>{{compte.type | uppercase }}</td>
 			  <td>{{compte.numero}}</td>
 			  <td>{{compte.solde | number : '1.2-2'}}</td>
@@ -40,64 +40,4 @@
 			</tr>
 		  </tbody>
 		</table>
-		</div>
-
-
-		<div *ngIf="selectedCompte" class="tomove">
-				<br><br><br>
-				<h3>Opérations effectuées sur le <strong>compte {{selectedCompte.type | uppercase }} n°{{selectedCompte.numero}}</strong></h3>
-				<br>
-				<div *ngIf="virementsDebit">
-					<h4>DEBIT</h4>
-					<table class="table table-striped">
-							<thead>
-									<tr>
-									<th rowspan="2">Date</th>
-									<th colspan="2">Compte créditeur</th>
-									<th rowspan="2">Montant (en €)</th>
-									<th rowspan="2">Libellé</th>
-									</tr>
-									<tr>
-										<th>Client</th>
-										<th>n° de compte</th>
-									</tr>
-								</thead>
-								<tbody >
-									<tr *ngFor="let virement of virementsDebit">
-										<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-										<td>{{virement.compteCible.client.nom}}</td>
-										<td>{{virement.compteCible.numero}}</td>
-										<td>{{virement.montant | number : '1.2-2'}}</td>
-										<td>{{virement.libelle}}</td>
-									</tr>
-								</tbody>
-					</table>
-			  </div>
-			<br>
-			<div *ngIf="virementsCredit">
-				<h4>CREDIT</h4>
-				<table class="table table-striped">
-						<thead>
-								<tr>
-								<th rowspan="2">Date</th>
-								<th colspan="2">Compte débiteur</th>
-								<th rowspan="2">Montant (en €)</th>
-								<th rowspan="2">Libellé</th>
-								</tr>
-								<tr>
-									<th>Client</th>
-									<th>n° de compte</th>
-								</tr>
-							</thead>
-							<tbody >
-								<tr *ngFor="let virement of virementsCredit">
-									<td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-									<td>{{virement.compteEmetteur.client.nom}}</td>
-									<td>{{virement.compteEmetteur.numero}}</td>
-									<td>{{virement.montant | number : '1.2-2'}}</td>
-									<td>{{virement.libelle}}</td>
-								</tr>
-							</tbody>
-				</table>
-			</div>
-			</div>
+	</div>
