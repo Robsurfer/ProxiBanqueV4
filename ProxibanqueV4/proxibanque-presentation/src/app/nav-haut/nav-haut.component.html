@@ -8,7 +8,7 @@
   <a routerLink="clients" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'conseiller'">
     <i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}
   </a>
-  <a routerLink="clients" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
+  <a routerLink="conseillers" class="navbar-brand" *ngIf="loginService.getRoleEmployeSession() == 'gerant'">
       <i class="fa fa-fw fa-bank"></i>	{{title|uppercase}}
     </a>
 </div>
