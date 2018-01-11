@@ -19,7 +19,7 @@ import fr.gtm.proxibanque.domaine.Identifiants;
  */
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
-public class LoginController {
+public class LoginController extends BaseController{
 
 	@Autowired
 	private IEmployeDao employeDao;

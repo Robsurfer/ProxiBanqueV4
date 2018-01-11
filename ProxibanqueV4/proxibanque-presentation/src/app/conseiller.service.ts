@@ -7,6 +7,7 @@ import { Employe } from './employe';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { WebserviceService } from './webservice.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,11 +16,12 @@ const httpOptions = {
 @Injectable()
 export class ConseillerService {
 // URL vers le web service
-  private conseillersUrl = 'http://localhost:8082/listeConseillers'; 
+  private conseillersUrl = this.webService.getRootUrl()+'listeConseillers'; 
 
   constructor(
       private http: HttpClient,
-      private loginService: LoginService
+      private loginService: LoginService,
+      private webService : WebserviceService
   ){}
 
   getConseillers (): Observable<Employe[]> {

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.gtm.proxibanque.dao.IConseillerDao;
-import fr.gtm.proxibanque.dao.IVirementDao;
 import fr.gtm.proxibanque.domaine.Conseiller;
 
 /**
@@ -18,12 +17,10 @@ import fr.gtm.proxibanque.domaine.Conseiller;
  */
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
-public class ConseillerController{
+public class ConseillerController extends BaseController{
 
 	@Autowired
 	private IConseillerDao conseillerDao;
-	@Autowired
-	private IVirementDao virementDao;
 
 	/**
 	 * Ce webservice permet de retourner la liste des conseillers de l'agence. Il ne

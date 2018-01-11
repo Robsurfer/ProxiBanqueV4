@@ -7,6 +7,7 @@ import { Compte } from './compte';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { WebserviceService } from './webservice.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,11 +16,12 @@ const httpOptions = {
 @Injectable()
 export class CompteService {
 // URL vers le web service
-  private comptesUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/comptes'; 
-  private comptesAgenceUrl = 'http://localhost:8082/comptes'; 
+  private comptesUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/comptes'; 
+  private comptesAgenceUrl = this.webService.getRootUrl()+'comptes'; 
   constructor(
       private http: HttpClient,
-      private loginService: LoginService
+      private loginService: LoginService, 
+      private webService : WebserviceService
   ){}
 
   getComptes (): Observable<Compte[]> {

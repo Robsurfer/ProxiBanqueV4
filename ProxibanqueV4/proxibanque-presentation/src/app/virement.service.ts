@@ -8,6 +8,7 @@ import { Virement } from './virement';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { WebserviceService } from './webservice.service';
 //Pour l'update
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,12 +21,13 @@ const httpOptionsPOST = {
 export class VirementService {
 
     // URL vers le web service
-    private virementsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement/liste'; 
-    private creationVirementsUrl = 'http://localhost:8082/conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement';
+    private virementsUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement/liste'; 
+    private creationVirementsUrl = this.webService.getRootUrl()+'conseiller/'+ this.loginService.getLoginEmployeSession() + '/virement';
 
     constructor(
         private http: HttpClient,
-        private loginService: LoginService
+        private loginService: LoginService,
+        private webService: WebserviceService
     ){}
 
   addVirement (virement: VirementFormulaire): Observable<string>{

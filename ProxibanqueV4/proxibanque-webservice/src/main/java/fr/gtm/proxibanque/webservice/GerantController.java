@@ -27,7 +27,7 @@ import fr.gtm.proxibanque.domaine.Virement;
  */
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200", "http://localhost:8081" })
-public class GerantController {
+public class GerantController extends BaseController{
 
 	@Autowired
 	private IVirementDao virementDao;
