@@ -90,14 +90,15 @@ public interface IVirementDao extends JpaRepository<Virement, Integer>
 	
 	/**
 	 * 
-	 * La méthode findByCompteCible_numeroOrCompteEmetteur_numero renvoie une liste de virements associés à un compte. 
-	 * Cette liste présente toutes les opérations réalisées sur un compte, qu'il soit cible (ie. créditeur) 
-	 * ou émetteur (ie. débiteur) identifié par son numéro de compte.
+	 * La méthode findByCompteCible_client_idOrCompteEmetteur_client_id renvoie une liste de virements associés à un client. 
+	 * Cette liste présente toutes les opérations réalisées sur les compte d'un client donné, qu'ils soient cibles (ie. créditeurs) 
+	 * ou émetteurs (ie. débiteurs).
 	 * 
-	 * @param numero
+	 * @param id1 du client 1
+	 * @param id2 du client 2
 	 * @return une liste de virements
 	 */
-	public Collection<Virement> findByCompteCible_numeroOrCompteEmetteur_numero(int numero1,int numero2);
+	public Collection<Virement> findByCompteCible_client_idOrCompteEmetteur_client_id(int id1,int id2);
 	
 	
 	/**

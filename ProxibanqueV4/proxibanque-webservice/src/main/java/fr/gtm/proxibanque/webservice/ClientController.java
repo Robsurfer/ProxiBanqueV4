@@ -124,25 +124,25 @@ public class ClientController extends BaseController{
 		client = clientDao.findById(clientFormulaire.getId());
 
 		// Set des valeurs
-		if (clientFormulaire.getNom() != null) {
+		if (!clientFormulaire.getNom().equals("") || clientFormulaire.getNom() != null) {
 			client.setNom(clientFormulaire.getNom());
 		}
-		if (clientFormulaire.getPrenom() != null) {
+		if (!clientFormulaire.getPrenom().equals("") || clientFormulaire.getPrenom() != null) {
 			client.setPrenom(clientFormulaire.getPrenom());
 		}
-		if (clientFormulaire.getAdresse() != null) {
+		if (!clientFormulaire.getAdresse().equals("") || clientFormulaire.getAdresse() != null) {
 			client.setAdresse(clientFormulaire.getAdresse());
 		}
-		if (clientFormulaire.getCodePostal() != null) {
+		if (!clientFormulaire.getCodePostal().equals("") || clientFormulaire.getCodePostal() != null) {
 			client.setCodePostal(clientFormulaire.getCodePostal());
 		}
-		if (clientFormulaire.getVille() != null) {
+		if (!clientFormulaire.getVille().equals("") || clientFormulaire.getVille() != null) {
 			client.setVille(clientFormulaire.getVille());
 		}
-		if (clientFormulaire.getMail() != null) {
+		if (!clientFormulaire.getMail().equals("") || clientFormulaire.getMail() != null) {
 			client.setMail(clientFormulaire.getMail());
 		}
-		if (clientFormulaire.getTelephone() != null) {
+		if (!clientFormulaire.getTelephone().equals("") || clientFormulaire.getTelephone() != null) {
 			client.setTelephone(clientFormulaire.getTelephone());
 		}
 

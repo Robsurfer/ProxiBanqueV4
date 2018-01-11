@@ -94,7 +94,7 @@ public class IVirementDaoTest {
 	 @Test
 	    public void findByCompteCible_numeroOrCompteEmetteur_numero() {
 	    	
-	    	Collection<Virement> virements_dao = virementDao.findByCompteCible_numeroOrCompteEmetteur_numero(716562,716562);
+	    	Collection<Virement> virements_dao = virementDao.findByCompteCible_client_idOrCompteEmetteur_client_id(10,10);
 	    		assertThat(virements_dao).isNotNull();
 	    }
 	 

@@ -78,6 +78,16 @@ export class VirementService {
       );
   }
 
+  /** GET listeVirements from the server */
+  getVirementsByClient(id : number): Observable<Virement[]> {
+    var listeVirementsClientUrl = this.webService.getRootUrl()+'client/'+id+'/virement/liste';
+
+    return this.http.get<Virement[]>(listeVirementsClientUrl)
+      .pipe(
+        catchError(this.handleError('getVirementsByClient', []))
+      );
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
