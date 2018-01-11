@@ -116,11 +116,11 @@ public class VirementController extends BaseController{
 	}
 
 	/**
-	 * Ce webservice permet de retourner la liste des virements associés à un compte donné
+	 * Ce webservice permet de retourner la liste des virements associés à un compte emetteur
 	 * donné.
 	 * 
-	 * @param login
-	 *            , l'id du conseiller identifie
+	 * @param numero
+	 *            , le numero du compte
 	 * @return Collection<Virement>, la liste de tout les virements que le
 	 *         conseiller a realise
 	 */
