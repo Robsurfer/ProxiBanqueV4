@@ -46,8 +46,8 @@ export class VirementService {
 
   /** GET listeVirements from the server */
   getVirementsAgence(): Observable<Virement[]> {
-    var date1= '10012018';
-    var date2= '10102017';
+    var date1= '12012018';
+    var date2= '01092017';
     var listeVirementsAgenceUrl = 'http://localhost:8082/gerant/audit/'+date1+"/"+date2;
 
     return this.http.get<Virement[]>(listeVirementsAgenceUrl)

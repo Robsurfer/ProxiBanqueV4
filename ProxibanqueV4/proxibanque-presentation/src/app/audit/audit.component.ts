@@ -24,7 +24,8 @@ export class AuditComponent implements OnInit {
   colors = [{backgroundColor: ["#3ebf9b", "#4d86dc", "#f3af37", "#e84351", "#434a54"]}];
 
   chartLabelsPie = ['Inférieurs à 500€', 'Entre 500€ et 1000€', 'Entre 1000€ et 5000€', 'Entre 5000€ et 20000€', 'Supérieurs à 20000€'];
-  chartLabelsHisto = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
+  //chartLabelsHisto = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
+  chartLabelsHisto = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
 
   constructor(
     private loginService : LoginService,
@@ -97,23 +98,33 @@ getChartDataHisto(){
     this.virements = virements;
     for (let virement of this.virements) {      
       var date = new Date(virement.dateVirement);
-      if (date.getMonth() == 9 && date.getFullYear() == 2017) {
+      console.log(date);
+      console.log(date.getMonth());
+      console.log(date.getFullYear());
+      if (date.getMonth() == 8 && date.getFullYear() == 2017) {
         nb1 = nb1 + 1;
-      } else if (date.getMonth() == 10 && date.getFullYear() == 2017) {
+      } else if (date.getMonth() == 9 && date.getFullYear() == 2017) {
         nb2 = nb2 + 1;
-      } else if (date.getMonth() == 11 && date.getFullYear() == 2017) {
+      } else if (date.getMonth() == 10 && date.getFullYear() == 2017) {
         nb3 = nb3 + 1;
-      } else if (date.getMonth() == 12 && date.getFullYear() == 2017) {
+      } else if (date.getMonth() == 11 && date.getFullYear() == 2017) {
         nb4 = nb4 + 1;
-      } else if (date.getMonth() == 1 && date.getFullYear() == 2018) {
+      } else if (date.getMonth() == 0  && date.getFullYear() == 2018) {
         nb5 = nb5 + 1;
       }
     }
+    /*
     this.donneesHisto[0] = nb1;
     this.donneesHisto[1] = nb2;
     this.donneesHisto[2] = nb3;
     this.donneesHisto[3] = nb4;
     this.donneesHisto[4] = nb5;
+    */
+    
+    this.donneesHisto[0] = nb2;
+    this.donneesHisto[1] = nb3;
+    this.donneesHisto[2] = nb4;
+    this.donneesHisto[3] = nb5;
     console.log(this.donneesHisto);
     console.log(this.chartLabelsHisto);
     this.chartDataHisto = this.donneesHisto;
