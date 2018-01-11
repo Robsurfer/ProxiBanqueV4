@@ -21,23 +21,49 @@
 	</form>
 
 	<div *ngIf = "comptes">
-		<table>
+		<table class="table table-striped">
 		  <thead>
 			<tr>
-			  <th>Numéro de compte</th>
-			  <th>Solde</th>
+				<th>Type</th>
+			  <th>n° de compte</th>
+			  <th>Solde (en €)</th>
 			  <th>Date d'ouverture</th>
 			</tr>
 		  </thead>
 	  
 		  <tbody>
-			<tr *ngFor= "let compte of comptes">
+			<tr *ngFor= "let compte of comptes" (click)="onSelect(compte)">
+				<td>{{compte.type | uppercase }}</td>
 			  <td>{{compte.numero}}</td>
-			  <td>{{compte.solde}}</td>
+			  <td>{{compte.solde | number : '1.2-2'}}</td>
 			  <td>{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
 			</tr>
 		  </tbody>
 		</table>
-	  </div>
+		</div>
+		
+		
+		<div *ngIf = "selectedCompte">
+				<br><br><br>
+				<h3>Virements réalisés depuis le compte n°{{selectedCompte.numero}}</h3>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Numéro de compte</th>
+					<th>Solde</th>
+					<th>Date d'ouverture</th>
+				</tr>
+				</thead>
+			
+				<tbody>
+				<!--<tr *ngFor= "let compte of comptes">-->
+				<tr >
+					<td>{{selectedCompte.numero}}</td>
+					<td>{{selectedCompte.solde}}</td>
+					<td>{{selectedCompte.dateOuverture | date :'dd/MM/yyyy'}}</td>
+				</tr>
+				</tbody>
+			</table>
+			</div>
   
 <!--	<app-compte-detail></app-compte-detail> -->

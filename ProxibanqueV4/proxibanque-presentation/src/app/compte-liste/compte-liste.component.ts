@@ -5,6 +5,7 @@ import { LoginService } from '../login.service';
 import { CompteService } from '../compte.service';
 import { Router } from '@angular/router';
 import { Compte } from '../compte';
+import { Virement } from '../virement';
 
 @Component({
   selector: 'app-compte-liste',
@@ -16,6 +17,8 @@ export class CompteListeComponent implements OnInit {
 //Liste des clients
 clients: Client[];
 comptes: Compte;
+selectedCompte: Compte;
+virements: Virement;
 
 //client selectionné
 @Input() id: number;
@@ -47,10 +50,15 @@ ngOnInit() {
 
 onClick(): void
 {
+  this.selectedCompte = null;
   this.compteService.getCompte(this.id)
       .subscribe(comptes => this.comptes = comptes);
 }
 
+onSelect(compte: Compte): void {
+  this.selectedCompte = compte;
+
+}
 
 
 }

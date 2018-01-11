@@ -4,7 +4,7 @@ import { Client } from "./client";
 export class Compte {
     numero: number;
     solde: number;
-    type_compte: string;
+    type: string;
     date_ouverture:Date; 
     decouvert: number;
     taux: number;

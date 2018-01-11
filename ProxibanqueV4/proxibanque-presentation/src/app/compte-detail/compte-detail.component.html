@@ -3,19 +3,21 @@
 </h1>
 
 <div class="tomove">
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>Numéro de compte</th>
-        <th>Solde</th>
+        <th>Type</th>
+        <th>n° de compte</th>
+        <th>Solde (en €)</th>
         <th>Date d'ouverture</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor= "let compte of comptes">
+        <td>{{compte.type | uppercase }}</td>
         <td>{{compte.numero}}</td>
-        <td>{{compte.solde}}</td>
+        <td>{{compte.solde | number : '1.2-2'}}</td>
         <td>{{compte.dateOuverture | date :'dd/MM/yyyy'}}</td>
       </tr>
     </tbody>
