@@ -36,7 +36,7 @@ export class AuditComponent implements OnInit {
   colors = [{backgroundColor: ["#3ebf9b", "#4d86dc", "#f3af37", "#e84351", "#434a54"]}];
 
   chartLabelsPie = ['Inférieurs à 500€', 'Entre 500€ et 1000€', 'Entre 1000€ et 5000€', 'Entre 5000€ et 20000€', 'Supérieurs à 20000€'];
-  chartLabelsHisto = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
+  chartLabelsHisto = ['Septembre 17', 'Octobre 17', 'Novembre 17', 'Décembre 17', 'Janvier 18'];
 
   constructor(
     private loginService : LoginService,
@@ -64,7 +64,7 @@ export class AuditComponent implements OnInit {
     //Get virements
     this.virementService.getVirementsAgence().subscribe(virements => {
       this.virements = virements;
-      
+      //Tri des virements
       for (let virement of this.virements) {
         if (virement.montant < 500) {
           nb1 = nb1 + 1;
@@ -83,7 +83,6 @@ export class AuditComponent implements OnInit {
       this.donnees[2] = nb3;
       this.donnees[3] = nb4;
       this.donnees[4] = nb5;
-      console.log(this.donnees);
       this.chartDataPie = this.donnees;
   });
 }
@@ -99,11 +98,9 @@ getChartDataHisto(){
   //Get virements
   this.virementService.getVirementsAgence().subscribe(virements => {
     this.virements = virements;
+    //Tri des virements
     for (let virement of this.virements) {      
       var date = new Date(virement.dateVirement);
-      console.log(date);
-      console.log(date.getMonth());
-      console.log(date.getFullYear());
       if (date.getMonth() == 8 && date.getFullYear() == 2017) {
         nb1 = nb1 + 1;
       } else if (date.getMonth() == 9 && date.getFullYear() == 2017) {
@@ -123,9 +120,6 @@ getChartDataHisto(){
     this.donneesHisto[3] = nb4;
     this.donneesHisto[4] = nb5;
 
-    console.log(this.donneesHisto);
-    console.log(this.chartLabelsHisto);
-    //this.chartDataHisto = this.donneesHisto;
     this.chartDataHisto = [{ data: this.donneesHisto, label: 'Nombre de virements' }];
 });
 }
