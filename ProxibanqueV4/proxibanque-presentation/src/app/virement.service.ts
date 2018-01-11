@@ -48,14 +48,11 @@ export class VirementService {
 
   /** GET listeVirements from the server */
   getVirementsAgence(): Observable<Virement[]> {
-    console.log(Date.now());
     var date1= '12012018';
-    var date2= '12122017';
+    var date2= '01092017';
     var listeVirementsAgenceUrl = 'http://localhost:8082/gerant/audit/'+date1+"/"+date2;
 
-    console.log(this.http.get<Virement[]>(this.virementsUrl));
-    console.log(this.loginService.getLoginEmployeSession());
-    return this.http.get<Virement[]>(this.virementsUrl)
+    return this.http.get<Virement[]>(listeVirementsAgenceUrl)
       .pipe(
         catchError(this.handleError('getVirementConseillers', []))
       );
