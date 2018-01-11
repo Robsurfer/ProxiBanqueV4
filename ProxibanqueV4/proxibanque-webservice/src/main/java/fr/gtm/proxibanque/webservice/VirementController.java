@@ -121,8 +121,7 @@ public class VirementController extends BaseController{
 	 * 
 	 * @param numero
 	 *            , le numero du compte
-	 * @return Collection<Virement>, la liste de tout les virements que le
-	 *         conseiller a realise
+	 * @return Collection<Virement>, la liste de tout les virements associés à un compte
 	 */
 	@RequestMapping(value = "comptes/{numero}/virement/liste_debit", method = RequestMethod.GET, produces = "application/json")
 	public Collection<Virement> getAllVirByCompteEmetteur(@PathVariable("numero") int numero) {
@@ -130,17 +129,27 @@ public class VirementController extends BaseController{
 	}
 	
 	/**
-	 * Ce webservice permet de retourner la liste des virements associés à un compte donné
+	 * Ce webservice permet de retourner la liste des virements associés à un compte cible
 	 * donné.
 	 * 
-	 * @param login
-	 *            , l'id du conseiller identifie
-	 * @return Collection<Virement>, la liste de tout les virements que le
-	 *         conseiller a realise
+	 * @param numero
+	 *            , le numero du compte
+	 * @return Collection<Virement>, la liste de tout les virements associés à un compte
 	 */
 	@RequestMapping(value = "comptes/{numero}/virement/liste_credit", method = RequestMethod.GET, produces = "application/json")
 	public Collection<Virement> getAllVirByCompteCible(@PathVariable("numero") int numero) {
 		return virementDao.findAllByCompteCible_numero(numero);
 	}
-	
+
+	/**
+	 * Ce webservice permet de retourner la liste des virements associés à l'ensemble des comptes d'un client.
+	 * 
+	 * @param id
+	 *            , l'id du client
+	 * @return Collection<Virement>, la liste de tout les virements associés à un compte
+	 */
+	@RequestMapping(value = "client/{id}/virement/liste", method = RequestMethod.GET, produces = "application/json")
+	public Collection<Virement> getAllVirByClient(@PathVariable("id") int id) {
+		return virementDao.findByCompteCible_client_idOrCompteEmetteur_client_id(id,id);
+	}
 }

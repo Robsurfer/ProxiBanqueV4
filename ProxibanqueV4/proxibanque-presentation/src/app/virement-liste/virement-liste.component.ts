@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
+import { Client } from '../client';
+import { ClientService } from '../client.service';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { Virement } from '../virement';
@@ -12,18 +14,27 @@ import { VirementService } from '../virement.service';
 })
 export class VirementListeComponent implements OnInit {
 
+  //Liste des clients
+    clients: Client[];
   //Liste des virements
     virements: Virement[];
-
-    //Attend que l'Observable émette le tableau des virements
-    //Subscribe passe ensuite le tableau émis au callback, qui définit la propriété virements du composant.
-    //Cette approche asynchrone fonctionne lorsque ViçrementService demande des virements au serveur.
-    getVirementsConseiller(): void {
-      this.virementService.getVirementsConseiller()
+    
+    //client selectionné
+    @Input() id: number;
+    
+    getClients(): void {
+      this.clientService.getClients()
+          .subscribe(clients => this.clients = clients);
+    }
+   
+    onClick(): void
+    {
+      this.virementService.getVirementsByClient(this.id)
           .subscribe(virements => this.virements = virements);
     }
 
   constructor(
+    private clientService : ClientService,
     private virementService: VirementService,
     private loginService : LoginService, 
     private router : Router) { }
@@ -36,7 +47,8 @@ export class VirementListeComponent implements OnInit {
       this.router.navigate(['login']);
     }
 
-    this.getVirementsConseiller();
+    this.getClients();
+    //this.getVirementsConseiller();
   }
 
 }
