@@ -81,4 +81,13 @@ public class VirementFormulaire
 		this.libelle = libelle;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "virement du compte emetteur n°" + numCompteEmetteur + " au compte cible n°" + numCompteCible
+				+ ", d'un montant de " + montant + " ayant pour libellé " + libelle;
+	}
+
+	
 }

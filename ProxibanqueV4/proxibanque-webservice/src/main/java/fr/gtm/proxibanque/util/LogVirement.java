@@ -1,13 +1,11 @@
 package fr.gtm.proxibanque.util;
 
-import java.util.Arrays;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -36,12 +34,6 @@ public class LogVirement {
 	public void loggingVirement() {
 	}
 
-	
-	@Around(value = "loggingVirement()")
-	public void getParameter(JoinPoint joinPoint)
-	{
-		logger.info("\t ARGS " + Arrays.toString(joinPoint.getArgs()));
-	}
 	/**
 	 * Mise en oeuvre d'un greffon s'exécutant avant l'appel de la méthode définie
 	 * par @Pointcut.
@@ -49,8 +41,13 @@ public class LogVirement {
 	 * Cette méthode va insérer dans le fichier log un entête
 	 */
 	@Before(value = "loggingVirement()")
-	public void enteteLog() {
+	public void enteteLog(JoinPoint joinPoint) {
 		logger.info("** Début de la transaction bancaire **");
+		//logger.info("\tARGS " + Arrays.toString(joinPoint.getArgs()));
+		Object[] arguments = joinPoint.getArgs();
+		
+		logger.info("\tLe conseiller dont le login est "+ arguments[0].toString() + " souhaite effectuer le virement suivant :");
+		logger.info("\t\t" + arguments[1].toString());
 	}
 
 	/**
@@ -67,7 +64,14 @@ public class LogVirement {
 	@AfterReturning(pointcut = "loggingVirement()", returning = "result")
 	public void virementOk(Object result) {
 		logger.info("\t" + result.toString());
-		logger.info("** Fin de la transaction bancaire **");
+		if(result.toString().contains("succès"))
+		{
+			logger.info("** Transaction bancaire effectuée **");
+		}
+		else
+		{
+			logger.info("** Transaction bancaire annulée **");
+		}
 	}
 
 	/**
@@ -78,7 +82,6 @@ public class LogVirement {
 	 */
 	@AfterThrowing(pointcut = "loggingVirement()")
 	public void virementErreur() {
-		logger.info("\tErreur lors de la transaction");
-		logger.info("** Fin de la transaction bancaire **");
+		logger.info("** Erreur lors de la transaction **");
 	}
 }

@@ -1,6 +1,59 @@
-2018-01-11 15:49 - ** Début de la transaction bancaire **
-2018-01-11 15:49 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°714009 au compte n°719485 d'un montant de 10.0 €.
-2018-01-11 15:49 - ** Fin de la transaction bancaire **
-2018-01-11 15:50 - ** Début de la transaction bancaire **
-2018-01-11 15:50 - 	Le virement du compte n°711045 au compte n°719485 d'un montant de 23.0 € a été réalisé avec succès.
-2018-01-11 15:50 - ** Fin de la transaction bancaire **
+2018-01-12 00:20 - 	 ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@64ad44b9]
+2018-01-12 00:20 - 	Erreur lors de la transaction
+2018-01-12 00:20 - ** Fin de la transaction bancaire **
+2018-01-12 00:22 - 	 ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@9faf26b]
+2018-01-12 00:22 - 	Erreur lors de la transaction
+2018-01-12 00:22 - ** Fin de la transaction bancaire **
+2018-01-12 00:23 - 	 ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@35fbdd2a]
+2018-01-12 00:23 - 	Erreur lors de la transaction
+2018-01-12 00:23 - ** Fin de la transaction bancaire **
+2018-01-12 00:30 - 	 ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@1a8ac6cb]
+2018-01-12 00:30 - ** Début de la transaction bancaire **
+2018-01-12 00:30 - 	Erreur lors de la transaction
+2018-01-12 00:30 - ** Fin de la transaction bancaire **
+2018-01-12 00:33 - ** Début de la transaction bancaire **
+2018-01-12 00:33 - 	ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@2990cffa]
+2018-01-12 00:33 - 	Le virement du compte n°714878 au compte n°712264 d'un montant de 121.0 € a été réalisé avec succès.
+2018-01-12 00:33 - ** Fin de la transaction bancaire **
+2018-01-12 00:33 - ** Début de la transaction bancaire **
+2018-01-12 00:33 - 	ARGS [psanchez, fr.gtm.proxibanque.domaine.VirementFormulaire@2936b09a]
+2018-01-12 00:33 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°717417 au compte n°728457 d'un montant de 121.0 €.
+2018-01-12 00:33 - ** Fin de la transaction bancaire **
+2018-01-12 00:46 - ** Début de la transaction bancaire **
+2018-01-12 00:46 - 	Le conseiller psanchez souhaite effectuer le virement virement du compte emetteur n°717417 au compte cible n°728457, d'un montant de 121.0 ayant pour libellé GROOT
+2018-01-12 00:46 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°717417 au compte n°728457 d'un montant de 121.0 €.
+2018-01-12 00:46 - ** Transaction bancaire effectuée **
+2018-01-12 00:49 - ** Début de la transaction bancaire **
+2018-01-12 00:49 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+		virement du compte emetteur n°717417 au compte cible n°728457, d'un montant de 121.0 ayant pour libellé Groot
+2018-01-12 00:49 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°717417 au compte n°728457 d'un montant de 121.0 €.
+2018-01-12 00:49 - ** Transaction bancaire effectuée **
+2018-01-12 00:50 - ** Début de la transaction bancaire **
+2018-01-12 00:50 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+		virement du compte emetteur n°714878 au compte cible n°719485, d'un montant de 121.0 ayant pour libellé TOTO
+2018-01-12 00:50 - 	Le virement du compte n°714878 au compte n°719485 d'un montant de 121.0 € a été réalisé avec succès.
+2018-01-12 00:50 - ** Transaction bancaire effectuée **
+2018-01-12 00:51 - ** Début de la transaction bancaire **
+2018-01-12 00:51 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+2018-01-12 00:51 - 		virement du compte emetteur n°714878 au compte cible n°719485, d'un montant de 67.0 ayant pour libellé HYUI
+2018-01-12 00:51 - 	Le virement du compte n°714878 au compte n°719485 d'un montant de 67.0 € a été réalisé avec succès.
+2018-01-12 00:51 - ** Transaction bancaire effectuée **
+2018-01-12 00:51 - ** Début de la transaction bancaire **
+2018-01-12 00:51 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+2018-01-12 00:51 - 		virement du compte emetteur n°714878 au compte cible n°719485, d'un montant de 133333.0 ayant pour libellé lgù^zstgt
+2018-01-12 00:51 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°714878 au compte n°719485 d'un montant de 133333.0 €.
+2018-01-12 00:51 - ** Transaction bancaire effectuée **
+2018-01-12 00:54 - ** Début de la transaction bancaire **
+2018-01-12 00:54 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+2018-01-12 00:54 - 		virement du compte emetteur n°717417 au compte cible n°719485, d'un montant de 121.0 ayant pour libellé toto
+2018-01-12 00:54 - ** Erreur lors de la transaction **
+2018-01-12 01:00 - ** Début de la transaction bancaire **
+2018-01-12 01:00 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+2018-01-12 01:00 - 		virement du compte emetteur n°714878 au compte cible n°719485, d'un montant de 121.0 ayant pour libellé toto
+2018-01-12 01:00 - 	Le virement du compte n°714878 au compte n°719485 d'un montant de 121.0 € a été réalisé avec succès.
+2018-01-12 01:00 - ** Transaction bancaire effectuée **
+2018-01-12 01:00 - ** Début de la transaction bancaire **
+2018-01-12 01:00 - 	Le conseiller dont le login est psanchez souhaite effectuer le virement suivant :
+2018-01-12 01:00 - 		virement du compte emetteur n°717417 au compte cible n°711045, d'un montant de 121.0 ayant pour libellé a
+2018-01-12 01:00 - 	Le solde du compte émetteur est insuffisant pour le virement du compte n°717417 au compte n°711045 d'un montant de 121.0 €.
+2018-01-12 01:00 - ** Transaction bancaire annulée **

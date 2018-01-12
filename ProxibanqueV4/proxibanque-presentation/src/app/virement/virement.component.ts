@@ -68,6 +68,7 @@ export class VirementComponent implements OnInit {
       });      
     }
     this.montant = null;
+    this.libelle = '';
   }
 
   constructor(
