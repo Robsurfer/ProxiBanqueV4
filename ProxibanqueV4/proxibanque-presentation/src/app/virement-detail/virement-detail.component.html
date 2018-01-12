@@ -1,9 +1,9 @@
 <div class="tomove">    
-  <h3>Opérations effectuées sur le <strong>compte n°{{numCompte}}</strong></h3>
-  
+  <h3>Opérations effectuées sur le <strong>compte {{compte?.type | uppercase}} n°{{compte?.numero}}</strong></h3>
+  <br>
   
 
-  <div *ngIf="virementsDebit?.length">
+  <div *ngIf="virementsDebit?.length;else notconditiondebit">
     <h4>DEBIT</h4>
     <table class="table table-striped">
         <thead>
@@ -21,8 +21,8 @@
           <tbody >
             <tr *ngFor="let virement of virementsDebit">
               <td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-              <td>{{virement.compteCible.client.nom}}</td>
-              <td>{{virement.compteCible.numero}}</td>
+              <td>{{virement.compteEmetteur.client.nom}}</td>
+              <td>{{virement.compteEmetteur.numero}}</td>
               <td>{{virement.montant | number : '1.2-2'}}</td>
               <td>{{virement.libelle}}</td>
             </tr>
@@ -32,7 +32,7 @@
   
   <br>
 
-  <div *ngIf="virementsCredit?.length">
+  <div *ngIf="virementsCredit?.length;else notconditioncredit">
     <h4>CREDIT</h4>
     <table class="table table-striped">
         <thead>
@@ -50,17 +50,21 @@
           <tbody >
             <tr *ngFor="let virement of virementsCredit">
               <td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-              <td>{{virement.compteEmetteur.client.nom}}</td>
-              <td>{{virement.compteEmetteur.numero}}</td>
+              <td>{{virement.compteCible.client.nom}}</td>
+              <td>{{virement.compteCible.numero}}</td>
               <td>{{virement.montant | number : '1.2-2'}}</td>
               <td>{{virement.libelle}}</td>
             </tr>
           </tbody>
     </table>
   </div>
-  
-  <div *ngIf="virementsDebit?.length==0 && virementsCredit?.length==0" class="alert alert-warning">
-      <h4>Il n'y a pas d'opérations pour ce compte</h4>
-  </div>
+  <ng-template #notconditiondebit>
+    <div  class="alert alert-warning"><h4>Aucune opération de débit n'a été réalisée sur ce compte</h4></div> 
+  </ng-template>
+
+  <ng-template #notconditioncredit>
+    <div class="alert alert-warning"><h4>Aucune opération de crédit n'a été réalisée sur ce compte</h4></div>
+  </ng-template>
+
   <button class="btn btn-primary" (click)="goBack()">Retour</button>
 </div>

@@ -48,7 +48,7 @@ public class CompteController extends BaseController{
 	 */
 	@RequestMapping(value = "comptes/{numero}", method = RequestMethod.GET, produces = "application/json")
 	public Compte getCompteByNumero(@PathVariable("numero") int numero) {
-		return compteDao.findByNumero(0);
+		return compteDao.findByNumero(numero);
 	}
 
 	/**

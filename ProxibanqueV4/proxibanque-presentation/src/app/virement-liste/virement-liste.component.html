@@ -16,9 +16,10 @@
 					</select>
 				</div>
 			</form>
+<br><br>
 
 <div class="row tomove">
-	<div class="col-lg-12" *ngIf="virements">
+	<div class="col-lg-12" *ngIf="virements?.length">
   
 	  <table class="table table-striped">						
 		<thead>
@@ -49,5 +50,10 @@
 		</tbody>				
 	  </table>	                  
 	</div>
+
+	
+  <div *ngIf="virements?.length==0" class="alert alert-warning">
+      <h4>Aucune opération n'a été réalisée sur ce compte</h4>
+  </div>
   </div>
   <!-- /.row -->
