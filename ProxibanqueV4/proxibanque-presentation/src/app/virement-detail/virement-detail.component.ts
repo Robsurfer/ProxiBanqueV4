@@ -6,6 +6,7 @@ import { VirementService } from '../virement.service';
 import { Virement } from '../virement';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Compte } from '../compte';
 
 @Component({
   selector: 'app-virement-detail',
@@ -15,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class VirementDetailComponent implements OnInit {
 
   @Input() selectedCompte;
-  numCompte: number;
+  compte : Compte;
   virementsDebit: Virement[];
   virementsCredit: Virement[];
   
@@ -40,9 +41,13 @@ export class VirementDetailComponent implements OnInit {
       .subscribe(credit => this.virementsCredit = credit);
   }
 
+
+
   ngOnInit() {
-    this.numCompte = +this.route.snapshot.paramMap.get('numero');
-    this.getVirement(this.numCompte)  ;    
+    var numCompte = +this.route.snapshot.paramMap.get('numero');
+    this.compteService.getCompteNumero(numCompte).subscribe(compte => this.compte = compte);
+    this.getVirement(numCompte)  ;    
+
   }
 
 }
