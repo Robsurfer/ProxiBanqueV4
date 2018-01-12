@@ -21,8 +21,8 @@
           <tbody >
             <tr *ngFor="let virement of virementsDebit">
               <td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-              <td>{{virement.compteCible.client.nom}}</td>
-              <td>{{virement.compteCible.numero}}</td>
+              <td>{{virement.compteEmetteur.client.nom}}</td>
+              <td>{{virement.compteEmetteur.numero}}</td>
               <td>{{virement.montant | number : '1.2-2'}}</td>
               <td>{{virement.libelle}}</td>
             </tr>
@@ -50,8 +50,8 @@
           <tbody >
             <tr *ngFor="let virement of virementsCredit">
               <td>{{virement.dateVirement | date : 'dd/MM/yy'}}</td>
-              <td>{{virement.compteEmetteur.client.nom}}</td>
-              <td>{{virement.compteEmetteur.numero}}</td>
+              <td>{{virement.compteCible.client.nom}}</td>
+              <td>{{virement.compteCible.numero}}</td>
               <td>{{virement.montant | number : '1.2-2'}}</td>
               <td>{{virement.libelle}}</td>
             </tr>
