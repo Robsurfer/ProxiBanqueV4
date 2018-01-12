@@ -1,6 +1,5 @@
 package fr.gtm.proxibanque.util;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -43,10 +42,10 @@ public class LogVirement {
 	@Before(value = "loggingVirement()")
 	public void enteteLog(JoinPoint joinPoint) {
 		logger.info("** Début de la transaction bancaire **");
-		//logger.info("\tARGS " + Arrays.toString(joinPoint.getArgs()));
 		Object[] arguments = joinPoint.getArgs();
-		
-		logger.info("\tLe conseiller dont le login est "+ arguments[0].toString() + " souhaite effectuer le virement suivant :");
+
+		logger.info("\tLe conseiller dont le login est " + arguments[0].toString()
+				+ " souhaite effectuer le virement suivant :");
 		logger.info("\t\t" + arguments[1].toString());
 	}
 
@@ -64,12 +63,9 @@ public class LogVirement {
 	@AfterReturning(pointcut = "loggingVirement()", returning = "result")
 	public void virementOk(Object result) {
 		logger.info("\t" + result.toString());
-		if(result.toString().contains("succès"))
-		{
+		if (result.toString().contains("succès")) {
 			logger.info("** Transaction bancaire effectuée **");
-		}
-		else
-		{
+		} else {
 			logger.info("** Transaction bancaire annulée **");
 		}
 	}
